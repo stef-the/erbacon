@@ -11,7 +11,7 @@
 		companyName: string;
 		heroImage: string | null;
 		heroVideo: string | null;
-		navItems: { label: string; href: string }[];
+		navItems: { label: string; href: string; children?: { label: string; href: string }[] }[];
 		socialLinks: { icon: string; href: string }[];
 		footerLinks: { title: string; links: { icon: string; label: string; href: string }[] }[];
 	} = {
@@ -23,7 +23,16 @@
 		navItems: [
 			{ label: 'Home', href: '/' },
 			{ label: 'About', href: '/about' },
-			{ label: 'Services', href: '/services' },
+			{
+				label: 'Services',
+				href: '/services',
+				children: [
+					{ label: 'Construction Products', href: '/construction' },
+					{ label: 'Generators and Power Solutions', href: '/generators' },
+					{ label: 'Used Equipment', href: '/used' },
+					{ label: 'Temporary Fencing', href: '/fencing' }
+				]
+			}
 		],
 		socialLinks: [
 			{ icon: 'Twitter', href: 'https://twitter.com' },
@@ -57,10 +66,11 @@
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
-	<div class="w-full">
+	<!-- Hero image area -->
+	<div class="h-[70vh] w-full">
 		<!-- Hero image overlay text -->
-		<div class="absolute top-0 left-0 flex h-[50%] w-full items-center justify-center">
-			<div class="rounded-lg bg-[#000000CC] p-4">
+		<div class="absolute top-[20vh] left-0 flex w-full items-center justify-center">
+			<div class="bg-[#000000CC] p-4 sm:rounded">
 				<h1 class="text-center text-4xl font-bold text-white">
 					{data.siteTitle}
 				</h1>
@@ -70,7 +80,7 @@
 			</div>
 		</div>
 		<!-- Hero image area -->
-		<div class="flex h-[70vh] w-full items-center justify-center bg-gray-200">
+		<div class="fixed -z-50 flex h-[70vh] w-full items-center justify-center bg-gray-200">
 			{#if data.heroImage}
 				<img src={data.heroImage} alt="Hero section" class="h-full w-full object-cover" />
 			{:else if data.heroVideo}
@@ -87,10 +97,18 @@
 			{/if}
 		</div>
 	</div>
+
+	<!-- Navbar -->
 	<Navbar navItems={data.navItems} />
-	<main class="container mx-auto flex-grow px-4 py-8">
-		<slot />
-	</main>
+
+	<!-- Main content area -->
+	<div id="content" class="w-full bg-slate-50 pt-8">
+		<main class="container mx-auto flex-grow px-4 py-8">
+			<slot />
+		</main>
+	</div>
+
+	<!-- Footer -->
 	<Footer
 		companyName={data.companyName}
 		socialLinks={data.socialLinks}

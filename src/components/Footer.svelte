@@ -22,16 +22,13 @@
 
 <footer class="bg-gray-800 py-8 text-white">
 	<div class="container mx-auto px-4">
-		<div class="flex flex-wrap">
+		<div class="px-6 sm:px-0 sm:grid sm:grid-cols-4">
 			<!-- Company info -->
-			<div class="mb-6 w-full md:mb-0 md:w-1/3">
+			<div class="sm:px-4 sm:col-span-2 pb-2">
 				<h3 class="mb-4 text-xl font-bold">{companyName}</h3>
-				<p class="mb-4">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac justo eget urna commodo
-					bibendum.
-				</p>
+				<p class="mb-4">Family values working for you since 1910.</p>
 				<!-- Social media links -->
-				<div class="flex space-x-4">
+				<div class="flex space-x-4 pt-1">
 					{#each socialLinks as link}
 						<a href={link.href} class="transition duration-150 hover:text-blue-400">
 							<SocialIcons
@@ -44,26 +41,24 @@
 				</div>
 			</div>
 			<!-- Footer links -->
-			<div class="flex w-full flex-wrap md:w-2/3">
-				{#each footerLinks as section}
-					<div class="mb-6 w-1/2 md:w-1/3">
-						<h4 class="mb-4 font-bold">{section.title}</h4>
-						<ul>
-							{#each section.links as link}
-								<li class="mb-2">
-									<a
-										href={link.href}
-										class="flex items-center transition duration-150 hover:text-blue-400"
-									>
-										<SocialIcons name={link.icon} size={16} customClass="mr-2" />
-										{link.label}
-									</a>
-								</li>
-							{/each}
-						</ul>
-					</div>
-				{/each}
-			</div>
+			{#each footerLinks as section}
+				<div class="inline mt-4 sm:mt-0 px-4">
+					<h4 class="mb-4 font-bold">{section.title}</h4>
+					<ul>
+						{#each section.links as link}
+							<li class="mb-2">
+								<a
+									href={link.href}
+									class="flex items-center transition duration-150 hover:text-blue-400"
+								>
+									<SocialIcons name={link.icon} size={16} customClass="mr-2" />
+									{link.label}
+								</a>
+							</li>
+						{/each}
+					</ul>
+				</div>
+			{/each}
 		</div>
 		<div class="mt-8 border-t border-gray-700 pt-6 text-sm text-gray-400">
 			<p>&copy; {currentYear} {companyName}. All rights reserved.</p>

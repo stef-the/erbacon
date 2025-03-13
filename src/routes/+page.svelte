@@ -18,16 +18,9 @@
 	};
 </script>
 
-<div class="prose lg:prose-lg mx-auto">
+<section class="prose lg:prose-lg mx-auto scroll-pt-28">
 	<h2 class="text-2xl font-bold">Welcome to our Website</h2>
 	<div class="my-6">
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus
-			hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh
-			porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl
-			tempor.
-		</p>
-
 		<p class="mt-4">
 			Our mission is to offer our customers unparalleled service. We are committed to helping your
 			business run more smoothly. That’s why we offer more choices in equipment, an experienced
@@ -35,7 +28,6 @@
 			need when you need it.
 		</p>
 	</div>
-
 	{#if data.features}
 		<div class="my-8 grid grid-cols-1 gap-6 2xl:grid-cols-2">
 			{#each data.features as feature}
@@ -46,4 +38,4 @@
 			{/each}
 		</div>
 	{/if}
-</div>
+</section>
