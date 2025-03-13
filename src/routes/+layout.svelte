@@ -12,28 +12,41 @@
 		heroImage: string | null;
 		heroVideo: string | null;
 		navItems: { label: string; href: string }[];
-		socialLinks: { label: string; href: string }[];
-		footerLinks: { label: string; href: string }[];
+		socialLinks: { icon: string; href: string }[];
+		footerLinks: { title: string; links: { icon: string; label: string; href: string }[] }[];
 	} = {
 		siteTitle: 'Edward R. Bacon Company',
 		siteSubtitle: 'Servicing the West Coast construction industry since 1910',
-		companyName: 'Your Company',
+		companyName: 'Edward R. Bacon Company',
 		heroImage: null,
 		heroVideo: '1111090611-preview.mp4',
 		navItems: [
 			{ label: 'Home', href: '/' },
 			{ label: 'About', href: '/about' },
 			{ label: 'Services', href: '/services' },
-			{ label: 'Contact', href: '/contact' }
 		],
 		socialLinks: [
-			{ label: 'Twitter', href: 'https://twitter.com' },
-			{ label: 'Facebook', href: 'https://facebook.com' },
-			{ label: 'Instagram', href: 'https://instagram.com' }
+			{ icon: 'Twitter', href: 'https://twitter.com' },
+			{ icon: 'Facebook', href: 'https://facebook.com' },
+			{ icon: 'Instagram', href: 'https://instagram.com' },
+			{ icon: 'LinkedIn', href: 'https://linkedin.com' }
 		],
 		footerLinks: [
-			{ label: 'Privacy Policy', href: '/privacy' },
-			{ label: 'Terms of Service', href: '/terms' }
+			{
+				title: 'Company',
+				links: [
+					{ icon: 'Location', label: 'About Us', href: '/about' },
+					{ icon: 'Phone', label: 'Services', href: '/services' },
+					{ icon: 'Email', label: 'Contact', href: '/contact' }
+				]
+			},
+			{
+				title: 'Legal',
+				links: [
+					{ icon: 'Privacy Policy', label: 'Privacy Policy', href: '/privacy' },
+					{ icon: 'Terms of Service', label: 'Terms of Service', href: '/terms' }
+				]
+			}
 		]
 	};
 </script>
@@ -51,7 +64,7 @@
 				<h1 class="text-center text-4xl font-bold text-white">
 					{data.siteTitle}
 				</h1>
-				<h2 class="text-center text-2xl text-white pt-2">
+				<h2 class="pt-2 text-center text-2xl text-white">
 					{data.siteSubtitle}
 				</h2>
 			</div>
@@ -74,13 +87,10 @@
 			{/if}
 		</div>
 	</div>
-
 	<Navbar navItems={data.navItems} />
-
 	<main class="container mx-auto flex-grow px-4 py-8">
 		<slot />
 	</main>
-
 	<Footer
 		companyName={data.companyName}
 		socialLinks={data.socialLinks}

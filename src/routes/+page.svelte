@@ -1,28 +1,25 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
 	const data: {
-    features: { title: string; description: string }[];
-  } = {
-    features: [
-      {
-        title: "Feature 1",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris."
-      },
-      {
-        title: "Feature 2",
-        description: "Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor."
-      },
-      {
-        title: "Feature 3",
-        description: "Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor."
-      }
-    ]
-  };
+		features: { title: string; description: string }[];
+	} = {
+		features: [
+			{
+				title: 'One hundred years of history',
+				description:
+					'The Edward R. Bacon Company was founded in 1910. We’ve witnessed firsthand the evolution of the construction equipment industry. We’ve also seen many companies come and go. All this time, we’ve continued to offer great products and services to our customers. When you do business with us, you can count on our history to know that we’ll be there for you.'
+			},
+			{
+				title: 'Family values work for you',
+				description:
+					'The Edward R. Bacon Company, Inc. has been family owned and run since its inception. The family values and business principles upon which the company was founded are still practiced today by its owners and employees. We appreciate our customers and it shows when you work with us.'
+			}
+		]
+	};
 </script>
 
-<div class="prose lg:prose-xl mx-auto">
-	<h2 class="mb-4 text-2xl font-bold">Welcome to our Website</h2>
-
+<div class="prose lg:prose-lg mx-auto">
+	<h2 class="text-2xl font-bold">Welcome to our Website</h2>
 	<div class="my-6">
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus
@@ -32,14 +29,15 @@
 		</p>
 
 		<p class="mt-4">
-			Suspendisse in orci enim. Donec sed ligula in purus vehicula tempus. Praesent hendrerit eros
-			in nisi sollicitudin varius. Aliquam erat volutpat. Donec blandit est ut elementum aliquam.
-			Quisque euismod tortor ac purus mollis scelerisque.
+			Our mission is to offer our customers unparalleled service. We are committed to helping your
+			business run more smoothly. That’s why we offer more choices in equipment, an experienced
+			staff that understands the industry and a complete inventory of parts to give you what you
+			need when you need it.
 		</p>
 	</div>
 
 	{#if data.features}
-		<div class="my-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+		<div class="my-8 grid grid-cols-1 gap-6 2xl:grid-cols-2">
 			{#each data.features as feature}
 				<div class="rounded-lg bg-gray-100 p-6">
 					<h3 class="mb-2 text-xl font-semibold">{feature.title}</h3>
