@@ -5,7 +5,7 @@
 	/**
 	 * @type {Array<{label: string, href: string, children?: Array<{label: string, href: string}>}>}
 	 */
-	export let navItems = [];
+	export let navItems: Array<{ label: string; href: string; children?: Array<{ label: string; href: string }> }> = [];
 
 	/** @type {HTMLElement[]} */
 	let navItemRefs = [];
