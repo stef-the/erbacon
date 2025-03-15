@@ -10,7 +10,7 @@
 		siteSubtitle: string;
 		companyName: string;
 		heroImage: string | null;
-		heroVideo: string | null;
+		heroVideo: string | Array<string> | null;
 		navItems: { label: string; href: string; children?: { label: string; href: string }[] }[];
 		socialLinks: { icon: string; href: string }[];
 		footerLinks: { title: string; links: { icon: string; label: string; href: string }[] }[];
@@ -19,7 +19,7 @@
 		siteSubtitle: 'Servicing the West Coast construction industry since 1910',
 		companyName: 'Edward R. Bacon Company',
 		heroImage: null,
-		heroVideo: '1111090611-preview.mp4',
+		heroVideo: ['/video/1040370164-preview.mp4', '/video/1111075171-preview.mp4'],
 		navItems: [
 			{ label: 'Home', href: '/' },
 			{ label: 'About', href: '/about' },
@@ -70,7 +70,7 @@
 	<div class="h-[70vh] w-full">
 		<!-- Hero image overlay text -->
 		<div class="absolute top-[20vh] left-0 flex w-full items-center justify-center">
-			<div class="bg-[#000000CC] p-4 sm:rounded">
+			<div>
 				<h1 class="text-center text-4xl font-bold text-white">
 					{data.siteTitle}
 				</h1>
@@ -79,19 +79,24 @@
 				</h2>
 			</div>
 		</div>
+		<!-- Hero image overlay gradient -->
+		<div class="absolute top-0 left-0 w-full h-[70vh] bg-gradient-to-b from-transparent to-black opacity-50 -z-40"></div>
 		<!-- Hero image area -->
 		<div class="fixed -z-50 flex h-[70vh] w-full items-center justify-center bg-gray-200">
 			{#if data.heroImage}
 				<img src={data.heroImage} alt="Hero section" class="h-full w-full object-cover" />
-			{:else if data.heroVideo}
-				<video
-					class="h-full w-full object-cover"
-					autoplay
-					loop
-					muted
-					playsinline
-					src={data.heroVideo}
-				></video>
+			{:else if data.heroVideo !== null}
+				<video class="h-full w-full object-cover" autoplay loop muted playsinline>
+					{#if typeof data.heroVideo === 'string'}
+						<source src={data.heroVideo} type="video/mp4" />
+					{:else}
+						<!-- Play random hero video -->
+						<source
+							src={data.heroVideo[Math.floor(Math.random() * data.heroVideo.length)]}
+							type="video/mp4"
+						/>
+					{/if}
+				</video>
 			{:else}
 				<div class="text-gray-500">Featured Image Area</div>
 			{/if}
