@@ -71,10 +71,10 @@
 		<!-- Hero image overlay text -->
 		<div class="absolute top-[20vh] left-0 flex w-full items-center justify-center">
 			<div>
-				<h1 class="text-center text-4xl font-bold text-white">
+				<h1 class="text-center text-6xl font-bold text-white">
 					{data.siteTitle}
 				</h1>
-				<h2 class="pt-2 text-center text-2xl text-white">
+				<h2 class="pt-2 text-center text-3xl text-white">
 					{data.siteSubtitle}
 				</h2>
 			</div>
