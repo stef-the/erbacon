@@ -27,10 +27,10 @@
 				label: 'Services',
 				href: '/services',
 				children: [
-					{ label: 'Construction Products', href: '/construction' },
-					{ label: 'Generators and Power Solutions', href: '/generators' },
-					{ label: 'Used Equipment', href: '/used' },
-					{ label: 'Temporary Fencing', href: '/fencing' }
+					{ label: 'Construction Products', href: 'services/construction' },
+					{ label: 'Generators and Power Solutions', href: 'services/generators' },
+					{ label: 'Used Equipment', href: 'services/used' },
+					{ label: 'Temporary Fencing', href: 'services/fencing' }
 				]
 			}
 		],
