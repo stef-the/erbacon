@@ -31,7 +31,7 @@
 	{#if data.features}
 		<div class="my-8 grid grid-cols-1 gap-6 2xl:grid-cols-2">
 			{#each data.features as feature}
-				<div class="rounded-lg bg-gray-100 p-6">
+				<div class="rounded-lg bg-gray-100 p-6 shadow">
 					<h3 class="mb-2 text-xl font-semibold">{feature.title}</h3>
 					<p>{feature.description}</p>
 				</div>
