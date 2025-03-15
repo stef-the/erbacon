@@ -9,14 +9,14 @@ export async function load() {
 		const allCategories = await fetchServiceCategoryInfo(categoryInfoUrl);
 
 		// Find the construction category info
-		const categoryInfo = Array.isArray(allCategories) 
-			? allCategories.find((cat) => cat.serviceType === 'construction') 
+		const categoryInfo = Array.isArray(allCategories)
+			? allCategories.find((cat) => cat.serviceType === 'construction')
 			: {
-			title: 'Construction Products',
-			description: 'High-quality construction equipment for professionals',
-			contactCta: 'Contact us for more information',
-			showPrices: 'true'
-		};
+					title: 'Construction Products',
+					description: 'High-quality construction equipment for professionals',
+					contactCta: 'Contact us for more information',
+					showPrices: 'true'
+				};
 
 		// Convert string "true"/"false" to boolean
 		categoryInfo.showPrices = categoryInfo.showPrices === 'true';
