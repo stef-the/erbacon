@@ -1,11 +1,11 @@
-// src/routes/services/fencing/+page.server.js
+// src/routes/services/fencing/+page.server.ts
 import { fetchServiceData, fetchServiceCategoryInfo } from '$lib/Services/ServiceData';
-import { SERVICES_INFO_SHEET_ID, TEMPORARY_FENCING_SHEET_ID } from '$env/static/private';
+import { SERVICES_INFO_SHEET_ID, SERVICES_INFO_SHEET_GID, TEMPORARY_FENCING_SHEET_ID, TEMPORARY_FENCING_SHEET_GID } from '$env/static/private';
 
 export async function load() {
 	try {
 		// Fetch category information from the services info sheet
-		const categoryInfoUrl = `https://docs.google.com/spreadsheets/d/${SERVICES_INFO_SHEET_ID}/export?format=csv`;
+		const categoryInfoUrl = `https://docs.google.com/spreadsheets/d/${SERVICES_INFO_SHEET_ID}/export?format=csv&gid=${SERVICES_INFO_SHEET_GID}`;
 		const allCategories = await fetchServiceCategoryInfo(categoryInfoUrl);
 
 		// Find the fencing category info
@@ -22,7 +22,7 @@ export async function load() {
 		categoryInfo.showPrices = categoryInfo.showPrices === 'true';
 
 		// Fetch fencing products data
-		const fencingUrl = `https://docs.google.com/spreadsheets/d/${TEMPORARY_FENCING_SHEET_ID}/export?format=csv`;
+		const fencingUrl = `https://docs.google.com/spreadsheets/d/${TEMPORARY_FENCING_SHEET_ID}/export?format=csv&gid=${TEMPORARY_FENCING_SHEET_GID}`;
 		const fencing = await fetchServiceData(fencingUrl);
 
 		return {

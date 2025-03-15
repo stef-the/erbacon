@@ -15,29 +15,27 @@ interface ServiceDataItem {
 
 export async function fetchServiceData(sheets_url: string): Promise<ServiceDataItem[]> {
     if (!sheets_url) {
-        throw new Error('The URL for the Google Sheets data is not defined.');
+        throw new Error("The URL for the service data is not defined.");
     }
 
     try {
         const response = await fetch(sheets_url);
 
         if (!response.ok) {
-            throw new Error(`Failed to fetch data from Google Sheets: ${response.statusText}`);
+            throw new Error(`Failed to fetch category info: ${response.statusText}`);
         }
 
         const csvText = await response.text();
-        const parsedData = Papa.parse<ServiceDataItem>(csvText, {
+        const parsedData = Papa.parse<ServiceDataItem>(csvText, { 
             header: true,
-            skipEmptyLines: true
+            skipEmptyLines: true 
         });
 
-        // Filter out rows with missing essential data
-        const filteredData = parsedData.data.filter((item: ServiceDataItem) => item.name && item.description && item.imageUrl);
-
-        return filteredData;
+        // Ensure we always return an array
+        return parsedData.data || [];
     } catch (error) {
-        console.error('Error fetching service data:', error);
-        throw error;
+        console.error("Error fetching category info:", error);
+        return []; // Return empty array on error instead of throwing
     }
 }
 

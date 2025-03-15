@@ -1,11 +1,11 @@
-// src/routes/services/construction/+page.server.js
+// src/routes/services/construction/+page.server.ts
 import { fetchServiceData, fetchServiceCategoryInfo } from '$lib/Services/ServiceData';
-import { SERVICES_INFO_SHEET_ID, CONSTRUCTION_PRODUCTS_SHEET_ID } from '$env/static/private';
+import { SERVICES_INFO_SHEET_ID, SERVICES_INFO_SHEET_GID, CONSTRUCTION_PRODUCTS_SHEET_ID, CONSTRUCTION_PRODUCTS_SHEET_GID } from '$env/static/private';
 
 export async function load() {
 	try {
 		// Fetch category information from the services info sheet
-		const categoryInfoUrl = `https://docs.google.com/spreadsheets/d/${SERVICES_INFO_SHEET_ID}/export?format=csv`;
+		const categoryInfoUrl = `https://docs.google.com/spreadsheets/d/${SERVICES_INFO_SHEET_ID}/export?format=csv&gid=${SERVICES_INFO_SHEET_GID}`;
 		const allCategories = await fetchServiceCategoryInfo(categoryInfoUrl);
 
 		// Find the construction category info
@@ -22,9 +22,9 @@ export async function load() {
 		categoryInfo.showPrices = categoryInfo.showPrices === 'true';
 
 		// Fetch construction products data
-		const productsUrl = `https://docs.google.com/spreadsheets/d/${CONSTRUCTION_PRODUCTS_SHEET_ID}/export?format=csv`;
+		const productsUrl = `https://docs.google.com/spreadsheets/d/${CONSTRUCTION_PRODUCTS_SHEET_ID}/export?format=csv&gid=${CONSTRUCTION_PRODUCTS_SHEET_GID}`;
 		const products = await fetchServiceData(productsUrl);
-
+		
 		return {
 			products,
 			categoryInfo

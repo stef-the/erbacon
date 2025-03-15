@@ -1,11 +1,11 @@
-// src/routes/services/used/+page.server.js
+// src/routes/services/used/+page.server.ts
 import { fetchServiceData, fetchServiceCategoryInfo } from '$lib/Services/ServiceData';
-import { SERVICES_INFO_SHEET_ID, USED_EQUIPMENT_SHEET_ID } from '$env/static/private';
+import { SERVICES_INFO_SHEET_ID, SERVICES_INFO_SHEET_GID, USED_EQUIPMENT_SHEET_ID, USED_EQUIPMENT_SHEET_GID } from '$env/static/private';
 
 export async function load() {
 	try {
 		// Fetch category information from the services info sheet
-		const categoryInfoUrl = `https://docs.google.com/spreadsheets/d/${SERVICES_INFO_SHEET_ID}/export?format=csv`;
+		const categoryInfoUrl = `https://docs.google.com/spreadsheets/d/${SERVICES_INFO_SHEET_ID}/export?format=csv&gid=${SERVICES_INFO_SHEET_GID}`;
 		const allCategories = await fetchServiceCategoryInfo(categoryInfoUrl);
 
 		// Find the used equipment category info
@@ -22,7 +22,7 @@ export async function load() {
 		categoryInfo.showPrices = categoryInfo.showPrices === 'true';
 
 		// Fetch used equipment data
-		const usedEquipmentUrl = `https://docs.google.com/spreadsheets/d/${USED_EQUIPMENT_SHEET_ID}/export?format=csv`;
+		const usedEquipmentUrl = `https://docs.google.com/spreadsheets/d/${USED_EQUIPMENT_SHEET_ID}/export?format=csv&gid=${USED_EQUIPMENT_SHEET_GID}`;
 		const usedEquipment = await fetchServiceData(usedEquipmentUrl);
 
 		return {
