@@ -13,10 +13,9 @@
 		heroVideo: string | Array<string> | null;
 		navItems: { label: string; href: string; children?: { label: string; href: string }[] }[];
 		socialLinks: { icon: string; href: string }[];
-		footerLinks: { title: string; links: { icon: string; label: string; href: string }[] }[];
 	} = {
 		siteTitle: 'Edward R. Bacon Company',
-		siteSubtitle: 'Servicing the West Coast construction industry since 1910',
+		siteSubtitle: 'Serving the California construction industry since 1910',
 		companyName: 'Edward R. Bacon Company',
 		heroImage: null,
 		heroVideo: ['/video/1040370164-preview.mp4', '/video/1111075171-preview.mp4'],
@@ -44,16 +43,7 @@
 			{
 				title: 'Company',
 				links: [
-					{ icon: 'Location', label: 'About Us', href: '/about' },
-					{ icon: 'Phone', label: 'Services', href: '/services' },
-					{ icon: 'Email', label: 'Contact', href: '/contact' }
-				]
-			},
-			{
-				title: 'Legal',
-				links: [
-					{ icon: 'Privacy Policy', label: 'Privacy Policy', href: '/privacy' },
-					{ icon: 'Terms of Service', label: 'Terms of Service', href: '/terms' }
+					{ icon: 'Location', label: 'About', href: '/about' }
 				]
 			}
 		]

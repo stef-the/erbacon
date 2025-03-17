@@ -49,14 +49,8 @@
 	/>
 </svelte:head>
 
-<div class="prose lg:prose-lg mx-auto mb-8">
-	<h1 class="mb-8 text-center text-4xl font-bold">Our Services</h1>
-
-	<p class="lead mx-auto max-w-3xl text-center text-xl">
-		Since 1910, Edward R. Bacon Company has provided the West Coast construction industry with
-		exceptional products, equipment, and solutions. Explore our comprehensive range of services
-		designed to meet your construction needs.
-	</p>
+<div class="prose lg:prose-lg mx-auto mb-20">
+	<h1 class="text-center text-4xl font-bold">Our Services</h1>
 </div>
 
 <div class="mx-auto max-w-6xl">
