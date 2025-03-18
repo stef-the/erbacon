@@ -21,15 +21,23 @@
 		heroVideo: ['/video/1040370164-preview.mp4', '/video/1111075171-preview.mp4'],
 		navItems: [
 			{ label: 'Home', href: '/' },
-			{ label: 'About', href: '/about' },
+			{
+				label: 'Products',
+				href: '/products',
+				children:[
+					{ label: 'Construction Products', href: '/products/construction' },
+					{ label: 'Used Equipment', href: '/products/used' },
+					{ label: 'Truck Equipment', href: '/products/trucks' },
+					{ label: 'Parts and Miscellaneous', href: '/products/parts' }
+				]
+			},
 			{
 				label: 'Services',
 				href: '/services',
 				children: [
-					{ label: 'Construction Products', href: '/services/construction' },
 					{ label: 'Generators and Power Solutions', href: '/services/generators' },
-					{ label: 'Used Equipment', href: '/services/used' },
-					{ label: 'Temporary Fencing', href: '/services/fencing' }
+					{ label: 'Temporary Fencing', href: '/services/fencing' },
+					{ label: 'Project Site Services', href: '/services/project-site' }
 				]
 			}
 		],
@@ -59,7 +67,7 @@
 	<!-- Hero image area -->
 	<div class="h-[70vh] w-full">
 		<!-- Hero image overlay text -->
-		<div class="absolute top-[20vh] left-0 flex w-full items-center justify-center">
+		<div class="absolute h-[70vh] left-0 flex w-full items-center justify-center">
 			<div>
 				<h1 class="text-center text-6xl font-bold text-white">
 					{data.siteTitle}

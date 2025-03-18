@@ -72,9 +72,9 @@
 					>
 						{#if item.children && item.children.length > 0}
 							<!-- Dropdown menu item -->
-							<button class="flex h-full items-center px-5 cursor-pointer hover:bg-gray-600">
+							<a href={item.href} class="h-full"><button class="flex h-full items-center px-5 cursor-pointer hover:bg-gray-600">
 								{item.label}
-							</button>
+							</button></a>
 							{#if dropdowns[index] && dropdowns[index].open}
 								<ul class="absolute top-16 z-10 bg-gray-800 shadow-lg">
 									{#each item.children as child}
