@@ -68,7 +68,7 @@
 	<!-- Hero image area -->
 	<div class="h-[70vh] w-full">
 		<!-- Hero image overlay text -->
-		<div class="absolute h-[70vh] left-0 flex w-full items-center justify-center">
+		<div class="absolute h-[70vh] left-0 flex w-full px-8 items-center justify-center">
 			<div>
 				<h1 class="text-center text-6xl font-bold text-white">
 					{data.siteTitle}
