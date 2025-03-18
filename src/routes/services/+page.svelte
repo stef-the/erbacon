@@ -5,32 +5,25 @@
 	// Services directory
 	const services = [
 		{
-			id: 'construction',
-			title: 'Construction Products',
-			description: 'High-quality construction equipment for professionals',
-			imageUrl: '/images/services/construction.jpg',
-			href: '/services/construction'
-		},
-		{
-			id: 'generators',
-			title: 'Generators and Power Solutions',
-			description: 'Reliable power solutions for any job site or emergency situation',
-			imageUrl: '/images/services/generators.jpg',
+			title: 'Generators, Pumps & Power Solutions',
+			description: 'We offer a wide range of generators, pumps and power solutions.',
+			imageUrl: 'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
+			imageAlt: 'Generators and power solutions',
 			href: '/services/generators'
 		},
 		{
-			id: 'used',
-			title: 'Used Equipment',
-			description: 'Quality pre-owned construction equipment at competitive prices',
-			imageUrl: '/images/services/used-equipment.jpg',
-			href: '/services/used'
+			title: 'Temporary Fencing',
+			description: 'We offer temporary fencing services for your needs.',
+			imageUrl: 'https://media.istockphoto.com/id/1405879247/photo/temporary-metallic-portable-fence-with-concrete-base-blocks-to-limit-the-territory.jpg?s=612x612&w=0&k=20&c=ihpJaz8wq4GF-M2aOWQW7ACLKHzEQHsy2buHlkMcVOc=',
+			imageAlt: 'Temporary fencing',
+			href: '/services/fencing'
 		},
 		{
-			id: 'fencing',
-			title: 'Temporary Fencing',
-			description: 'Secure your site with our durable temporary fencing solutions',
-			imageUrl: '/images/services/fencing.jpg',
-			href: '/services/fencing'
+			title: 'Project Site Services',
+			description: 'We offer a wide range of project site services for your needs.',
+			imageUrl: 'https://i0.wp.com/www.smbceo.com/wp-content/uploads/2023/01/construction-workers-500-rawpixel.jpg?resize=500%2C333&ssl=1',
+			imageAlt: 'Project site services',
+			href: '/services/project-site'
 		}
 	];
 
@@ -54,11 +47,11 @@
 </div>
 
 <div class="mx-auto max-w-6xl">
-	<div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+	<div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-fr">
 		{#each services as service, index}
-			<a href={service.href} class="group no-underline">
+			<a href={service.href} class="group no-underline h-full">
 				<div
-					class="transform overflow-hidden rounded-lg bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl {isVisible
+					class="transform h-full overflow-hidden rounded-lg bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl {isVisible
 						? 'translate-y-0 opacity-100'
 						: 'translate-y-10 opacity-0'}"
 					style="transition-delay: {index * 100}ms"
