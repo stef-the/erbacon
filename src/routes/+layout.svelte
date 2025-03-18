@@ -13,6 +13,7 @@
 		heroVideo: string | Array<string> | null;
 		navItems: { label: string; href: string; children?: { label: string; href: string }[] }[];
 		socialLinks: { icon: string; href: string }[];
+		footerLinks: { title: string; links: { icon: string; label: string; href: string }[] }[];
 	} = {
 		siteTitle: 'Edward R. Bacon Company',
 		siteSubtitle: 'Serving the California construction industry since 1910',

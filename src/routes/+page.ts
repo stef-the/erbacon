@@ -1,4 +1,5 @@
 // src/routes/+page.js - For page-specific data
+/*
 export function load({ params, fetch }) {
     // You can use fetch to get data from an API
     // Or directly return data objects
@@ -11,3 +12,4 @@ export function load({ params, fetch }) {
         ]
     };
 }
+    */

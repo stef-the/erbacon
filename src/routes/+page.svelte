@@ -1,35 +1,45 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
 	const data: {
-		cards: { title: string; description: string; imageUrl: string, imageAlt: string, href: string }[];
+		cards: {
+			title: string;
+			description: string;
+			imageUrl: string;
+			imageAlt: string;
+			href: string;
+		}[];
 		features: { title: string; description: string }[];
 	} = {
 		cards: [
 			{
 				title: 'Construction Products',
 				description: 'High-quality products for all your construction needs.',
-				imageUrl: 'https://editorial.pxcrush.net/constructionsales/general/editorial/used-excavator-yard-goh7.jpg',
+				imageUrl:
+					'https://editorial.pxcrush.net/constructionsales/general/editorial/used-excavator-yard-goh7.jpg',
 				imageAlt: 'Construction products',
 				href: '/products/construction'
 			},
 			{
 				title: 'Generators, Pumps & Power Solutions',
 				description: 'We offer a wide range of generators, pumps and power solutions.',
-				imageUrl: 'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
+				imageUrl:
+					'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
 				imageAlt: 'Generators and power solutions',
 				href: '/services/generators'
 			},
 			{
 				title: 'Used Equipment',
 				description: 'We offer a wide range of used equipment for your needs.',
-				imageUrl: 'https://bluesafe.net.au/wp-content/uploads/2022/12/6367ae4f67d7c3f453becacc_Jack-Hammer-Safe-Work-Method-Statement.jpg',
+				imageUrl:
+					'https://bluesafe.net.au/wp-content/uploads/2022/12/6367ae4f67d7c3f453becacc_Jack-Hammer-Safe-Work-Method-Statement.jpg',
 				imageAlt: 'Used equipment',
 				href: '/products/used'
 			},
 			{
 				title: 'Temporary Fencing',
 				description: 'We offer temporary fencing services for your needs.',
-				imageUrl: 'https://media.istockphoto.com/id/1405879247/photo/temporary-metallic-portable-fence-with-concrete-base-blocks-to-limit-the-territory.jpg?s=612x612&w=0&k=20&c=ihpJaz8wq4GF-M2aOWQW7ACLKHzEQHsy2buHlkMcVOc=',
+				imageUrl:
+					'https://media.istockphoto.com/id/1405879247/photo/temporary-metallic-portable-fence-with-concrete-base-blocks-to-limit-the-territory.jpg?s=612x612&w=0&k=20&c=ihpJaz8wq4GF-M2aOWQW7ACLKHzEQHsy2buHlkMcVOc=',
 				imageAlt: 'Temporary fencing',
 				href: '/services/fencing'
 			},
@@ -43,14 +53,16 @@
 			{
 				title: 'Project Site Services',
 				description: 'We offer a wide range of project site services for your needs.',
-				imageUrl: 'https://i0.wp.com/www.smbceo.com/wp-content/uploads/2023/01/construction-workers-500-rawpixel.jpg?resize=500%2C333&ssl=1',
+				imageUrl:
+					'https://i0.wp.com/www.smbceo.com/wp-content/uploads/2023/01/construction-workers-500-rawpixel.jpg?resize=500%2C333&ssl=1',
 				imageAlt: 'Project site services',
 				href: '/services/project-site'
 			},
 			{
 				title: 'Parts and Miscellaneous',
 				description: 'We offer a wide range of parts and miscellaneous services for your needs.',
-				imageUrl: 'https://media.istockphoto.com/id/999389842/photo/spare-parts-chassis-of-construction-machinery.jpg?s=612x612&w=0&k=20&c=4_2ILXTxfcL6ZvkiQF1soisfm6KIxMByKB4tlbOUAm0=',
+				imageUrl:
+					'https://media.istockphoto.com/id/999389842/photo/spare-parts-chassis-of-construction-machinery.jpg?s=612x612&w=0&k=20&c=4_2ILXTxfcL6ZvkiQF1soisfm6KIxMByKB4tlbOUAm0=',
 				imageAlt: 'Parts and miscellaneous',
 				href: '/products/parts'
 			}
@@ -72,16 +84,21 @@
 </script>
 
 <section class="prose lg:prose-lg mx-auto scroll-pt-28">
-	<h1 class="text-center text-4xl font-bold text-slate-800 my-4">
-		Our Products and Services
-	</h1>
-	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-4 lg:gap-8">
+	<h1 class="my-4 text-center text-4xl font-bold text-slate-800">Our Products and Services</h1>
+	<div class="grid auto-rows-fr grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
 		{#each data.cards as card}
-			<a href={card.href} class="h-full no-underline text-slate-800 hover:text-red-500">
-				<div class="flex flex-col h-full items-center justify-center w-full rounded-lg shadow-lg cursor-pointer hover:shadow-xl hover:bg-slate-100 hover:scale-103 transition-all duration-300">
-					<img src={card.imageUrl} alt={card.imageAlt} class="w-full shadow-lg rounded-t-lg h-36 object-cover" style="margin:0;">
-					<div class="h-24 flex items-center">
-						<p class="text-center text-xl font-bold px-2">{card.title}</p>
+			<a href={card.href} class="h-full text-slate-800 no-underline hover:text-red-500">
+				<div
+					class="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-lg shadow-lg transition-all duration-300 hover:scale-103 hover:bg-slate-100 hover:shadow-xl"
+				>
+					<img
+						src={card.imageUrl}
+						alt={card.imageAlt}
+						class="h-36 w-full rounded-t-lg object-cover shadow-lg"
+						style="margin:0;"
+					/>
+					<div class="flex h-24 items-center">
+						<p class="px-2 text-center text-xl font-bold">{card.title}</p>
 					</div>
 				</div>
 			</a>
@@ -89,7 +106,7 @@
 	</div>
 </section>
 
-<section class="prose lg:prose-lg mx-auto scroll-pt-28 mt-16">
+<section class="prose lg:prose-lg mx-auto mt-16 scroll-pt-28">
 	<h2 class="text-2xl font-bold">Welcome to our Website</h2>
 	<div class="my-6">
 		<p class="mt-4">
@@ -110,3 +127,19 @@
 		</div>
 	{/if}
 </section>
+
+<style lang="css">
+	/* Responsive md: */
+	@media (min-width: 48rem) {
+		:global(.prose) {
+			max-width: 42rem;
+		}
+	}
+
+	/* Responsive lg: */
+	@media (min-width: 64rem) {
+		:global(.prose) {
+			max-width: 56rem;
+		}
+	}
+</style>
