@@ -89,12 +89,12 @@
 		{#each data.cards as card}
 			<a href={card.href} class="h-full text-slate-800 no-underline hover:text-red-500">
 				<div
-					class="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-lg shadow-lg transition-all duration-300 hover:scale-103 hover:bg-slate-100 hover:shadow-xl"
+					class="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-md shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
 				>
 					<img
 						src={card.imageUrl}
 						alt={card.imageAlt}
-						class="h-36 w-full rounded-t-lg object-cover shadow-lg"
+						class="h-36 w-full rounded-t-lg object-cover"
 						style="margin:0;"
 					/>
 					<div class="flex h-24 items-center">
