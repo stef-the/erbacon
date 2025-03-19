@@ -3,6 +3,7 @@
 	import '../app.css';
 	import Navbar from '../components/Navbar.svelte';
 	import Footer from '../components/Footer.svelte';
+	import { onMount } from 'svelte';
 
 	// Site configuration - easily expandable
 	const data: {
@@ -57,6 +58,30 @@
 			}
 		]
 	};
+
+	// Parallax function
+	onMount(() => {
+		const parallaxEl = document.getElementById('parallax');
+
+		function handleScroll() {
+			if (parallaxEl) {
+				// The lower the divisor, the slower the parallax effect
+				// 0.5 means the element will move at half the speed of normal scrolling
+				const scrollPosition = window.scrollY;
+				const parallaxSpeed = 0.5;
+
+				// Move the element down as user scrolls, creating parallax effect
+				parallaxEl.style.transform = `translateY(${scrollPosition * parallaxSpeed}px)`;
+			}
+		}
+
+		window.addEventListener('scroll', handleScroll);
+
+		// Clean up the event listener when component is destroyed
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	});
 </script>
 
 <svelte:head>
@@ -68,7 +93,7 @@
 	<!-- Hero image area -->
 	<div class="h-[70vh] w-full">
 		<!-- Hero image overlay text -->
-		<div class="absolute h-[70vh] left-0 flex w-full px-8 items-center justify-center">
+		<div id="parallax" class="absolute h-[70vh] left-0 flex w-full px-8 items-center justify-center">
 			<div>
 				<h1 class="text-center text-6xl font-bold text-white">
 					{data.siteTitle}
