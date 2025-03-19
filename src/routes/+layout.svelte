@@ -68,7 +68,7 @@
 				// The lower the divisor, the slower the parallax effect
 				// 0.5 means the element will move at half the speed of normal scrolling
 				const scrollPosition = window.scrollY;
-				const parallaxSpeed = 0.75;
+				const parallaxSpeed = 0.25;
 
 				// Move the element down as user scrolls, creating parallax effect
 				parallaxEl.style.transform = `translateY(${scrollPosition * parallaxSpeed}px)`;
