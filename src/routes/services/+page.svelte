@@ -28,9 +28,13 @@
 	];
 
 	let isVisible = false;
+	let delay = 1;
 
 	onMount(() => {
 		isVisible = true;
+		setTimeout(() => {
+			delay = 0;
+		}, services.length * 100)
 	});
 </script>
 
@@ -54,15 +58,14 @@
 					class="transform h-full overflow-hidden rounded-lg bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl {isVisible
 						? 'translate-y-0 opacity-100'
 						: 'translate-y-10 opacity-0'}"
-					style="transition-delay: {index * 100}ms"
+					style="transition-delay: {index * 100 * delay}ms"
 				>
 					<div class="h-64 overflow-hidden">
-						<!-- Image placeholder - replace with actual images when available -->
-						<div
-							class="flex h-full w-full items-center justify-center bg-gray-200 text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
+						<img
+							src={service.imageUrl}
+							alt= {service.imageAlt}
+							class="flex h-full w-full items-center justify-center object-cover bg-gray-200 text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
 						>
-							<span class="text-xl">{service.title} Image</span>
-						</div>
 					</div>
 					<div class="p-6">
 						<h2 class="mb-2 text-2xl font-bold text-gray-900">{service.title}</h2>

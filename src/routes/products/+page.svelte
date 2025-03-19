@@ -2,8 +2,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	// Services directory
-	const services = [
+	// products directory
+	const products = [
 		{
 			title: 'Construction Products',
 			description: 'High-quality products for all your construction needs.',
@@ -29,7 +29,7 @@
 		},
 		{
 			title: 'Parts and Miscellaneous',
-			description: 'We offer a wide range of parts and miscellaneous services for your needs.',
+			description: 'We offer a wide range of parts and miscellaneous products for your needs.',
 			imageUrl:
 				'https://media.istockphoto.com/id/999389842/photo/spare-parts-chassis-of-construction-machinery.jpg?s=612x612&w=0&k=20&c=4_2ILXTxfcL6ZvkiQF1soisfm6KIxMByKB4tlbOUAm0=',
 			imageAlt: 'Parts and miscellaneous',
@@ -38,9 +38,13 @@
 	];
 
 	let isVisible = false;
+	let delay = 1;
 
 	onMount(() => {
 		isVisible = true;
+		setTimeout(() => {
+			delay = 0;
+		}, products.length * 100)
 	});
 </script>
 
@@ -48,7 +52,7 @@
 	<title>Our Products | Edward R. Bacon Company</title>
 	<meta
 		name="description"
-		content="Explore ERBCO's comprehensive range of products in construction, used equipment, truck equipment, and parts and miscellaneous services."
+		content="Explore ERBCO's comprehensive range of products in construction, used equipment, truck equipment and parts"
 	/>
 </svelte:head>
 
@@ -58,25 +62,24 @@
 
 <div class="mx-auto max-w-6xl">
 	<div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-fr">
-		{#each services as service, index}
-			<a href={service.href} class="group no-underline h-full">
+		{#each products as product, index}
+			<a href={product.href} class="group no-underline h-full">
 				<div
 					class="transform h-full overflow-hidden rounded-lg bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl {isVisible
 						? 'translate-y-0 opacity-100'
 						: 'translate-y-10 opacity-0'}"
-					style="transition-delay: {index * 100}ms"
+					style="transition-delay: {index * 100 * delay}ms"
 				>
 					<div class="h-64 overflow-hidden shadow-sm">
-						<!-- Image placeholder - replace with actual images when available -->
 						<img
-							src={service.imageUrl}
-							alt= {service.imageAlt}
+							src={product.imageUrl}
+							alt= {product.imageAlt}
 							class="flex h-full w-full items-center justify-center object-cover bg-gray-200 text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
 						>
 					</div>
 					<div class="p-6">
-						<h2 class="mb-2 text-2xl font-bold text-gray-900">{service.title}</h2>
-						<p class="mb-4 text-gray-700">{service.description}</p>
+						<h2 class="mb-2 text-2xl font-bold text-gray-900">{product.title}</h2>
+						<p class="mb-4 text-gray-700">{product.description}</p>
 						<div class="flex items-center font-semibold text-red-600 group-hover:text-red-700">
 							Learn more
 							<svg
@@ -106,7 +109,7 @@
 				<h3 class="mb-3 text-xl font-semibold">Century of Experience</h3>
 				<p>
 					With over 100 years in the industry, we bring unmatched expertise and knowledge to every
-					service we provide.
+					product we provide.
 				</p>
 			</div>
 
@@ -114,14 +117,14 @@
 				<h3 class="mb-3 text-xl font-semibold">Family-Owned Values</h3>
 				<p>
 					As a family-owned business since 1910, we maintain strong values of integrity, quality,
-					and exceptional customer service.
+					and exceptional customer product.
 				</p>
 			</div>
 
 			<div class="rounded-lg bg-white p-6 shadow-md">
 				<h3 class="mb-3 text-xl font-semibold">Comprehensive Solutions</h3>
 				<p>
-					From equipment to power to site security, we offer a complete range of services to support
+					From equipment to power to site security, we offer a complete range of products to support
 					your construction needs.
 				</p>
 			</div>

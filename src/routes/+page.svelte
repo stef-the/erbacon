@@ -1,5 +1,7 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
+	import { onMount } from 'svelte';
+	
 	const data: {
 		cards: {
 			title: string;
@@ -81,15 +83,28 @@
 			}
 		]
 	};
+
+	let isVisible = false;
+	let delay = 1;
+
+	onMount(() => {
+		isVisible = true;
+		setTimeout(() => {
+			delay = 0;
+		}, data.cards.length * 100)
+	});
 </script>
 
 <section class="prose lg:prose-lg mx-auto scroll-pt-28">
 	<h1 class="my-4 text-center text-4xl font-bold text-slate-800">Our Products and Services</h1>
 	<div class="grid auto-rows-fr grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
-		{#each data.cards as card}
+		{#each data.cards as card, index}
 			<a href={card.href} class="h-full text-slate-800 no-underline hover:text-red-500">
 				<div
-					class="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-md shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+					class="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-md shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl {isVisible
+					   ? 'translate-y-0 opacity-100'
+					   : 'translate-y-10 opacity-0'}"
+					style="transition-delay: {index * 100 * delay}ms"
 				>
 					<img
 						src={card.imageUrl}
