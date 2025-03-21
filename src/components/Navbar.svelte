@@ -50,13 +50,22 @@
 		dropdowns[index].open = !dropdowns[index].open;
 		dropdowns = [...dropdowns];
 	}
+
+	/**
+	 * Close nav and all submenus
+	 */
+	function closeNav() {
+		mobileMenuOpen = false;
+		dropdowns = navItems.map(() => ({ open: false }));
+		dropdowns = [...dropdowns];
+	}
 </script>
 
 <nav class="sticky top-0 z-10 flex h-16 flex-wrap bg-gray-800 text-white shadow-lg">
 	<div class="flex w-full items-center justify-between">
 		<!-- Logo -->
 		<a href="/">
-			<img src="/ERBCO_main.gif" alt="ERBCO" class="h-16" />
+			<img src="/ERBCO_main.gif" alt="ERBCO" class="h-16 w-full" />
 		</a>
 
 		<!-- Desktop navigation -->
@@ -104,11 +113,8 @@
 			</ul>
 		</div>
 
-		<!-- Mobile spacer -->
-		<div class="w-full h-[1px] sm:hidden"></div>
-
 		<!-- Phone number -->
-		<div class="h-16 sm:flex">
+		<div class="h-16 sm:flex ml-auto">
 			<a
 				href="tel:+19163838250"
 				class="flex h-16 w-max items-center p-4 transition duration-150 ease-in-out hover:bg-gray-600 sm:ml-4"
@@ -173,7 +179,7 @@
 							{#if dropdowns[index].open}
 								<ul class="bg-gray-700">
 									{#each item.children as child}
-										<li>
+										<li on:click={ closeNav() }>
 											<a
 												href={child.href}
 												class="block border-t border-gray-600 px-8 py-2 hover:bg-gray-600"
@@ -186,7 +192,7 @@
 							{/if}
 						{:else}
 							<!-- Mobile regular item -->
-							<a href={item.href} class="block w-full px-5 py-3 hover:bg-gray-600">
+							<a href={item.href} class="block w-full px-5 py-3 hover:bg-gray-600" on:click={ closeNav() }>
 								{item.label}
 							</a>
 						{/if}
