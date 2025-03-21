@@ -1,6 +1,7 @@
 <!-- src/components/Navbar.svelte -->
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	/**
 	 * @type {Array<{label: string, href: string, children?: Array<{label: string, href: string}>}>}
@@ -54,7 +55,9 @@
 <nav class="sticky top-0 z-10 flex h-16 flex-wrap bg-gray-800 text-white shadow-lg">
 	<div class="flex w-full items-center justify-between">
 		<!-- Logo -->
-		<img src="/ERBCO_main.gif" alt="ERBCO" class="h-16" />
+		<a href="/">
+			<img src="/ERBCO_main.gif" alt="ERBCO" class="h-16" />
+		</a>
 
 		<!-- Desktop navigation -->
 		<div class="hidden flex-grow sm:flex">
