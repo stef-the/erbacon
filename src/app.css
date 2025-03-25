@@ -9,6 +9,8 @@
 
 html, body {
   background-color: var(--background-light);
+  z-index: -60;  /* Lower than Tailwind's -z-50 */
+  position: relative;  /* Needed to apply z-index */
 }
 
 @media (prefers-color-scheme: dark) {
