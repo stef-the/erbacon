@@ -1,3 +1,18 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+:root {
+  --background-light: #f8fafc;  /* Tailwind slate-50 */
+  --background-dark: #18181b;   /* Tailwind zinc-900 */
+}
+
+html, body {
+  background-color: var(--background-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+	background-color: var(--background-dark);
+  }
+}

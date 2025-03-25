@@ -57,7 +57,7 @@
 
 {#if data.error}
   <div
-	class="relative mb-6 rounded border border-red-400 bg-red-100 px-4 py-3 text-red-700"
+	class="relative mb-6 rounded border border-red-400 bg-red-100 px-4 py-3 text-red-700 dark:border-red-500 dark:bg-red-800 dark:text-red-100"
 	role="alert"
   >
 	<strong class="font-bold">Error loading data:</strong>
@@ -66,18 +66,18 @@
 {/if}
 
 <div class="prose lg:prose-lg mx-auto mb-8">
-  <p class="lead text-lg">
+  <p class="lead text-lg dark:text-slate-50">
 	{introText}
   </p>
 </div>
 
 <ServiceCatalog items={data.items} categoryInfo={data.categoryInfo} {layout} {showDetails} />
 
-<div class="mt-16 rounded-lg bg-gray-100 p-8">
+<div class="mt-16 rounded-lg bg-gray-100 p-8 dark:text-slate-50 dark:bg-zinc-900/40">
   <h2 class="mb-4 text-2xl font-bold">{featuresTitle}</h2>
   <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
 	{#each features as feature}
-	  <div class="rounded-lg bg-white p-6 shadow-md">
+	  <div class="rounded-lg bg-white p-6 shadow-md dark:bg-zinc-900/70">
 		<h3 class="mb-3 text-xl font-semibold">{feature.title}</h3>
 		<p>{feature.description}</p>
 	  </div>
@@ -85,7 +85,7 @@
   </div>
 </div>
 
-<div class="mt-12 text-center">
+<div class="mt-12 text-center dark:text-slate-50">
   <p class="mb-4 text-lg">{ctaText}</p>
   <a
 	href="/contact"

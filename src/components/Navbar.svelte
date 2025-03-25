@@ -61,7 +61,7 @@
 	}
 </script>
 
-<nav class="sticky top-0 z-10 flex h-16 flex-wrap bg-gray-800 text-white shadow-lg">
+<nav class="sticky top-0 z-10 flex h-16 flex-wrap bg-gray-800 text-white shadow-lg dark:bg-zinc-900">
 	<div class="flex w-full items-center justify-between">
 		<!-- Logo -->
 		<a href="/">
@@ -74,7 +74,7 @@
 				{#each navItems as item, index}
 					<li
 						bind:this={navItemRefs[index]}
-						class="flex h-full cursor-pointer items-center transition duration-150 ease-in-out hover:bg-gray-600"
+						class="flex h-full cursor-pointer items-center transition duration-150 ease-in-out hover:bg-gray-600 dark:hover:bg-zinc-700"
 						on:mouseenter={item.children && item.children.length > 0
 							? (e) => toggleDropdown(index, e)
 							: null}
@@ -84,17 +84,17 @@
 					>
 						{#if item.children && item.children.length > 0}
 							<!-- Dropdown menu item -->
-							<a href={item.href} class="h-full"><button class="flex h-full items-center px-5 cursor-pointer hover:bg-gray-600">
+							<a href={item.href} class="h-full"><button class="flex h-full items-center px-5 cursor-pointer hover:bg-gray-600 dark:hover:bg-zinc-700">
 								{item.label}
 							</button></a>
 							{#if dropdowns[index] && dropdowns[index].open}
-								<ul class="absolute top-16 z-10 bg-gray-800 shadow-lg">
+								<ul class="absolute top-16 z-10 bg-gray-800 shadow-lg dark:bg-zinc-900">
 									{#each item.children as child}
 										<li>
 											<a
 												href={child.href}
 												title={child.label}
-												class="nav-hover-effect block px-5 py-3 transition duration-150 ease-in-out hover:bg-gray-600 hover:font-bold"
+												class="nav-hover-effect block px-5 py-3 transition duration-150 ease-in-out hover:bg-gray-600 hover:font-bold dar:hover:bg-zinc-700"
 											>
 												{child.label}
 											</a>
@@ -117,14 +117,14 @@
 		<div class="h-16 sm:flex ml-auto">
 			<a
 				href="tel:+19163838250"
-				class="flex h-16 w-max items-center p-4 transition duration-150 ease-in-out hover:bg-gray-600 sm:ml-4"
+				class="flex h-16 w-max items-center p-4 transition duration-150 ease-in-out hover:bg-gray-600 sm:ml-4 dark:hover:bg-zinc-700"
 				><b>+1 (916) 383-8250</b></a
 			>
 		</div>
 
 		<!-- Mobile menu button -->
 		<button
-			class="px-4 h-16 text-white cursor-pointer hover:bg-gray-600 focus:outline-none sm:hidden"
+			class="px-4 h-16 text-white cursor-pointer hover:bg-gray-600 focus:outline-none sm:hidden dark:hover:bg-zinc-700"
 			on:click={toggleMobileMenu}
 			aria-label="Toggle mobile menu"
 		>
@@ -147,14 +147,14 @@
 
 	<!-- Mobile navigation drawer -->
 	{#if mobileMenuOpen}
-		<div class="w-full border-t border-gray-700 bg-gray-800 sm:hidden">
+		<div class="w-full shadow-xl border-t border-gray-700 bg-gray-800 sm:hidden dark:border-zinc-700 dark:bg-zinc-800">
 			<ul class="w-full">
 				{#each navItems as item, index}
-					<li class="border-b border-gray-700">
+					<li class="border-b border-gray-700 dark:border-zinc-700">
 						{#if item.children && item.children.length > 0}
 							<!-- Mobile dropdown item -->
 							<button
-								class="flex w-full items-center justify-between px-5 py-3 cursor-pointer hover:bg-gray-600"
+								class="flex w-full items-center justify-between px-5 py-3 cursor-pointer hover:bg-gray-600 dar:hover:bg-zinc-700"
 								on:click={() => toggleMobileSubmenu(index)}
 							>
 								<span>{item.label}</span>
@@ -177,12 +177,12 @@
 							</button>
 
 							{#if dropdowns[index].open}
-								<ul class="bg-gray-700">
+								<ul class="bg-gray-700 dark:bg-zinc-700">
 									{#each item.children as child}
 										<li on:click={ closeNav() }>
 											<a
 												href={child.href}
-												class="block border-t border-gray-600 px-8 py-2 hover:bg-gray-600"
+												class="block border-t border-gray-600 px-8 py-2 hover:bg-gray-600 dark:border-zinc-600 dark:hover:bg-zinc-800"
 											>
 												{child.label}
 											</a>
@@ -192,7 +192,7 @@
 							{/if}
 						{:else}
 							<!-- Mobile regular item -->
-							<a href={item.href} class="block w-full px-5 py-3 hover:bg-gray-600" on:click={ closeNav() }>
+							<a href={item.href} class="block w-full px-5 py-3 hover:bg-gray-600 dark:hover:bg-zinc-800" on:click={ closeNav() }>
 								{item.label}
 							</a>
 						{/if}

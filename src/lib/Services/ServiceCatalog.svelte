@@ -76,16 +76,16 @@
 <div class="service-catalog pt-4">
 	<!-- Category header -->
 	<div class="mb-8 text-center">
-		<h1 class="mb-4 text-3xl font-bold">{categoryInfo.title}</h1>
-		<p class="mx-auto max-w-3xl text-lg">{categoryInfo.description}</p>
+		<h1 class="mb-4 text-3xl font-bold dark:text-slate-50">{categoryInfo.title}</h1>
+		<p class="mx-auto max-w-3xl text-lg dark:text-slate-50">{categoryInfo.description}</p>
 	</div>
 
 	<!-- Layout Toggle -->
-	<div class="mb-4 flex justify-end">
-		<div class="inline-flex rounded-lg bg-gray-200">
+	<div class="mb-4 hidden sm:flex justify-end">
+		<div class="inline-flex rounded-lg bg-gray-200 dark:bg-zinc-700">
 			<button
-				class="rounded-lg px-4 py-2 transition-colors duration-200 {layout === 'grid'
-					? 'bg-white shadow-sm'
+				class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-gray-500 {layout === 'grid'
+					? 'bg-white shadow-sm dark:bg-zinc-900 dark:text-slate-50'
 					: ''}"
 				on:click={() => (layout = 'grid')}
 				aria-label="Switch to grid layout"
@@ -102,8 +102,8 @@
 				</svg>
 			</button>
 			<button
-				class="rounded-lg px-4 py-2 transition-colors duration-200 {layout === 'list'
-					? 'bg-white shadow-sm'
+				class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-gray-500 {layout === 'list'
+					? 'bg-white shadow-sm dark:bg-zinc-900 dark:text-slate-50'
 					: ''}"
 				on:click={() => (layout = 'list')}
 				aria-label="Switch to list layout"
@@ -126,7 +126,7 @@
 
 	{#if items.length === 0}
 		<div class="py-12 text-center">
-			<p class="text-xl text-gray-500">Loading service information...</p>
+			<p class="text-xl text-gray-500 dark:text-slate-300">Loading service information...</p>
 		</div>
 	{:else}
 		<!-- Grid Layout -->
@@ -134,7 +134,7 @@
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{#each items as item, index}
 					<div
-						class="group overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
+						class="group overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg dark:bg-zinc-900/70"
 					>
 						<div class="h-48 overflow-hidden">
 							<img
@@ -144,9 +144,9 @@
 							/>
 						</div>
 						<div class="p-5">
-							<h2 class="mb-2 text-xl font-semibold">{item.name}</h2>
+							<h2 class="mb-2 text-xl font-semibold dark:text-slate-50">{item.name}</h2>
 
-							<p class="mb-4 text-gray-700">
+							<p class="mb-4 text-gray-700 dark:text-slate-300">
 								{#if item.description.length > 120}
 									{item.description.substring(0, 120)}...
 								{:else}
@@ -155,12 +155,12 @@
 							</p>
 
 							{#if categoryInfo.showPrices && item.price}
-								<p class="font-mono text-lg font-bold text-gray-800">{item.price}</p>
+								<p class="font-mono text-lg font-bold text-gray-800 dark:text-slate-300">{item.price}</p>
 							{/if}
 
 							{#if showDetails && (item.details || item.features || item.brand || item.model)}
 								<button
-									class="mt-3 flex items-center font-medium text-red-600 hover:text-red-800"
+									class="mt-3 flex items-center font-medium text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400"
 									on:click={() => toggleExpand(index)}
 								>
 									{expandedIndex === index ? 'Show less' : 'Show details'}
@@ -181,7 +181,7 @@
 								</button>
 
 								{#if expandedIndex === index}
-									<div class="mt-3 border-t border-gray-200 pt-3">
+									<div class="mt-3 border-t border-gray-200 pt-3 dark:border-zinc-700 dark:text-slate-400">
 										{#if item.brand}
 											<p class="mb-2"><span class="font-semibold">Brand:</span> {item.brand}</p>
 										{/if}
@@ -216,7 +216,7 @@
 			<div class="space-y-6">
 				{#each items as item, index}
 					<div
-						class="group relative overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-[1.01] hover:shadow-lg sm:flex"
+						class="group relative overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-[1.01] hover:shadow-lg sm:flex dark:bg-zinc-900/70"
 					>
 						<div class="overflow-hidden sm:w-1/3 lg:w-1/4">
 							<img
@@ -226,16 +226,16 @@
 							/>
 						</div>
 						<div class="p-5 sm:w-2/3 lg:w-3/4">
-							<h2 class="mb-2 text-xl font-semibold">{item.name}</h2>
-							<p class="mb-4 text-gray-700">{item.description}</p>
+							<h2 class="mb-2 text-xl font-semibold dark:text-slate-50">{item.name}</h2>
+							<p class="mb-4 text-gray-700 dark:text-slate-300">{item.description}</p>
 
 							{#if categoryInfo.showPrices && item.price}
-								<p class="font-mono text-lg font-bold text-gray-800">{item.price}</p>
+								<p class="font-mono text-lg font-bold text-gray-800 dark:text-slate-300">{item.price}</p>
 							{/if}
 
 							{#if showDetails && (item.details || item.features || item.brand || item.model)}
 								<button
-									class="mt-3 flex items-center font-medium text-red-600 hover:text-red-800"
+									class="mt-3 flex items-center font-medium text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400"
 									on:click={() => toggleExpand(index)}
 								>
 									{expandedIndex === index ? 'Show less' : 'Show details'}
@@ -256,7 +256,7 @@
 								</button>
 
 								{#if expandedIndex === index}
-									<div class="mt-3 border-t border-gray-200 pt-3">
+									<div class="mt-3 border-t border-gray-200 pt-3 dark:border-zinc-700 dark:text-slate-400">
 										<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 											{#if item.brand}
 												<p><span class="font-semibold">Brand:</span> {item.brand}</p>
@@ -292,7 +292,7 @@
 		<div class="mt-12 mb-6 text-center">
 			<a
 				href="/contact"
-				class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-700"
+				class="inline-block shadow-lg rounded-lg bg-red-600 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
 			>
 				{categoryInfo.contactCta}
 			</a>

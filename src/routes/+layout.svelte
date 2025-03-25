@@ -59,27 +59,44 @@
 		]
 	};
 
+// Define dark mode colours
+	const zinc_900 = 'oklch(0.21 0.006 285.885)';
+	const gray_900 = 'oklch(0.21 0.034 264.665)';
+
+	// Reactive variable for theme color
+	let themeColor = gray_900;
+
 	// Parallax function
 	onMount(() => {
 		const parallaxEl = document.getElementById('parallax');
 
 		function handleScroll() {
 			if (parallaxEl) {
-				// The lower the divisor, the slower the parallax effect
-				// 0.5 means the element will move at half the speed of normal scrolling
 				const scrollPosition = window.scrollY;
 				const parallaxSpeed = 0.35;
-
-				// Move the element down as user scrolls, creating parallax effect
 				parallaxEl.style.transform = `translateY(${scrollPosition * parallaxSpeed}px)`;
 			}
 		}
 
+		// Dark mode detection and theme color update
+		const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+		function updateThemeColor() {
+			themeColor = darkModeMediaQuery.matches ? zinc_900 : gray_900;
+		}
+
+		// Initial check
+		updateThemeColor();
+
+		// Listen for changes in color scheme
+		darkModeMediaQuery.addEventListener('change', updateThemeColor);
+
 		window.addEventListener('scroll', handleScroll);
 
-		// Clean up the event listener when component is destroyed
+		// Clean up event listeners
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
+			darkModeMediaQuery.removeEventListener('change', updateThemeColor);
 		};
 	});
 </script>
@@ -87,6 +104,7 @@
 <svelte:head>
 	<title>{data.siteTitle}</title>
 	<meta name="description" content={data.siteSubtitle} />
+	<meta name="theme-color" content={themeColor} /><!-- Dynamic theme color -->
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
@@ -131,7 +149,7 @@
 	<Navbar navItems={data.navItems} />
 
 	<!-- Main content area -->
-	<div id="content" class="w-full bg-slate-50 pt-8">
+	<div id="content" class="w-full bg-slate-50 dark:bg-zinc-800 pt-8">
 		<main class="container mx-auto flex-grow px-4 py-8">
 			<slot />
 		</main>

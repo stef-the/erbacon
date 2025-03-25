@@ -20,7 +20,7 @@
 	const currentYear = new Date().getFullYear();
 </script>
 
-<footer class="bg-gray-800 py-8 text-white">
+<footer class="bg-gray-800 py-8 text-white dark:bg-zinc-900">
 	<div class="container mx-auto px-4">
 		<div class="px-6 sm:px-0 sm:grid sm:grid-cols-4">
 			<!-- Company info -->
@@ -30,7 +30,7 @@
 				<!-- Social media links -->
 				<div class="flex space-x-4 pt-1">
 					{#each socialLinks as link}
-						<a href={link.href} class="transition duration-150 hover:text-blue-400">
+						<a href={link.href} class="transition duration-150 hover:text-blue-400 dark:hover:text-blue-500">
 							<SocialIcons
 								name={link.icon}
 								size={20}
@@ -49,7 +49,7 @@
 							<li class="mb-2">
 								<a
 									href={link.href}
-									class="flex items-center transition duration-150 hover:text-blue-400"
+									class="flex items-center transition duration-150 hover:text-blue-400 dark:hover:text-blue-500"
 								>
 									<SocialIcons name={link.icon} size={16} customClass="mr-2" />
 									{link.label}
@@ -60,7 +60,7 @@
 				</div>
 			{/each}
 		</div>
-		<div class="mt-8 border-t border-gray-700 pt-6 text-sm text-gray-400">
+		<div class="mt-8 border-t border-gray-700 pt-6 text-sm text-gray-400 dark:border-zinc-700 dark:text-zinc-300">
 			<p>&copy; {currentYear} {companyName}. All rights reserved.</p>
 		</div>
 	</div>

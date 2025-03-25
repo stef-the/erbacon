@@ -96,12 +96,12 @@
 </script>
 
 <section class="prose lg:prose-lg mx-auto scroll-pt-28">
-	<h1 class="my-4 text-center text-4xl font-bold text-slate-800">Our Products and Services</h1>
+	<h1 class="my-4 text-center text-4xl font-bold text-slate-800 dark:text-slate-50">Our Products and Services</h1>
 	<div class="grid auto-rows-fr grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
 		{#each data.cards as card, index}
-			<a href={card.href} class="h-full text-slate-800 no-underline hover:text-red-500">
+			<a href={card.href} class="h-full no-underline hover:text-red-500">
 				<div
-					class="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-md shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl {isVisible
+					class="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-md shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:bg-zinc-900/70 {isVisible
 					   ? 'translate-y-0 opacity-100'
 					   : 'translate-y-10 opacity-0'}"
 					style="transition-delay: {index * 100 * delay}ms"
@@ -113,7 +113,7 @@
 						style="margin:0;"
 					/>
 					<div class="flex h-24 items-center">
-						<p class="px-2 text-center text-xl font-bold">{card.title}</p>
+						<p class="px-2 text-center text-xl font-bold dark:text-slate-50">{card.title}</p>
 					</div>
 				</div>
 			</a>
@@ -121,8 +121,8 @@
 	</div>
 </section>
 
-<section class="prose lg:prose-lg mx-auto mt-16 scroll-pt-28">
-	<h2 class="text-2xl font-bold">Welcome to our Website</h2>
+<section class="prose lg:prose-lg mx-auto mt-16 scroll-pt-28 text-slate-800 dark:text-slate-50">
+	<h2 class="text-2xl font-bold dark:text-slate-50">Welcome to our Website</h2>
 	<div class="my-6">
 		<p class="mt-4">
 			Our mission is to offer our customers unparalleled service. We are committed to helping your
@@ -134,8 +134,8 @@
 	{#if data.features}
 		<div class="my-8 grid grid-cols-1 gap-6 2xl:grid-cols-2">
 			{#each data.features as feature}
-				<div class="rounded-lg bg-gray-100 p-6 shadow">
-					<h3 class="mb-2 text-xl font-semibold">{feature.title}</h3>
+				<div class="rounded-lg bg-gray-100 p-6 shadow dark:bg-zinc-900/70">
+					<h3 class="mb-2 text-xl font-semibold dark:text-slate-50">{feature.title}</h3>
 					<p>{feature.description}</p>
 				</div>
 			{/each}
