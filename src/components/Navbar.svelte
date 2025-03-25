@@ -65,7 +65,7 @@
 	<div class="flex w-full items-center justify-between">
 		<!-- Logo -->
 		<a href="/">
-			<img src="/ERBCO_main.gif" alt="ERBCO" class="h-16 w-full" />
+			<img src="/icons/RED_LOGO.bmp" alt="ERBCO" class="h-16 w-full" />
 		</a>
 
 		<!-- Desktop navigation -->
@@ -179,20 +179,20 @@
 							{#if dropdowns[index].open}
 								<ul class="bg-gray-700 dark:bg-zinc-700">
 									{#each item.children as child}
-										<li on:click={ closeNav() }>
-											<a
-												href={child.href}
-												class="block border-t border-gray-600 px-8 py-2 hover:bg-gray-600 dark:border-zinc-600 dark:hover:bg-zinc-800"
-											>
+										<button
+											on:click={closeNav}
+											class="block w-full text-left border-t border-gray-600 px-8 py-2 hover:bg-gray-600 dark:border-zinc-600 dark:hover:bg-zinc-800"
+										>
+											<a href={child.href} class="w-full block">
 												{child.label}
 											</a>
-										</li>
+										</button>
 									{/each}
 								</ul>
 							{/if}
 						{:else}
 							<!-- Mobile regular item -->
-							<a href={item.href} class="block w-full px-5 py-3 hover:bg-gray-600 dark:hover:bg-zinc-800" on:click={ closeNav() }>
+							<a href={item.href} class="block w-full px-5 py-3 hover:bg-gray-600 dark:hover:bg-zinc-800" on:click={closeNav}>
 								{item.label}
 							</a>
 						{/if}
