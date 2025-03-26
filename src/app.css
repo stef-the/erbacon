@@ -15,6 +15,6 @@ html, body {
 
 @media (prefers-color-scheme: dark) {
   html, body {
-	background-color: var(--background-dark);
+	 background-color: var(--background-dark);
   }
 }

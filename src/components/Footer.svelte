@@ -50,6 +50,7 @@
 								<a
 									href={link.href}
 									class="flex items-center transition duration-150 hover:text-blue-400 dark:hover:text-blue-500"
+									target={link.target ? link.target : '_self'}
 								>
 									<SocialIcons name={link.icon} size={16} customClass="mr-2" />
 									{link.label}

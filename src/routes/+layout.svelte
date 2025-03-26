@@ -13,7 +13,7 @@
 		heroImage: string | null;
 		heroVideo: string | Array<string> | null;
 		navItems: { label: string; href: string; children?: { label: string; href: string }[] }[];
-		socialLinks: { icon: string; href: string }[];
+		socialLinks: { icon: string; href: string; target?: string }[];
 		footerLinks: { title: string; links: { icon: string; label: string; href: string }[] }[];
 	} = {
 		siteTitle: 'Edward R. Bacon Company',
@@ -47,13 +47,14 @@
 			{ icon: 'Twitter', href: 'https://twitter.com' },
 			{ icon: 'Facebook', href: 'https://facebook.com' },
 			{ icon: 'Instagram', href: 'https://instagram.com' },
-			{ icon: 'LinkedIn', href: 'https://linkedin.com' }
+			{ icon: 'LinkedIn', href: 'http://linkedin.com/in/erbco' }
 		],
 		footerLinks: [
 			{
 				title: 'Company',
 				links: [
-					{ icon: 'Location', label: 'About', href: '/about' }
+					{ icon: 'Info', label: 'About', href: '/about' },
+					{ icon: 'eBay', label: 'eBay', href: 'https://www.ebay.com', target: '_blank' }
 				]
 			}
 		]

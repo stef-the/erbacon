@@ -59,13 +59,16 @@
 		dropdowns = navItems.map(() => ({ open: false }));
 		dropdowns = [...dropdowns];
 	}
+
+	// Logo colour (hex)
+	const logoColour = '#f62220';
 </script>
 
 <nav class="sticky top-0 z-10 flex h-16 flex-wrap bg-gray-800 text-white shadow-lg dark:bg-zinc-900">
 	<div class="flex w-full items-center justify-between">
 		<!-- Logo -->
-		<a href="/">
-			<img src="/icons/RED_LOGO.bmp" alt="ERBCO" class="h-16 w-full" />
+		<a href="/" class="overflow-hidden" style="background-color: {logoColour};">
+			<img src="/icons/RED_LOGO_fix.bmp" alt="ERBCO" class="h-16 transition duration-150 ease-in-out scale-100 hover:scale-105" />
 		</a>
 
 		<!-- Desktop navigation -->
@@ -117,7 +120,7 @@
 		<div class="h-16 sm:flex ml-auto">
 			<a
 				href="tel:+19163838250"
-				class="flex h-16 w-max items-center p-4 transition duration-150 ease-in-out hover:bg-gray-600 sm:ml-4 dark:hover:bg-zinc-700"
+				class="text-lg flex h-16 w-max items-center p-4 transition duration-150 ease-in-out hover:bg-gray-600 sm:ml-4 dark:hover:bg-zinc-700"
 				><b>+1 (916) 383-8250</b></a
 			>
 		</div>
