@@ -36,14 +36,14 @@
 				imageAlt: 'Used equipment',
 				href: '/products/used'
 			},
-			{
+			/*{
 				title: 'Temporary Fencing',
 				description: 'We offer temporary fencing services for your needs.',
 				imageUrl:
 					'https://media.istockphoto.com/id/1405879247/photo/temporary-metallic-portable-fence-with-concrete-base-blocks-to-limit-the-territory.jpg?s=612x612&w=0&k=20&c=ihpJaz8wq4GF-M2aOWQW7ACLKHzEQHsy2buHlkMcVOc=',
 				imageAlt: 'Temporary fencing',
 				href: '/services/fencing'
-			},
+			},*/
 			{
 				title: 'Truck Equipment',
 				description: 'We offer a wide range of truck equipment for your needs.',

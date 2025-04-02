@@ -11,13 +11,13 @@
 			imageAlt: 'Generators and power solutions',
 			href: '/services/generators'
 		},
-		{
+		/*{
 			title: 'Temporary Fencing',
 			description: 'We offer temporary fencing services for your needs.',
 			imageUrl: 'https://media.istockphoto.com/id/1405879247/photo/temporary-metallic-portable-fence-with-concrete-base-blocks-to-limit-the-territory.jpg?s=612x612&w=0&k=20&c=ihpJaz8wq4GF-M2aOWQW7ACLKHzEQHsy2buHlkMcVOc=',
 			imageAlt: 'Temporary fencing',
 			href: '/services/fencing'
-		},
+		},*/
 		{
 			title: 'Project Site Services',
 			description: 'We offer a wide range of project site services for your needs.',
