@@ -45,7 +45,7 @@
 		title: 'Service Catalog',
 		description: 'Browse our available services and products',
 		contactCta: 'Contact us for more information',
-		showPrices: true
+		showPrices: false
 	};
 
 	/**
