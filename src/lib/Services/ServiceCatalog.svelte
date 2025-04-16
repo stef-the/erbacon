@@ -42,7 +42,7 @@
 	 * }}
 	 */
 	export let categoryInfo = {
-		title: 'Service Catalog',
+		title: 'Product Catalog',
 		description: 'Browse our available services and products',
 		contactCta: 'Contact us for more information',
 		showPrices: false

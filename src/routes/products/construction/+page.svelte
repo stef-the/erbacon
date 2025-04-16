@@ -4,7 +4,7 @@
 
   export let data;
 
-  const introText = 'At Edward R. Bacon Company, we offer a comprehensive range of construction products to meet the needs of projects of all sizes. Our equipment is selected for reliability, durability, and performance in demanding environments.';
+  const introText = '';
 
   const features = [
 	{
@@ -21,6 +21,13 @@
 	}
   ];
 </script>
+
+<section class="py-8">
+	<div class="flex justify-center">
+		<h3 class="text-xl font-bold text-center text-gray-800 dark:text-slate-50 sm:text-4xl lg:text-5xl h-16 flex justify-center"><a href="tel:+19163838250">+1 (916) 383 8250</a></h3>
+		<img src="/icons/ERBCO_get_it_from_bacon.avif" alt="get it from bacon!" class="h-16 px-4" />
+	</div>
+</section>
 
 <GenericServicePage 
   {data} 
