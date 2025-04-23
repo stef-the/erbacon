@@ -1,5 +1,7 @@
-<!-- lib/Services/ServiceCatalog.svelte -->
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+
 	/**
 	 * Array of service items to display
 	 * @type {Array<{
@@ -97,20 +99,65 @@
 	 * @type {Array}
 	 */
 	$: filteredItems = selectedCategory
-		? items.filter(item => item.category === selectedCategory)
+		? items.filter(item => item.category && item.category.toLowerCase() === selectedCategory)
 		: items;
 
 	/**
-	 * Extract unique categories from items
+	 * Extract unique categories from items and store them in lowercase
 	 */
 	$: {
 		const categories = new Set<string>();
 		items.forEach(item => {
 			if (item.category) {
-				categories.add(item.category);
+				categories.add(item.category.toLowerCase());
 			}
 		});
 		availableCategories = Array.from(categories).sort();
+	}
+
+	// Timer variables
+	let elapsedTime = 2;
+	let timerInterval: ReturnType<typeof setInterval> | null = null;
+	let showTimer = false;
+
+	/**
+	 * Initialize component and check for URL parameters
+	 */
+	onMount(() => {
+		// Start the timer
+		const startTime = Date.now();
+		
+		// Check if there's a category parameter in the URL
+		const urlParams = new URLSearchParams(window.location.search);
+		const categoryParam = urlParams.get('category');
+		
+		if (categoryParam && availableCategories.includes(categoryParam.toLowerCase())) {
+			selectedCategory = categoryParam.toLowerCase();
+		}
+
+		// Start the timer if items are still loading
+		if (items.length === 0) {
+			// Set a timeout to display the timer after 2 seconds
+			setTimeout(() => {
+				showTimer = true;
+				timerInterval = setInterval(() => {
+					elapsedTime = ((Date.now() - startTime) / 1000).toFixed(1);
+				}, 100); // Update every 100ms for smooth decimal increments
+			}, 2000);
+		}
+
+		return () => {
+			// Clean up the timer when component is destroyed
+			if (timerInterval) {
+				clearInterval(timerInterval);
+			}
+		};
+	});
+
+	// Watch for items loading completion and stop the timer
+	$: if (items.length > 0 && timerInterval) {
+		clearInterval(timerInterval);
+		timerInterval = null;
 	}
 
 	/**
@@ -146,6 +193,16 @@
 	 */
 	function setCategory(category: string | null) {
 		selectedCategory = category;
+		
+		// Update URL to reflect category selection without page reload
+		const url = new URL(window.location.href);
+		if (category) {
+			url.searchParams.set('category', category.toLowerCase());
+		} else {
+			url.searchParams.delete('category');
+		}
+		
+		history.replaceState(null, '', url.toString());
 	}
 	
 	/**
@@ -154,6 +211,30 @@
 	 */
 	function handleModalContentClick(event: Event) {
 		event.stopPropagation();
+	}
+
+	/**
+	 * Convert text to Title Case
+	 * @param {string} text - The text to convert
+	 * @returns {string} - The converted text
+	 */
+	function toTitleCase(text: string) {
+		// First convert the entire string to lowercase
+		let result = text.toLowerCase();
+		
+		// Capitalize the first letter of each word
+		result = result.replace(
+			/\w\S*/g,
+			word => word.charAt(0).toUpperCase() + word.substring(1)
+		);
+		
+		// Additionally capitalize any letter that follows a slash
+		result = result.replace(
+			/\/\w/g, 
+			match => match.charAt(0) + match.charAt(1).toUpperCase()
+		);
+		
+		return result;
 	}
 </script>
 
@@ -183,7 +264,7 @@
 							: 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-zinc-700 dark:text-slate-200 dark:hover:bg-zinc-600'}"
 						on:click={() => setCategory(category)}
 					>
-						{category}
+						{toTitleCase(category)}
 					</button>
 				{/each}
 			</div>
@@ -237,7 +318,14 @@
 	{#if filteredItems.length === 0}
 		<div class="py-12 text-center">
 			<p class="text-xl text-gray-500 dark:text-slate-300">
-				{items.length === 0 ? 'Loading service information...' : 'No items found for the selected category.'}
+				{#if items.length === 0}
+					Loading data<span class="loading-dots"></span>
+					{#if showTimer}
+						<span class="timer">({elapsedTime}s)</span>
+					{/if}
+				{:else}
+					No items found for the selected category.
+				{/if}
 			</p>
 		</div>
 	{:else}
@@ -264,7 +352,7 @@
 							{#if item.category}
 								<div class="mb-2">
 									<span class="inline-block rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold text-gray-700 dark:bg-zinc-700 dark:text-slate-300">
-										{item.category}
+										{toTitleCase(item.category)}
 									</span>
 								</div>
 							{/if}
@@ -308,7 +396,7 @@
 								
 								{#if item.category}
 									<span class="inline-block rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold text-gray-700 dark:bg-zinc-700 dark:text-slate-300">
-										{item.category}
+										{toTitleCase(item.category)}
 									</span>
 								{/if}
 							</div>
@@ -401,7 +489,7 @@
 							
 							{#if items[modalItemIndex].category}
 								<span class="inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 dark:bg-zinc-700 dark:text-slate-300">
-									{items[modalItemIndex].category}
+									{toTitleCase(items[modalItemIndex].category)}
 								</span>
 							{/if}
 						</div>
@@ -481,5 +569,31 @@
 	/* Modal scrollbar styling */
 	:global(body.overflow-hidden) {
 		overflow: hidden;
+	}
+
+	.loading-dots::after {
+		content: "";
+		animation: ellipsis 1.5s infinite;
+	}
+
+	@keyframes ellipsis {
+		0% {
+			content: "";
+		}
+		25% {
+			content: ".";
+		}
+		50% {
+			content: "..";
+		}
+		75% {
+			content: "...";
+		}
+	}
+	
+	.timer {
+		margin-left: 0.5rem;
+		font-size: 0.9em;
+		opacity: 0.8;
 	}
 </style>

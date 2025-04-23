@@ -37,11 +37,12 @@
 				label: 'Services',
 				href: '/services',
 				children: [
-					{ label: 'Generators and Power Solutions', href: '/services/generators' },
+					{ label: 'Generators and Power Solutions', href: '/products/construction?category=generators' },
 					//{ label: 'Temporary Fencing', href: '/services/fencing' },
 					{ label: 'Project Site Services', href: '/services/project-site' }
 				]
-			}
+			},
+			{ label: 'About', href: '/about' },
 		],
 		socialLinks: [
 			{ icon: 'Twitter', href: 'https://twitter.com' },
@@ -114,12 +115,13 @@
 		<!-- Hero image overlay text -->
 		<div id="parallax" class="absolute h-[70vh] left-0 flex w-full px-8 items-center justify-center">
 			<div>
-				<h1 class="text-center text-6xl font-bold text-white">
+				<h1 class="pt-4 text-center text-6xl font-bold text-white">
 					{data.siteTitle}
 				</h1>
 				<h2 class="pt-2 text-center text-3xl text-white">
 					{data.siteSubtitle}
 				</h2>
+				<h2 class="pt-6 text-center text-4xl text-white hover:text-red-500 hover:underline transition duration-150 ease-in-out"><a href="tel:+19163838250">+1 (916) 383-8250</a></h2>
 			</div>
 		</div>
 		<!-- Hero image overlay gradient -->
