@@ -37,7 +37,7 @@
 				label: 'Services',
 				href: '/services',
 				children: [
-					{ label: 'Generators and Power Solutions', href: '/products/construction?category=generators' },
+					{ label: 'Generators and Power Solutions', href: '/products/construction?category=Generators' },
 					//{ label: 'Temporary Fencing', href: '/services/fencing' },
 					{ label: 'Project Site Services', href: '/services/project-site' }
 				]
