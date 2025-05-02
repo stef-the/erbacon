@@ -22,7 +22,7 @@
 <section class="py-8">
   <div class="flex justify-center">
     <h3 class="text-xl font-bold text-center text-gray-800 dark:text-slate-50 sm:text-4xl lg:text-5xl h-16 flex justify-center hover:text-red-500 hover:underline transition duration-150 ease-in-out"><a href="tel:+19163838250">+1 (916) 383 8250</a></h3>
-    <img src="/icons/ERBCO_get_it_from_bacon.avif" alt="get it from bacon!" class="h-16 px-4" />
+    <img src="/icons/ERBCO_get_it_from_bacon.avif" alt="get it from bacon!" class="h-16 px-4 rounded-md -translate-y-[2px]" />
   </div>
 </section>
 

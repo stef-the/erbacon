@@ -43,7 +43,7 @@
 	export let featuresTitle = 'Why Choose ERBCO?';
 
 	// Default to grid layout
-	let layout = 'grid';
+	let layout: 'grid' | 'list' | undefined = 'grid';
 	// Show details (specs, features, etc.)
 	let showDetails = true;
 	// Set page-specific metadata

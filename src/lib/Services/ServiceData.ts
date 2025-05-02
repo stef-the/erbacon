@@ -7,8 +7,8 @@ import Papa from 'papaparse';
 export interface ServiceDataItem {
     name: string;
     description: string;
-    imageUrl: string;
-    imageAlt?: string;
+    imageurl: string;
+    imagealt?: string;
     price?: string;
     details?: string;
     brand?: string;

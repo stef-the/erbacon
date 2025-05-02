@@ -2,8 +2,8 @@
 export interface ItemData {
 	name: string;
 	description: string;
-	imageUrl: string;
-	imageAlt?: string;
+	imageurl: string;
+	imagealt?: string;
 	price?: string;
 	details?: string;
 	brand?: string;

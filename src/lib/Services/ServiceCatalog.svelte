@@ -19,7 +19,7 @@
 		name: string;
 		description: string;
 		imageurl: string;
-		imageult?: string;
+		imagealt?: string;
 		price?: string;
 		details?: string;
 		brand?: string;
@@ -43,7 +43,7 @@
 	/**
 	 * Layout style: 'grid' or 'list'
 	 */
-	export let layout = 'grid';
+	export let layout: 'grid' | 'list' = 'grid';
 
 	/**
 	 * Flag to show detailed information when available
@@ -82,7 +82,11 @@
 	 */
 	$: filteredItems = selectedCategory
 		? items.filter(item => item.category && item.category.toLowerCase() === selectedCategory)
-		: items;
+		: items.map(item => ({
+			...item,
+			imageUrl: item.imageurl, // Use the correct property name
+			imageAlt: item.imagealt  // Map imageult to imageAlt
+		}));
 
 	/**
 	 * Extract unique categories from items and store them in lowercase
@@ -123,7 +127,7 @@
 			setTimeout(() => {
 				showTimer = true;
 				timerInterval = setInterval(() => {
-					elapsedTime = ((Date.now() - startTime) / 1000).toFixed(1);
+					elapsedTime = parseFloat(((Date.now() - startTime) / 1000).toFixed(1));
 				}, 100); // Update every 100ms for smooth decimal increments
 			}, 2000);
 		}

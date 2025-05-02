@@ -80,8 +80,8 @@
 				{:else}
 					<div style="min-height: 58vh;">
 						<ImageView 
-							imageUrl={item.imageUrl} 
-							imageAlt={item.imageAlt || item.name} 
+							imageurl={item.imageurl} 
+							imagealt={item.imagealt || item.name} 
 						/>
 					</div>
 				{/if}
