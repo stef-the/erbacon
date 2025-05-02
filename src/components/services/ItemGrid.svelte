@@ -3,8 +3,8 @@
 	export let items: Array<{
 		name: string;
 		description: string;
-		imageUrl: string;
-		imageAlt?: string;
+		imageurl?: string;
+		imagealt?: string;
 		price?: string;
 		category?: string;
 		[key: string]: any;
@@ -13,6 +13,7 @@
 	export let showPrices: boolean;
 	export let openModal: (index: number) => void;
 	export let toTitleCase: (text: string) => string;
+	console.log(items)
 </script>
 
 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -24,11 +25,15 @@
 			aria-label="View details for {item.name}"
 		>
 			<div class="h-40 overflow-hidden">
-				<img
-					src={item.imageUrl}
-					alt={item.imageAlt || item.name}
-					class="h-full w-full transform object-cover transition-transform duration-300 group-hover:scale-[1.05]"
-				/>
+				{#if item.imageurl === undefined || item.imageurl === ''}
+					<div class="h-full w-full bg-gray-200 dark:bg-zinc-700 flex items-center justify-center"></div>
+				{:else}
+					<img
+						src={item.imageurl}
+						alt={item.imagealt || item.name}
+						class="h-full w-full transform object-cover transition-transform duration-300 group-hover:scale-[1.05]"
+					/>
+				{/if}
 			</div>
 			<div class="p-4">
 				<h2 class="mb-2 text-lg font-semibold dark:text-slate-50">{item.name}</h2>
