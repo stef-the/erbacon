@@ -3,8 +3,8 @@
 	export let items: Array<{
 		name: string;
 		description: string;
-		imageUrl: string;
-		imageAlt?: string;
+		imageurl: string;
+		imagealt?: string;
 		price?: string;
 		category?: string;
 		[key: string]: any;
@@ -25,8 +25,8 @@
 		>
 			<div class="overflow-hidden sm:w-1/3 lg:w-1/4">
 				<img
-					src={item.imageUrl}
-					alt={item.imageAlt || item.name}
+					src={item.imageurl}
+					alt={item.imagealt || item.name}
 					class="h-48 w-full transform object-cover transition-transform duration-300 group-hover:scale-[1.05] sm:h-full"
 				/>
 			</div>
