@@ -4,7 +4,7 @@
 	import ImageView from './ImageView.svelte';
 	import PdfViewer from './PdfViewer.svelte';
 	import ItemDetails from './ItemDetails.svelte';
-
+	
 	export let item: ItemData;
 	export let showPrices: boolean;
 	export let closeModal: () => void;
@@ -12,7 +12,7 @@
 
 	// State to control PDF viewer visibility
 	let showPdfViewer = false;
-
+	
 	/**
 	 * Toggle PDF viewer visibility
 	 */
@@ -28,9 +28,9 @@
 	}
 </script>
 
-<!-- Wrapper with keyboard handling -->
+<!-- Wrapper with keyboard handling and backdrop blur -->
 <div 
-	class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8"
+	class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm sm:p-6 md:p-8"
 	role="dialog"
 	aria-modal="true"
 	on:click={closeModal}
@@ -42,7 +42,7 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- To fix later -->
 	<div
-		class="relative max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-xl bg-white shadow-2xl dark:bg-zinc-900"
+		class="relative max-h-[72vh] w-full max-w-5xl overflow-y-auto rounded-xl bg-white shadow-2xl dark:bg-zinc-900"
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby="modal-title"
@@ -50,7 +50,7 @@
 		tabindex="0"
 	>
 		<button
-			class="absolute right-4 top-4 z-10 rounded-full bg-white/80 p-2 text-gray-600 backdrop-blur-sm transition-colors hover:bg-white hover:text-gray-900 dark:bg-zinc-800/80 dark:text-gray-300 dark:hover:bg-zinc-800 dark:hover:text-white"
+			class="absolute cursor-pointer right-4 top-4 z-10 rounded-full bg-white/80 p-2 text-gray-600 backdrop-blur-sm transition-colors hover:bg-white hover:text-gray-900 dark:bg-zinc-800/80 dark:text-gray-300 dark:hover:bg-zinc-800 dark:hover:text-white"
 			on:click={closeModal}
 			aria-label="Close modal"
 		>
@@ -74,14 +74,16 @@
 			<!-- Left side - Image or PDF viewer -->
 			<div class="lg:w-1/2">
 				{#if showPdfViewer && item.pdf}
-					<div class="h-64 lg:h-full">
+					<div class="h-76 lg:h-full" style="min-height: 58vh;">
 						<PdfViewer pdfUrl={item.pdf} />
 					</div>
 				{:else}
-					<ImageView 
-						imageUrl={item.imageUrl} 
-						imageAlt={item.imageAlt || item.name} 
-					/>
+					<div style="min-height: 58vh;">
+						<ImageView 
+							imageUrl={item.imageUrl} 
+							imageAlt={item.imageAlt || item.name} 
+						/>
+					</div>
 				{/if}
 			</div>
 
