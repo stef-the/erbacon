@@ -11,15 +11,15 @@
 
 <div class="flex-1 p-6 lg:p-8 overflow-y-auto max-h-[58vh] flex flex-col">
 	<div class="flex-grow">
-		<div class="mb-4 flex flex-wrap items-center gap-3">
+		<div class="mb-4 flex items-center gap-3">
 			<!-- Icon, itle and category -->
-			<img src="/icons/RED_LOGO_fix.bmp" alt="Logo" class="h-12 rounded">
-			<h2 id="modal-title" class="text-2xl font-bold dark:text-slate-50">
+			<a href="/"><img src="/icons/RED_LOGO_fix.bmp" alt="Logo" class="h-12 rounded"></a>
+			<h2 id="modal-title" class="text-2xl font-bold dark:text-slate-50 text-balance">
 				{item.name}
 			</h2>
 
 			{#if item.category}
-				<span class="inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 dark:bg-zinc-700 dark:text-slate-300 translate-y-[2px] mr-2">
+				<span class="inline-block text-nowrap rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 dark:bg-zinc-700 dark:text-slate-300 translate-y-[2px] mr-2">
 					{toTitleCase(item.category)}
 				</span>
 			{/if}
