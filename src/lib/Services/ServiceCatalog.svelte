@@ -7,7 +7,7 @@
 	import LayoutToggle from '../../components/services/LayoutToggle.svelte';
 	import ItemGrid from '../../components/services/ItemGrid.svelte';
 	import ItemList from '../../components/services/ItemList.svelte';
-	import ItemModal from '../../components/services/ItemModal.svelte';
+	import ItemModal from '../../components/services/itemmodals/ItemModal.svelte';
 	import ContactCta from '../../components/services/ContactCta.svelte';
 	import LoadingIndicator from '../../components/services/LoadingIndicator.svelte';
 	import { toTitleCase } from '../../lib/utils/stringUtils';
