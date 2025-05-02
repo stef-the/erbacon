@@ -18,8 +18,8 @@
 	export let items: Array<{
 		name: string;
 		description: string;
-		imageUrl: string;
-		imageAlt?: string;
+		imageurl: string;
+		imageult?: string;
 		price?: string;
 		details?: string;
 		brand?: string;
