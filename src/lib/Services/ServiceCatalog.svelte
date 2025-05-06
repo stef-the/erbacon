@@ -82,11 +82,7 @@
 	 */
 	$: filteredItems = selectedCategory
 		? items.filter(item => item.category && item.category.toLowerCase() === selectedCategory)
-		: items.map(item => ({
-			...item,
-			imageUrl: item.imageurl, // Use the correct property name
-			imageAlt: item.imagealt  // Map imageult to imageAlt
-		}));
+		: items;
 
 	/**
 	 * Extract unique categories from items and store them in lowercase
@@ -159,7 +155,6 @@
 	function openModal(index: number) {
 		modalItemIndex = index;
 		isModalOpen = true;
-		document.body.classList.add('overflow-hidden');
 	}
 
 	/**
@@ -168,7 +163,6 @@
 	function closeModal() {
 		isModalOpen = false;
 		modalItemIndex = null;
-		document.body.classList.remove('overflow-hidden');
 	}
 
 	/**
@@ -250,7 +244,4 @@
 </div>
 
 <style>
-	:global(body.overflow-hidden) {
-		overflow: hidden;
-	}
 </style>
