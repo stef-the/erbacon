@@ -14,7 +14,7 @@
 		heroVideo: string | Array<string> | null;
 		navItems: { label: string; href: string; children?: { label: string; href: string }[] }[];
 		socialLinks: { icon: string; href: string; target?: string }[];
-		footerLinks: { title: string; links: { icon: string; label: string; href: string }[] }[];
+		footerLinks: { title: string; links: { icon: string; label: string; href: string; target?: string }[] }[];
 	} = {
 		siteTitle: 'Edward R. Bacon Company',
 		siteSubtitle: 'Serving the California construction industry since 1910',
@@ -125,7 +125,7 @@
 			</div>
 		</div>
 		<!-- Hero image overlay gradient -->
-		<div class="absolute top-0 left-0 w-full h-[70vh] bg-gradient-to-b from-transparent to-black opacity-50 -z-40"></div>
+		<div class="absolute top-0 left-0 w-full h-[70vh] bg-gradient-to-b from-transparent to-black opacity-20 -z-40"></div>
 		<!-- Hero image area -->
 		<div class="fixed -z-50 flex h-[70vh] w-full items-center justify-center bg-gray-200">
 			{#if data.heroImage}
