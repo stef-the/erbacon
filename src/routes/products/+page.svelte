@@ -44,7 +44,7 @@
 		isVisible = true;
 		setTimeout(() => {
 			delay = 0;
-		}, products.length * 100)
+		}, products.length * 100);
 	});
 </script>
 
@@ -61,11 +61,11 @@
 </div>
 
 <div class="mx-auto max-w-6xl">
-	<div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-fr">
+	<div class="mb-12 grid auto-rows-fr grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
 		{#each products as product, index}
-			<a href={product.href} class="group no-underline h-full">
+			<a href={product.href} class="group h-full no-underline">
 				<div
-					class="transform h-full overflow-hidden rounded-lg bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:bg-zinc-900/70 {isVisible
+					class="h-full transform overflow-hidden rounded-lg bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:bg-zinc-900/70 {isVisible
 						? 'translate-y-0 opacity-100'
 						: 'translate-y-10 opacity-0'}"
 					style="transition-delay: {index * 100 * delay}ms"
@@ -73,12 +73,14 @@
 					<div class="h-64 overflow-hidden shadow-sm">
 						<img
 							src={product.imageUrl}
-							alt= {product.imageAlt}
-							class="flex h-full w-full items-center justify-center object-cover bg-gray-200 text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
-						>
+							alt={product.imageAlt}
+							class="flex h-full w-full items-center justify-center bg-gray-200 object-cover text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
+						/>
 					</div>
 					<div class="p-6">
-						<h2 class="mb-2 text-2xl font-bold text-gray-900 dark:text-slate-50">{product.title}</h2>
+						<h2 class="mb-2 text-2xl font-bold text-gray-900 dark:text-slate-50">
+							{product.title}
+						</h2>
 						<p class="mb-4 text-gray-700 dark:text-slate-300">{product.description}</p>
 						<div class="flex items-center font-semibold text-red-600 group-hover:text-red-700">
 							Learn more
