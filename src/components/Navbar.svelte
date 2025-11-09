@@ -73,7 +73,7 @@
 
 		<!-- Desktop navigation -->
 		<div class="hidden flex-grow sm:flex">
-			<ul class="flex h-16 flex-wrap sm:ml-8">
+			<ul class="flex h-16 flex-wrap sm:ml-8 flex-1 justify-evenly">
 				{#each navItems as item, index}
 					<li
 						bind:this={navItemRefs[index]}
