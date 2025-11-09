@@ -121,7 +121,7 @@
 				<h2 class="pt-2 text-center text-3xl text-white">
 					{data.siteSubtitle}
 				</h2>
-				<h2 class="pt-6 text-center text-4xl text-white hover:text-red-500 hover:underline transition duration-150 ease-in-out"><a href="tel:+19163838250">+1 (916) 383-8250</a></h2>
+				<h2 class="pt-6 text-center text-6xl text-white hover:text-red-500 hover:underline transition duration-150 ease-in-out"><a href="tel:+19163838250">+1 (916) 383-8250</a></h2>
 			</div>
 		</div>
 		<!-- Hero image overlay gradient -->
