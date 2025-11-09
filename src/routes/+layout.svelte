@@ -14,7 +14,10 @@
 		heroVideo: string | Array<string> | null;
 		navItems: { label: string; href: string; children?: { label: string; href: string }[] }[];
 		socialLinks: { icon: string; href: string; target?: string }[];
-		footerLinks: { title: string; links: { icon: string; label: string; href: string; target?: string }[] }[];
+		footerLinks: {
+			title: string;
+			links: { icon: string; label: string; href: string; target?: string }[];
+		}[];
 	} = {
 		siteTitle: 'Edward R. Bacon Company',
 		siteSubtitle: 'Serving the California construction industry since 1910',
@@ -26,9 +29,8 @@
 			{
 				label: 'Products',
 				href: '/products',
-				children:[
+				children: [
 					{ label: 'Construction Products', href: '/products/construction' },
-					{ label: 'Used Equipment', href: '/products/used' },
 					{ label: 'Truck Equipment', href: '/products/trucks' },
 					{ label: 'Parts and Miscellaneous', href: '/products/parts' }
 				]
@@ -37,12 +39,16 @@
 				label: 'Services',
 				href: '/services',
 				children: [
-					{ label: 'Generators and Power Solutions', href: '/products/construction?category=Generators' },
+					{
+						label: 'Generators and Power Solutions',
+						href: '/products/construction?category=Generators'
+					},
 					//{ label: 'Temporary Fencing', href: '/services/fencing' },
 					{ label: 'Project Site Services', href: '/services/project-site' }
 				]
 			},
-			{ label: 'About', href: '/about' },
+			{ label: 'About Us', href: '/about' },
+			{ label: 'Used Equipment', href: '/products/used' }
 		],
 		socialLinks: [
 			{ icon: 'Twitter', href: 'https://twitter.com' },
@@ -61,7 +67,7 @@
 		]
 	};
 
-// Define dark mode colours
+	// Define dark mode colours
 	const zinc_900 = 'oklch(0.21 0.006 285.885)';
 	const gray_900 = 'oklch(0.21 0.034 264.665)';
 
@@ -113,7 +119,10 @@
 	<!-- Hero image area -->
 	<div class="h-[70vh] w-full">
 		<!-- Hero image overlay text -->
-		<div id="parallax" class="absolute h-[70vh] left-0 flex w-full px-8 items-center justify-center">
+		<div
+			id="parallax"
+			class="absolute left-0 flex h-[70vh] w-full items-center justify-center px-8"
+		>
 			<div>
 				<h1 class="pt-4 text-center text-6xl font-bold text-white">
 					{data.siteTitle}
@@ -121,11 +130,17 @@
 				<h2 class="pt-2 text-center text-3xl text-white">
 					{data.siteSubtitle}
 				</h2>
-				<h2 class="pt-6 text-center text-6xl text-white hover:text-red-500 hover:underline transition duration-150 ease-in-out"><a href="tel:+19163838250">+1 (916) 383-8250</a></h2>
+				<h2
+					class="pt-6 text-center text-6xl text-white transition duration-150 ease-in-out hover:text-red-500 hover:underline"
+				>
+					<a href="tel:+19163838250">+1 (916) 383-8250</a>
+				</h2>
 			</div>
 		</div>
 		<!-- Hero image overlay gradient -->
-		<div class="absolute top-0 left-0 w-full h-[70vh] bg-gradient-to-b from-transparent to-black opacity-20 -z-40"></div>
+		<div
+			class="absolute top-0 left-0 -z-40 h-[70vh] w-full bg-gradient-to-b from-transparent to-black opacity-20"
+		></div>
 		<!-- Hero image area -->
 		<div class="fixed -z-50 flex h-[70vh] w-full items-center justify-center bg-gray-200">
 			{#if data.heroImage}
@@ -152,7 +167,7 @@
 	<Navbar navItems={data.navItems} />
 
 	<!-- Main content area -->
-	<div id="content" class="w-full bg-slate-50 dark:bg-zinc-800 pt-8">
+	<div id="content" class="w-full bg-slate-50 pt-8 dark:bg-zinc-800">
 		<main class="container mx-auto flex-grow px-4 py-8">
 			<slot />
 		</main>
