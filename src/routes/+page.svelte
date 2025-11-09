@@ -1,7 +1,7 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
 	import { onMount } from 'svelte';
-	
+
 	const data: {
 		cards: {
 			title: string;
@@ -77,30 +77,30 @@
 		isVisible = true;
 		setTimeout(() => {
 			delay = 0;
-		}, data.cards.length * 100)
+		}, data.cards.length * 100);
 	});
 </script>
-
-
 
 <!-- Welcome section below the cards:
      - Same responsive prose width and scroll padding as above
      - Vertical margin spacing
      - Dark mode text color -->
-<section class="prose lg:prose-lg mx-auto mt-6 mb-24 scroll-pt-28 text-slate-800 dark:text-slate-50">
-    <!-- Section heading with larger text and dark mode styling -->
-    <h2 class="text-6xl font-bold text-center dark:text-slate-50">Welcome to our Website</h2>
-    
-    <!-- Content wrapper with vertical margin -->
-    <div class="my-6">
-        <!-- Mission statement paragraph with top margin -->
-        <p class="mt-4">
-            Our mission is to offer our customers unparalleled service. We are committed to helping your
-            business run more smoothly. That's why we offer more choices in equipment, an experienced
-            staff that understands the industry and a complete inventory of parts to give you what you
-            need when you need it.
-        </p>
-    </div>
+<section
+	class="prose lg:prose-lg mx-auto mt-6 mb-24 scroll-pt-28 text-slate-800 dark:text-slate-50"
+>
+	<!-- Section heading with larger text and dark mode styling -->
+	<h2 class="text-center text-6xl font-bold dark:text-slate-50">Welcome to our Website</h2>
+
+	<!-- Content wrapper with vertical margin -->
+	<div class="my-6">
+		<!-- Mission statement paragraph with top margin -->
+		<p class="mt-4">
+			Our mission is to provide customers with the right equipment that best meets their specific
+			equipment application. Our experienced staff understand the industry, and we are committed to
+			making our customers job easier and more profitable, with creative solutions and over 120
+			years of experience. Visit our <a href="./">photo gallery</a> take a look into our rich history.
+		</p>
+	</div>
 </section>
 
 <style lang="css">

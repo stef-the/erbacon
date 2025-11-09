@@ -59,10 +59,7 @@
 		footerLinks: [
 			{
 				title: 'Company',
-				links: [
-					{ icon: 'Info', label: 'About', href: '/about' },
-					{ icon: 'eBay', label: 'eBay', href: 'https://www.ebay.com', target: '_blank' }
-				]
+				links: [{ icon: 'eBay', label: 'eBay', href: 'https://www.ebay.com', target: '_blank' }]
 			}
 		]
 	};
@@ -175,6 +172,8 @@
 
 	<!-- Footer -->
 	<Footer
+		address={{ line1: '8440-A Belvedere Avenue', line2: 'Sacramento, CA 95826' }}
+		phoneNumber="+1 (916) 383-8250"
 		companyName={data.companyName}
 		socialLinks={data.socialLinks}
 		footerLinks={data.footerLinks}
