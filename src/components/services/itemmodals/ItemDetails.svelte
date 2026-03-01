@@ -84,7 +84,7 @@
 
 	<div class="mt-6 pt-4 border-t border-gray-200 dark:border-zinc-700 flex flex-wrap items-center justify-end gap-4">
 		<a
-			href="/contact"
+			href="tel:+19163838250"
 			class="rounded-lg bg-red-600 px-6 py-2 font-semibold text-white transition-colors hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
 		>
 			Inquire About This Item

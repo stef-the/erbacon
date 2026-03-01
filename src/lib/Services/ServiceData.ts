@@ -50,7 +50,7 @@ export async function fetchServiceData(sheets_url: string): Promise<ServiceDataI
         // Process the data to ensure all expected fields are present
         const processedData = parsedData.data.map(item => {
             // Ensure required fields are present
-            if (!item.name || !item.description || !item.imageUrl) {
+            if (!item.name || !item.description || !item.imageurl) {
                 console.warn('Item missing required fields:', item);
             }
             
