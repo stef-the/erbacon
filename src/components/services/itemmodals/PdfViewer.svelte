@@ -1,81 +1,17 @@
 <!-- src/components/services/itemmodals/PdfViewer.svelte -->
 <script lang="ts">
 	import PdfSearchBar from './PdfSearchBar.svelte';
-	import { onMount } from 'svelte';
 
 	export let pdfUrl: string;
 
-	// State for PDF viewer
-	let pdfViewerElement: HTMLEmbedElement;
-	let pdfContainerElement: HTMLDivElement;
+	let pdfViewerElement: HTMLIFrameElement;
 	let searchTerm = '';
 	let showSearchBar = false;
-	let overlayElement: HTMLDivElement;
-
-	onMount(() => {
-		// Setup the interaction overlay
-		setupInteractionOverlay();
-	});
 
 	/**
-	 * Set up an interaction overlay that blocks clicks to links but allows scrolling
+	 * Ensure the PDF URL starts with a leading slash
 	 */
-	function setupInteractionOverlay() {
-		// We need to wait for the embed to load
-		if (pdfViewerElement) {
-			pdfViewerElement.onload = () => {
-				// Position the overlay over the PDF
-				if (overlayElement && pdfContainerElement) {
-					positionOverlay();
-
-					// Add event listeners for scrolling the overlay with the container
-					pdfContainerElement.addEventListener('scroll', positionOverlay);
-					window.addEventListener('resize', positionOverlay);
-
-					// For Firefox and other browsers that might need it
-					overlayElement.addEventListener(
-						'DOMMouseScroll',
-						(e: Event) => {
-							handleWheel(e as WheelEvent);
-						},
-						{ passive: false }
-					);
-				}
-			};
-		}
-	}
-
-	/**
-	 * Update overlay position to match the PDF viewer
-	 */
-	function positionOverlay() {
-		if (!overlayElement || !pdfViewerElement) return;
-
-		overlayElement.style.position = 'absolute';
-		overlayElement.style.top = `${pdfViewerElement.offsetTop}px`;
-		overlayElement.style.left = `${pdfViewerElement.offsetLeft}px`;
-		overlayElement.style.width = `${pdfViewerElement.offsetWidth}px`;
-		overlayElement.style.height = `${pdfViewerElement.offsetHeight}px`;
-		overlayElement.style.pointerEvents = 'auto';
-	}
-
-	/**
-	 * Handle overlay wheel events to allow scrolling
-	 */
-	function handleWheel(event: WheelEvent) {
-		// Prevent default behavior to avoid potential conflicts
-		event.preventDefault();
-
-		// Pass wheel events through to container for scrolling
-		if (pdfViewerElement) {
-			// Use a multiplier for smoother scrolling
-			const scrollMultiplier = 1.0;
-			pdfViewerElement.scrollTop += event.deltaY * scrollMultiplier;
-		}
-
-		// Return false to ensure the event doesn't propagate
-		return false;
-	}
+	$: resolvedUrl = pdfUrl.startsWith('/') ? pdfUrl : `/${pdfUrl}`;
 
 	/**
 	 * Toggle search bar visibility
@@ -83,7 +19,6 @@
 	function toggleSearchBar() {
 		showSearchBar = !showSearchBar;
 		if (showSearchBar) {
-			// Focus on the search input when shown
 			setTimeout(() => {
 				const searchInput = document.getElementById('pdf-search-input');
 				if (searchInput) {
@@ -97,10 +32,8 @@
 	 * Print only the PDF document
 	 */
 	function printPdf() {
-		if (pdfUrl) {
-			// Open the PDF in a new window and print it directly
-			const printWindow = window.open(pdfUrl, '_blank');
-			// Wait for the window to load before printing
+		if (resolvedUrl) {
+			const printWindow = window.open(resolvedUrl, '_blank');
 			if (printWindow) {
 				printWindow.onload = function () {
 					printWindow.print();
@@ -113,20 +46,14 @@
 	 * Search in the PDF
 	 */
 	function searchPdf() {
-		if (!pdfUrl || !searchTerm.trim()) return;
+		if (!resolvedUrl || !searchTerm.trim()) return;
 
 		try {
-			// Try to update the existing embed element with search param
 			if (pdfViewerElement) {
-				const pdfUrlWithSearch = `${pdfUrl}#search=${encodeURIComponent(searchTerm)}`;
-				pdfViewerElement.src = pdfUrlWithSearch;
-
-				// Reposition overlay after search
-				setTimeout(positionOverlay, 300);
+				pdfViewerElement.src = `${resolvedUrl}#search=${encodeURIComponent(searchTerm)}`;
 			}
 		} catch {
-			// Fallback to opening in new window if embed manipulation failed
-			window.open(`${pdfUrl}#search=${encodeURIComponent(searchTerm)}`, '_blank');
+			window.open(`${resolvedUrl}#search=${encodeURIComponent(searchTerm)}`, '_blank');
 		}
 	}
 </script>
@@ -136,33 +63,20 @@
 		<PdfSearchBar bind:searchTerm onSearch={searchPdf} onClose={toggleSearchBar} />
 	{/if}
 
-	<div
-		class="relative flex-grow overflow-auto p-2"
-		style="min-height: 50vh; scrollbar-width: auto;"
-		bind:this={pdfContainerElement}
-	>
-		<embed
-			src={pdfUrl}
-			type="application/pdf"
-			width="100%"
-			height="100%"
-			class="rounded-md"
+	<div class="flex-grow overflow-hidden p-2" style="min-height: 50vh;">
+		<iframe
+			src={resolvedUrl}
+			title="PDF document viewer"
+			class="h-full w-full rounded-md border-0"
+			style="min-height: 50vh;"
 			id="pdf-viewer"
 			bind:this={pdfViewerElement}
-		/>
-
-		<!-- Transparent overlay div to block interactions with PDF links but allow scrolling -->
-		<div
-			class="absolute top-0 left-0 z-10 h-full w-full"
-			bind:this={overlayElement}
-			on:wheel|preventDefault|stopPropagation={handleWheel}
-			style="background: transparent; cursor: default;"
-		></div>
+		></iframe>
 	</div>
 
 	<div class="flex flex-wrap gap-2 bg-gray-50 p-2 dark:bg-zinc-800">
 		<button
-			on:click={() => window.open(pdfUrl, '_blank')}
+			on:click={() => window.open(resolvedUrl, '_blank')}
 			class="rounded-lg bg-gray-200 px-3 py-1 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:outline-none dark:bg-zinc-700 dark:text-slate-200 dark:hover:bg-zinc-600 dark:focus:ring-offset-zinc-800"
 		>
 			<span class="flex items-center gap-1">
