@@ -28,6 +28,14 @@
 			href: '/products/trucks'
 		},
 		{
+			title: 'Mobile Equipment',
+			description:
+				'Stellar Industries mobile equipment including mechanic trucks, hook lifts, tool boxes, and more.',
+			imageUrl: '/truck-equipment/mobile-equipment-gallery/service-truck-1.jpg',
+			imageAlt: 'Mobile equipment',
+			href: '/products/mobile-equipment'
+		},
+		{
 			title: 'Parts and Miscellaneous',
 			description: 'We offer a wide range of parts and miscellaneous products for your needs.',
 			imageUrl:

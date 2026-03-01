@@ -32,6 +32,7 @@
 				children: [
 					{ label: 'Construction Products', href: '/products/construction' },
 					{ label: 'Truck Equipment', href: '/products/trucks' },
+					{ label: 'Mobile Equipment', href: '/products/mobile-equipment' },
 					{ label: 'Parts and Miscellaneous', href: '/products/parts' }
 				]
 			},
