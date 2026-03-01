@@ -1,4 +1,4 @@
-// lib/Services/ServiceData.js
+// src/lib/Services/ServiceData.ts
 import Papa from 'papaparse';
 
 /**
@@ -17,6 +17,7 @@ export interface ServiceDataItem {
 	availability?: string;
 	contactInfo?: string;
 	category?: string;
+	pdf?: string;
 	[key: string]: string | number | boolean | null | undefined; // To allow additional properties
 }
 
