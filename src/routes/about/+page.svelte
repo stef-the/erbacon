@@ -20,6 +20,8 @@
 		name="description"
 		content="Learn about Edward R. Bacon Company's rich history serving the West Coast construction industry since 1910, our experienced team, and our commitment to unparalleled service."
 	/>
+	<meta property="og:title" content="About Us | Edward R. Bacon Company" />
+	<meta property="og:description" content="Learn about Edward R. Bacon Company's rich history serving the West Coast construction industry since 1910." />
 </svelte:head>
 
 <section class="prose lg:prose-lg mx-auto mb-16 scroll-pt-28">
@@ -53,7 +55,6 @@
 </section>
 
 <style>
-	/* Add any page-specific styles here */
 	:global(.prose) {
 		max-width: 1200px;
 	}
