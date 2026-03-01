@@ -12,7 +12,7 @@
 <div class="flex max-h-[58vh] flex-1 flex-col overflow-y-auto p-6 lg:p-8">
 	<div class="flex-grow">
 		<div class="mb-4 flex items-center gap-3">
-			<!-- Icon, itle and category -->
+			<!-- Icon, title and category -->
 			<a href="/"><img src="/icons/RED_LOGO_fix.bmp" alt="Logo" class="h-12 rounded" /></a>
 			<h2 id="modal-title" class="text-2xl font-bold text-balance dark:text-slate-50">
 				{item.name}
@@ -85,21 +85,21 @@
 	</div>
 
 	<div
-		class="mt-6 flex flex-wrap items-center justify-end gap-4 border-t border-gray-200 pt-4 dark:border-zinc-700"
+		class="mt-6 flex flex-nowrap items-center justify-end gap-3 border-t border-gray-200 pt-4 dark:border-zinc-700"
 	>
 		<a
 			href="tel:+19163838250"
-			class="rounded-lg bg-red-600 px-6 py-2 font-semibold text-white transition-colors hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
+			class="shrink-0 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-nowrap text-white transition-colors hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
 		>
-			Inquire About This Item
+			Inquire
 		</a>
 
 		{#if item.pdf}
 			<button
 				on:click={togglePdfViewer}
-				class="rounded-lg bg-gray-200 px-6 py-2 font-semibold text-gray-800 transition-colors hover:bg-gray-300 dark:bg-zinc-700 dark:text-slate-100 dark:hover:bg-zinc-600"
+				class="shrink-0 rounded-lg bg-gray-200 px-4 py-2 text-sm font-semibold text-nowrap text-gray-800 transition-colors hover:bg-gray-300 dark:bg-zinc-700 dark:text-slate-100 dark:hover:bg-zinc-600"
 			>
-				{showPdfViewer ? 'Show Image' : 'View Documentation'}
+				{showPdfViewer ? 'Show Image' : 'View Docs'}
 			</button>
 		{/if}
 	</div>

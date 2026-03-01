@@ -72,11 +72,11 @@
 			<!-- Left side - Image or PDF viewer -->
 			<div class="lg:w-1/2">
 				{#if showPdfViewer && item.pdf}
-					<div class="h-76 lg:h-full" style="min-height: 58vh;">
+					<div class="h-full" style="min-height: 58vh;">
 						<PdfViewer pdfUrl={item.pdf} />
 					</div>
 				{:else}
-					<div style="min-height: 58vh;">
+					<div class="h-full" style="min-height: 58vh;">
 						<ImageView imageurl={item.imageurl} imagealt={item.imagealt || item.name} />
 					</div>
 				{/if}
