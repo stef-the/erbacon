@@ -53,13 +53,13 @@
 	/>
 	<button
 		bind:this={searchButtonElement}
-		class="rounded-r-lg bg-blue-500 px-3 py-1 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-offset-zinc-800"
+		class="rounded-r-lg bg-blue-500 px-3 py-1 text-white hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-offset-zinc-800"
 		on:click={onSearch}
 	>
 		Search
 	</button>
 	<button
-		class="ml-2 rounded-lg bg-gray-300 px-2 py-1 text-gray-700 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 dark:bg-zinc-600 dark:text-gray-300 dark:hover:bg-zinc-500 dark:focus:ring-offset-zinc-800"
+		class="ml-2 rounded-lg bg-gray-300 px-2 py-1 text-gray-700 hover:bg-gray-400 focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:outline-none dark:bg-zinc-600 dark:text-gray-300 dark:hover:bg-zinc-500 dark:focus:ring-offset-zinc-800"
 		on:click={onClose}
 	>
 		Close

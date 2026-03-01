@@ -3,10 +3,11 @@
 	export let layout: 'grid' | 'list';
 </script>
 
-<div class="mb-4 hidden sm:flex justify-end">
+<div class="mb-4 hidden justify-end sm:flex">
 	<div class="inline-flex rounded-lg bg-gray-200 dark:bg-zinc-700">
 		<button
-			class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-gray-500 {layout === 'grid'
+			class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-gray-500 {layout ===
+			'grid'
 				? 'bg-white shadow-sm dark:bg-zinc-900 dark:text-slate-50'
 				: ''}"
 			on:click={() => (layout = 'grid')}
@@ -24,7 +25,8 @@
 			</svg>
 		</button>
 		<button
-			class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-gray-500 {layout === 'list'
+			class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-gray-500 {layout ===
+			'list'
 				? 'bg-white shadow-sm dark:bg-zinc-900 dark:text-slate-50'
 				: ''}"
 			on:click={() => (layout = 'list')}

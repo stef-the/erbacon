@@ -75,21 +75,15 @@
 	 * Filtered items based on category selection
 	 */
 	$: filteredItems = selectedCategory
-		? items.filter(item => item.category && item.category.toLowerCase() === selectedCategory)
+		? items.filter((item) => item.category && item.category.toLowerCase() === selectedCategory)
 		: items;
 
 	/**
 	 * Extract unique categories from items and store them in lowercase
 	 */
-	$: {
-		const categories = new Set<string>();
-		items.forEach(item => {
-			if (item.category) {
-				categories.add(item.category.toLowerCase());
-			}
-		});
-		availableCategories = Array.from(categories).sort();
-	}
+	$: availableCategories = [
+		...new Set(items.filter((item) => item.category).map((item) => item.category!.toLowerCase()))
+	].sort();
 
 	// Timer variables for loading state
 	let elapsedTime = 2;
@@ -102,11 +96,11 @@
 	onMount(() => {
 		// Start the timer
 		const startTime = Date.now();
-		
+
 		// Check if there's a category parameter in the URL
 		const urlParams = new URLSearchParams(window.location.search);
 		const categoryParam = urlParams.get('category');
-		
+
 		if (categoryParam && availableCategories.includes(categoryParam.toLowerCase())) {
 			selectedCategory = categoryParam.toLowerCase();
 		}
@@ -157,7 +151,7 @@
 	 */
 	function setCategory(category: string | null) {
 		selectedCategory = category;
-		
+
 		// Update URL to reflect category selection without page reload
 		const url = new URL(window.location.href);
 		if (category) {
@@ -165,7 +159,7 @@
 		} else {
 			url.searchParams.delete('category');
 		}
-		
+
 		history.replaceState(null, '', url.toString());
 	}
 </script>
@@ -176,38 +170,29 @@
 
 	<!-- Category filters -->
 	{#if availableCategories.length > 0}
-		<CategoryFilters
-			{availableCategories}
-			{selectedCategory}
-			{setCategory}
-			{toTitleCase}
-		/>
+		<CategoryFilters {availableCategories} {selectedCategory} {setCategory} {toTitleCase} />
 	{/if}
 
 	<!-- Layout Toggle -->
 	<LayoutToggle bind:layout />
 
 	{#if filteredItems.length === 0}
-		<LoadingIndicator 
-			isLoading={items.length === 0} 
-			{showTimer} 
-			{elapsedTime} 
-		/>
+		<LoadingIndicator isLoading={items.length === 0} {showTimer} {elapsedTime} />
 	{:else}
 		<!-- Grid or List Layout -->
 		{#if layout === 'grid'}
-			<ItemGrid 
-				items={filteredItems} 
+			<ItemGrid
+				items={filteredItems}
 				allItems={items}
-				showPrices={categoryInfo.showPrices} 
+				showPrices={categoryInfo.showPrices}
 				{openModal}
 				{toTitleCase}
 			/>
 		{:else}
-			<ItemList 
-				items={filteredItems} 
+			<ItemList
+				items={filteredItems}
 				allItems={items}
-				showPrices={categoryInfo.showPrices} 
+				showPrices={categoryInfo.showPrices}
 				{openModal}
 				{toTitleCase}
 			/>
@@ -221,8 +206,8 @@
 
 	<!-- Modal View -->
 	{#if isModalOpen && modalItemIndex !== null && items[modalItemIndex]}
-		<ItemModal 
-			item={items[modalItemIndex]} 
+		<ItemModal
+			item={items[modalItemIndex]}
 			showPrices={categoryInfo.showPrices}
 			{closeModal}
 			{toTitleCase}

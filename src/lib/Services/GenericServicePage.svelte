@@ -3,19 +3,16 @@
 	import ServiceCatalog from '$lib/Services/ServiceCatalog.svelte';
 	import type { ServiceDataItem } from '$lib/Services/ServiceData';
 
-	/**
-	 * @type {{
-	 *   items: ServiceDataItem[],
-	 *   categoryInfo: {
-	 *     title: string,
-	 *     description: string,
-	 *     contactCta: string,
-	 *     showPrices: boolean
-	 *   },
-	 *   error?: string
-	 * }}
-	 */
-	export let data;
+	export let data: {
+		items: ServiceDataItem[];
+		categoryInfo?: {
+			title: string;
+			description: string;
+			contactCta: string;
+			showPrices: boolean;
+		};
+		error?: string;
+	};
 
 	/**
 	 * @type {string}
@@ -25,7 +22,7 @@
 	/**
 	 * @type {{title: string, description: string}[]}
 	 */
-	export let features: { title: string, description: string }[] = [];
+	export let features: { title: string; description: string }[] = [];
 
 	/**
 	 * @type {string}

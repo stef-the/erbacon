@@ -4,7 +4,7 @@
 	import ImageView from './ImageView.svelte';
 	import PdfViewer from './PdfViewer.svelte';
 	import ItemDetails from './ItemDetails.svelte';
-	
+
 	export let item: ItemData;
 	export let showPrices: boolean;
 	export let closeModal: () => void;
@@ -12,7 +12,7 @@
 
 	// State to control PDF viewer visibility
 	let showPdfViewer = false;
-	
+
 	/**
 	 * Toggle PDF viewer visibility
 	 */
@@ -48,7 +48,7 @@
 		tabindex="0"
 	>
 		<button
-			class="absolute cursor-pointer right-4 top-4 z-10 rounded-full bg-white/80 p-2 text-gray-600 backdrop-blur-sm transition-colors hover:bg-white hover:text-gray-900 dark:bg-zinc-800/80 dark:text-gray-300 dark:hover:bg-zinc-800 dark:hover:text-white"
+			class="absolute top-4 right-4 z-10 cursor-pointer rounded-full bg-white/80 p-2 text-gray-600 backdrop-blur-sm transition-colors hover:bg-white hover:text-gray-900 dark:bg-zinc-800/80 dark:text-gray-300 dark:hover:bg-zinc-800 dark:hover:text-white"
 			on:click={closeModal}
 			aria-label="Close modal"
 		>
@@ -77,22 +77,13 @@
 					</div>
 				{:else}
 					<div style="min-height: 58vh;">
-						<ImageView 
-							imageurl={item.imageurl} 
-							imagealt={item.imagealt || item.name} 
-						/>
+						<ImageView imageurl={item.imageurl} imagealt={item.imagealt || item.name} />
 					</div>
 				{/if}
 			</div>
 
 			<!-- Right side - Item details -->
-			<ItemDetails 
-				{item} 
-				{showPrices} 
-				{toTitleCase} 
-				{togglePdfViewer}
-				{showPdfViewer}
-			/>
+			<ItemDetails {item} {showPrices} {toTitleCase} {togglePdfViewer} {showPdfViewer} />
 		</div>
 	</div>
 </div>

@@ -1,17 +1,17 @@
 <!-- src/routes/about/+page.svelte -->
 <script lang="ts">
 	const features = [
-			{
-				title: 'One hundred years of history',
-				description:
-					'The Edward R. Bacon Company was founded in 1910. We’ve witnessed firsthand the evolution of the construction equipment industry. We’ve also seen many companies come and go. All this time, we’ve continued to offer great products and services to our customers. When you do business with us, you can count on our history to know that we’ll be there for you.'
-			},
-			{
-				title: 'Family values work for you',
-				description:
-					'The Edward R. Bacon Company, Inc. has been family owned and run since its inception. The family values and business principles upon which the company was founded are still practiced today by its owners and employees. We appreciate our customers and it shows when you work with us.'
-			}
-		]
+		{
+			title: 'One hundred years of history',
+			description:
+				'The Edward R. Bacon Company was founded in 1910. We’ve witnessed firsthand the evolution of the construction equipment industry. We’ve also seen many companies come and go. All this time, we’ve continued to offer great products and services to our customers. When you do business with us, you can count on our history to know that we’ll be there for you.'
+		},
+		{
+			title: 'Family values work for you',
+			description:
+				'The Edward R. Bacon Company, Inc. has been family owned and run since its inception. The family values and business principles upon which the company was founded are still practiced today by its owners and employees. We appreciate our customers and it shows when you work with us.'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -21,7 +21,10 @@
 		content="Learn about Edward R. Bacon Company's rich history serving the West Coast construction industry since 1910, our experienced team, and our commitment to unparalleled service."
 	/>
 	<meta property="og:title" content="About Us | Edward R. Bacon Company" />
-	<meta property="og:description" content="Learn about Edward R. Bacon Company's rich history serving the West Coast construction industry since 1910." />
+	<meta
+		property="og:description"
+		content="Learn about Edward R. Bacon Company's rich history serving the West Coast construction industry since 1910."
+	/>
 </svelte:head>
 
 <section class="prose lg:prose-lg mx-auto mb-16 scroll-pt-28">

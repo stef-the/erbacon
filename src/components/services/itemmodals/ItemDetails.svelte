@@ -9,17 +9,19 @@
 	export let showPdfViewer: boolean;
 </script>
 
-<div class="flex-1 p-6 lg:p-8 overflow-y-auto max-h-[58vh] flex flex-col">
+<div class="flex max-h-[58vh] flex-1 flex-col overflow-y-auto p-6 lg:p-8">
 	<div class="flex-grow">
 		<div class="mb-4 flex items-center gap-3">
 			<!-- Icon, itle and category -->
-			<a href="/"><img src="/icons/RED_LOGO_fix.bmp" alt="Logo" class="h-12 rounded"></a>
-			<h2 id="modal-title" class="text-2xl font-bold dark:text-slate-50 text-balance">
+			<a href="/"><img src="/icons/RED_LOGO_fix.bmp" alt="Logo" class="h-12 rounded" /></a>
+			<h2 id="modal-title" class="text-2xl font-bold text-balance dark:text-slate-50">
 				{item.name}
 			</h2>
 
 			{#if item.category}
-				<span class="inline-block text-nowrap rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 dark:bg-zinc-700 dark:text-slate-300 translate-y-[2px] mr-2">
+				<span
+					class="mr-2 inline-block translate-y-[2px] rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-nowrap text-gray-700 dark:bg-zinc-700 dark:text-slate-300"
+				>
 					{toTitleCase(item.category)}
 				</span>
 			{/if}
@@ -31,7 +33,7 @@
 			</p>
 		{/if}
 
-		<div class="mb-6 prose max-w-none dark:prose-invert">
+		<div class="prose dark:prose-invert mb-6 max-w-none">
 			<p class="text-gray-700 dark:text-slate-300">
 				{item.description}
 			</p>
@@ -82,16 +84,18 @@
 		{/if}
 	</div>
 
-	<div class="mt-6 pt-4 border-t border-gray-200 dark:border-zinc-700 flex flex-wrap items-center justify-end gap-4">
+	<div
+		class="mt-6 flex flex-wrap items-center justify-end gap-4 border-t border-gray-200 pt-4 dark:border-zinc-700"
+	>
 		<a
 			href="tel:+19163838250"
 			class="rounded-lg bg-red-600 px-6 py-2 font-semibold text-white transition-colors hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
 		>
 			Inquire About This Item
 		</a>
-		
+
 		{#if item.pdf}
-			<button 
+			<button
 				on:click={togglePdfViewer}
 				class="rounded-lg bg-gray-200 px-6 py-2 font-semibold text-gray-800 transition-colors hover:bg-gray-300 dark:bg-zinc-700 dark:text-slate-100 dark:hover:bg-zinc-600"
 			>

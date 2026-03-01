@@ -55,7 +55,10 @@
 		content="Explore ERBCO's comprehensive range of construction products, used equipment, truck equipment, and parts. Over 100 years of industry experience."
 	/>
 	<meta property="og:title" content="Our Products | Edward R. Bacon Company" />
-	<meta property="og:description" content="Explore ERBCO's comprehensive range of construction products, used equipment, truck equipment, and parts." />
+	<meta
+		property="og:description"
+		content="Explore ERBCO's comprehensive range of construction products, used equipment, truck equipment, and parts."
+	/>
 </svelte:head>
 
 <div class="prose lg:prose-lg mx-auto mb-20">

@@ -43,7 +43,7 @@
 						label: 'Generators and Power Solutions',
 						href: '/products/construction?category=Generators'
 					},
-		{ label: 'Project Site Services', href: '/services/project-site' }
+					{ label: 'Project Site Services', href: '/services/project-site' }
 				]
 			},
 			{ label: 'About Us', href: '/about' },
@@ -69,6 +69,26 @@
 
 	// Reactive variable for theme color
 	let themeColor = gray_900;
+
+	// JSON-LD structured data
+	const jsonLd = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'LocalBusiness',
+		name: 'Edward R. Bacon Company',
+		description:
+			'Serving the California construction industry since 1910. Construction equipment, truck equipment, parts, and project site services.',
+		foundingDate: '1910',
+		telephone: '+1-916-383-8250',
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: '8440-A Belvedere Avenue',
+			addressLocality: 'Sacramento',
+			addressRegion: 'CA',
+			postalCode: '95826',
+			addressCountry: 'US'
+		},
+		sameAs: ['https://linkedin.com/in/erbco']
+	});
 
 	// Parallax function
 	onMount(() => {
@@ -119,25 +139,8 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={data.companyName} />
 	<meta property="og:locale" content="en_US" />
-	{@html `<script type="application/ld+json">${JSON.stringify({
-		"@context": "https://schema.org",
-		"@type": "LocalBusiness",
-		"name": "Edward R. Bacon Company",
-		"description": "Serving the California construction industry since 1910. Construction equipment, truck equipment, parts, and project site services.",
-		"foundingDate": "1910",
-		"telephone": "+1-916-383-8250",
-		"address": {
-			"@type": "PostalAddress",
-			"streetAddress": "8440-A Belvedere Avenue",
-			"addressLocality": "Sacramento",
-			"addressRegion": "CA",
-			"postalCode": "95826",
-			"addressCountry": "US"
-		},
-		"sameAs": [
-			"https://linkedin.com/in/erbco"
-		]
-	})}</script>`}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags, @typescript-eslint/no-unused-expressions -- Safe: hardcoded structured data -->
+	{@html '<script type="application/ld+json">' + jsonLd + '</script>'}
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
@@ -171,7 +174,14 @@
 			{#if data.heroImage}
 				<img src={data.heroImage} alt="Hero section" class="h-full w-full object-cover" />
 			{:else if data.heroVideo !== null}
-				<video class="h-full w-full object-cover" autoplay loop muted playsinline preload="metadata">
+				<video
+					class="h-full w-full object-cover"
+					autoplay
+					loop
+					muted
+					playsinline
+					preload="metadata"
+				>
 					{#if typeof data.heroVideo === 'string'}
 						<source src={data.heroVideo} type="video/mp4" />
 					{:else}

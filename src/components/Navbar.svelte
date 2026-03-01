@@ -146,7 +146,7 @@
 											<a
 												href={child.href}
 												title={child.label}
-												class="nav-hover-effect dark:hover:bg-zinc-700 block px-5 py-3 text-lg transition duration-150 ease-in-out hover:bg-gray-600 hover:font-bold"
+												class="nav-hover-effect block px-5 py-3 text-lg transition duration-150 ease-in-out hover:bg-gray-600 hover:font-bold dark:hover:bg-zinc-700"
 											>
 												{child.label}
 											</a>
@@ -210,7 +210,7 @@
 						{#if item.children && item.children.length > 0}
 							<!-- Mobile dropdown item -->
 							<button
-								class="dark:hover:bg-zinc-700 flex w-full cursor-pointer items-center justify-between px-5 py-3 hover:bg-gray-600"
+								class="flex w-full cursor-pointer items-center justify-between px-5 py-3 hover:bg-gray-600 dark:hover:bg-zinc-700"
 								on:click={() => toggleMobileSubmenu(index)}
 							>
 								<span>{item.label}</span>

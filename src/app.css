@@ -3,18 +3,20 @@
 @plugin '@tailwindcss/typography';
 
 :root {
-  --background-light: #f8fafc;  /* Tailwind slate-50 */
-  --background-dark: #18181b;   /* Tailwind zinc-900 */
+	--background-light: #f8fafc; /* Tailwind slate-50 */
+	--background-dark: #18181b; /* Tailwind zinc-900 */
 }
 
-html, body {
-  background-color: var(--background-light);
-  z-index: -60;  /* Lower than Tailwind's -z-50 */
-  position: relative;  /* Needed to apply z-index */
+html,
+body {
+	background-color: var(--background-light);
+	z-index: -60; /* Lower than Tailwind's -z-50 */
+	position: relative; /* Needed to apply z-index */
 }
 
 @media (prefers-color-scheme: dark) {
-  html, body {
-	 background-color: var(--background-dark);
-  }
+	html,
+	body {
+		background-color: var(--background-dark);
+	}
 }

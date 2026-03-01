@@ -9,16 +9,10 @@ export function toTitleCase(text: string): string {
 	let result = text.toLowerCase();
 
 	// Capitalize the first letter of each word
-	result = result.replace(
-		/\w\S*/g,
-		word => word.charAt(0).toUpperCase() + word.substring(1)
-	);
+	result = result.replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.substring(1));
 
 	// Additionally capitalize any letter that follows a slash
-	result = result.replace(
-		/\/\w/g, 
-		match => match.charAt(0) + match.charAt(1).toUpperCase()
-	);
+	result = result.replace(/\/\w/g, (match) => match.charAt(0) + match.charAt(1).toUpperCase());
 
 	return result;
 }

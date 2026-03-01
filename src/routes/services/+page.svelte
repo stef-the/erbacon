@@ -7,7 +7,8 @@
 		{
 			title: 'Generators, Pumps & Power Solutions',
 			description: 'We offer a wide range of generators, pumps and power solutions.',
-			imageUrl: 'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
+			imageUrl:
+				'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
 			imageAlt: 'Generators and power solutions',
 			href: '/products/construction?category=Generators'
 		},
@@ -21,7 +22,8 @@
 		{
 			title: 'Project Site Services',
 			description: 'We offer a wide range of project site services for your needs.',
-			imageUrl: 'https://i0.wp.com/www.smbceo.com/wp-content/uploads/2023/01/construction-workers-500-rawpixel.jpg?resize=500%2C333&ssl=1',
+			imageUrl:
+				'https://i0.wp.com/www.smbceo.com/wp-content/uploads/2023/01/construction-workers-500-rawpixel.jpg?resize=500%2C333&ssl=1',
 			imageAlt: 'Project site services',
 			href: '/services/project-site'
 		}
@@ -34,7 +36,7 @@
 		isVisible = true;
 		setTimeout(() => {
 			delay = 0;
-		}, services.length * 100)
+		}, services.length * 100);
 	});
 </script>
 
@@ -45,7 +47,10 @@
 		content="Explore ERBCO's comprehensive range of services including generators, power solutions, and project site services for the California construction industry."
 	/>
 	<meta property="og:title" content="Our Services | Edward R. Bacon Company" />
-	<meta property="og:description" content="Comprehensive construction services including generators, power solutions, and project site management." />
+	<meta
+		property="og:description"
+		content="Comprehensive construction services including generators, power solutions, and project site management."
+	/>
 </svelte:head>
 
 <div class="prose lg:prose-lg mx-auto mb-20">
@@ -53,11 +58,11 @@
 </div>
 
 <div class="mx-auto max-w-6xl">
-	<div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-fr">
+	<div class="mb-12 grid auto-rows-fr grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
 		{#each services as service, index}
-			<a href={service.href} class="group no-underline h-full">
+			<a href={service.href} class="group h-full no-underline">
 				<div
-					class="transform h-full overflow-hidden rounded-lg bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:bg-zinc-900/70 {isVisible
+					class="h-full transform overflow-hidden rounded-lg bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:bg-zinc-900/70 {isVisible
 						? 'translate-y-0 opacity-100'
 						: 'translate-y-10 opacity-0'}"
 					style="transition-delay: {index * 100 * delay}ms"
@@ -67,11 +72,13 @@
 							src={service.imageUrl}
 							alt={service.imageAlt}
 							loading="lazy"
-							class="flex h-full w-full items-center justify-center object-cover bg-gray-200 text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
-						>
+							class="flex h-full w-full items-center justify-center bg-gray-200 object-cover text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
+						/>
 					</div>
 					<div class="p-6">
-						<h2 class="mb-2 text-2xl font-bold text-gray-900 dark:text-slate-50">{service.title}</h2>
+						<h2 class="mb-2 text-2xl font-bold text-gray-900 dark:text-slate-50">
+							{service.title}
+						</h2>
 						<p class="mb-4 text-gray-700 dark:text-slate-300">{service.description}</p>
 						<div class="flex items-center font-semibold text-red-600 group-hover:text-red-700">
 							Learn more

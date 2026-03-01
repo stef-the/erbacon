@@ -7,9 +7,9 @@
 		imagealt?: string;
 		price?: string;
 		category?: string;
-		[key: string]: any;
+		[key: string]: string | number | boolean | null | undefined;
 	}>;
-	export let allItems: Array<any>; // Full item array for index reference
+	export let allItems: Array<Record<string, unknown>>; // Full item array for index reference
 	export let showPrices: boolean;
 	export let openModal: (index: number) => void;
 	export let toTitleCase: (text: string) => string;
@@ -18,7 +18,7 @@
 <div class="space-y-6">
 	{#each items as item}
 		<button
-			class="group cursor-pointer relative overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-[1.01] hover:shadow-lg sm:flex dark:bg-zinc-900/70 w-full text-left h-24 sm:h-48"
+			class="group relative h-24 w-full cursor-pointer overflow-hidden rounded-lg bg-white text-left shadow-md transition-transform duration-300 hover:scale-[1.01] hover:shadow-lg sm:flex sm:h-48 dark:bg-zinc-900/70"
 			on:click={() => openModal(allItems.indexOf(item))}
 			type="button"
 			aria-label="View details for {item.name}"
@@ -36,7 +36,9 @@
 					<h2 class="text-xl font-semibold dark:text-slate-50">{item.name}</h2>
 
 					{#if item.category}
-						<span class="inline-block rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold text-gray-700 dark:bg-zinc-700 dark:text-slate-300">
+						<span
+							class="inline-block rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold text-gray-700 dark:bg-zinc-700 dark:text-slate-300"
+						>
 							{toTitleCase(item.category)}
 						</span>
 					{/if}

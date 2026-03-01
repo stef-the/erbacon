@@ -20,22 +20,22 @@
 
 <style>
 	.loading-dots::after {
-		content: "";
+		content: '';
 		animation: ellipsis 1.5s infinite;
 	}
 
 	@keyframes ellipsis {
 		0% {
-			content: "";
+			content: '';
 		}
 		25% {
-			content: ".";
+			content: '.';
 		}
 		50% {
-			content: "..";
+			content: '..';
 		}
 		75% {
-			content: "...";
+			content: '...';
 		}
 	}
 
