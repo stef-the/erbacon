@@ -28,7 +28,7 @@
 					src={item.imageurl}
 					alt={item.imagealt || item.name}
 					loading="lazy"
-					class="h-48 w-full transform object-cover transition-transform duration-300 group-hover:scale-[1.05] sm:h-full"
+					class="h-48 w-full transform object-cover object-center transition-transform duration-300 group-hover:scale-105 sm:h-full"
 				/>
 			</div>
 			<div class="p-5 sm:w-2/3 lg:w-3/4">
