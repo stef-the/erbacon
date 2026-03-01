@@ -1,7 +1,6 @@
 <!-- src/components/Navbar.svelte -->
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
 
 	/**
 	 * @type {Array<{label: string, href: string, children?: Array<{label: string, href: string}>}>}
@@ -40,7 +39,7 @@
 			logoFixed = navRect.top > logoTopPosition + 64; // 64px is logo height (h-16)
 		};
 
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('scroll', handleScroll, { passive: true });
 		handleScroll(); // Initial check
 
 		return () => window.removeEventListener('scroll', handleScroll);
@@ -147,7 +146,7 @@
 											<a
 												href={child.href}
 												title={child.label}
-												class="nav-hover-effect dar:hover:bg-zinc-700 block px-5 py-3 text-lg transition duration-150 ease-in-out hover:bg-gray-600 hover:font-bold"
+												class="nav-hover-effect dark:hover:bg-zinc-700 block px-5 py-3 text-lg transition duration-150 ease-in-out hover:bg-gray-600 hover:font-bold"
 											>
 												{child.label}
 											</a>
@@ -211,7 +210,7 @@
 						{#if item.children && item.children.length > 0}
 							<!-- Mobile dropdown item -->
 							<button
-								class="dar:hover:bg-zinc-700 flex w-full cursor-pointer items-center justify-between px-5 py-3 hover:bg-gray-600"
+								class="dark:hover:bg-zinc-700 flex w-full cursor-pointer items-center justify-between px-5 py-3 hover:bg-gray-600"
 								on:click={() => toggleMobileSubmenu(index)}
 							>
 								<span>{item.label}</span>

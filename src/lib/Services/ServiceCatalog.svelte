@@ -1,7 +1,6 @@
 <!-- src/lib/Services/ServiceCatalog.svelte -->
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 	import CategoryHeader from '../../components/services/CategoryHeader.svelte';
 	import CategoryFilters from '../../components/services/CategoryFilters.svelte';
 	import LayoutToggle from '../../components/services/LayoutToggle.svelte';
@@ -51,11 +50,6 @@
 	// svelte-ignore export_let_unused
 	// Element is used in GenericServicePage.svelte
 	export let showDetails: boolean = false;
-
-	/**
-	 * Currently expanded item index
-	 */
-	let expandedIndex: number | null = null;
 
 	/**
 	 * Whether the modal view is open
@@ -140,13 +134,6 @@
 	$: if (items.length > 0 && timerInterval) {
 		clearInterval(timerInterval);
 		timerInterval = null;
-	}
-
-	/**
-	 * Toggle expanded state of an item
-	 */
-	function toggleExpand(index: number) {
-		expandedIndex = expandedIndex === index ? null : index;
 	}
 
 	/**
@@ -242,6 +229,3 @@
 		/>
 	{/if}
 </div>
-
-<style>
-</style>
