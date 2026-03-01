@@ -43,8 +43,7 @@
 						label: 'Generators and Power Solutions',
 						href: '/products/construction?category=Generators'
 					},
-					//{ label: 'Temporary Fencing', href: '/services/fencing' },
-					{ label: 'Project Site Services', href: '/services/project-site' }
+		{ label: 'Project Site Services', href: '/services/project-site' }
 				]
 			},
 			{ label: 'About Us', href: '/about' },
@@ -54,7 +53,7 @@
 			{ icon: 'Twitter', href: 'https://twitter.com' },
 			{ icon: 'Facebook', href: 'https://facebook.com' },
 			{ icon: 'Instagram', href: 'https://instagram.com' },
-			{ icon: 'LinkedIn', href: 'http://linkedin.com/in/erbco' }
+			{ icon: 'LinkedIn', href: 'https://linkedin.com/in/erbco' }
 		],
 		footerLinks: [
 			{
@@ -74,12 +73,19 @@
 	// Parallax function
 	onMount(() => {
 		const parallaxEl = document.getElementById('parallax');
+		let ticking = false;
 
 		function handleScroll() {
-			if (parallaxEl) {
-				const scrollPosition = window.scrollY;
-				const parallaxSpeed = 0.35;
-				parallaxEl.style.transform = `translateY(${scrollPosition * parallaxSpeed}px)`;
+			if (!ticking) {
+				requestAnimationFrame(() => {
+					if (parallaxEl) {
+						const scrollPosition = window.scrollY;
+						const parallaxSpeed = 0.35;
+						parallaxEl.style.transform = `translateY(${scrollPosition * parallaxSpeed}px)`;
+					}
+					ticking = false;
+				});
+				ticking = true;
 			}
 		}
 
@@ -96,7 +102,7 @@
 		// Listen for changes in color scheme
 		darkModeMediaQuery.addEventListener('change', updateThemeColor);
 
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('scroll', handleScroll, { passive: true });
 
 		// Clean up event listeners
 		return () => {
@@ -109,7 +115,29 @@
 <svelte:head>
 	<title>{data.siteTitle}</title>
 	<meta name="description" content={data.siteSubtitle} />
-	<meta name="theme-color" content={themeColor} /><!-- Dynamic theme color -->
+	<meta name="theme-color" content={themeColor} />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content={data.companyName} />
+	<meta property="og:locale" content="en_US" />
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "LocalBusiness",
+		"name": "Edward R. Bacon Company",
+		"description": "Serving the California construction industry since 1910. Construction equipment, truck equipment, parts, and project site services.",
+		"foundingDate": "1910",
+		"telephone": "+1-916-383-8250",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "8440-A Belvedere Avenue",
+			"addressLocality": "Sacramento",
+			"addressRegion": "CA",
+			"postalCode": "95826",
+			"addressCountry": "US"
+		},
+		"sameAs": [
+			"https://linkedin.com/in/erbco"
+		]
+	})}</script>`}
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
@@ -127,11 +155,11 @@
 				<h2 class="pt-2 text-center text-3xl text-white">
 					{data.siteSubtitle}
 				</h2>
-				<h2
+				<p
 					class="pt-6 text-center text-6xl text-white transition duration-150 ease-in-out hover:text-red-500 hover:underline"
 				>
 					<a href="tel:+19163838250">+1 (916) 383-8250</a>
-				</h2>
+				</p>
 			</div>
 		</div>
 		<!-- Hero image overlay gradient -->
@@ -143,7 +171,7 @@
 			{#if data.heroImage}
 				<img src={data.heroImage} alt="Hero section" class="h-full w-full object-cover" />
 			{:else if data.heroVideo !== null}
-				<video class="h-full w-full object-cover" autoplay loop muted playsinline>
+				<video class="h-full w-full object-cover" autoplay loop muted playsinline preload="metadata">
 					{#if typeof data.heroVideo === 'string'}
 						<source src={data.heroVideo} type="video/mp4" />
 					{:else}

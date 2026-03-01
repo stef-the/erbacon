@@ -1,85 +1,16 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
-	import { onMount } from 'svelte';
-
-	const data: {
-		cards: {
-			title: string;
-			description: string;
-			imageUrl: string;
-			imageAlt: string;
-			href: string;
-		}[];
-	} = {
-		cards: [
-			{
-				title: 'Construction Products',
-				description: 'High-quality products for all your construction needs.',
-				imageUrl:
-					'https://editorial.pxcrush.net/constructionsales/general/editorial/used-excavator-yard-goh7.jpg',
-				imageAlt: 'Construction products',
-				href: '/products/construction'
-			},
-			{
-				title: 'Generators, Pumps & Power Solutions',
-				description: 'We offer a wide range of generators, pumps and power solutions.',
-				imageUrl:
-					'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
-				imageAlt: 'Generators and power solutions',
-				href: '/services/generators'
-			},
-			{
-				title: 'Used Equipment',
-				description: 'We offer a wide range of used equipment for your needs.',
-				imageUrl:
-					'https://bluesafe.net.au/wp-content/uploads/2022/12/6367ae4f67d7c3f453becacc_Jack-Hammer-Safe-Work-Method-Statement.jpg',
-				imageAlt: 'Used equipment',
-				href: '/products/used'
-			},
-			/*{
-				title: 'Temporary Fencing',
-				description: 'We offer temporary fencing services for your needs.',
-				imageUrl:
-					'https://media.istockphoto.com/id/1405879247/photo/temporary-metallic-portable-fence-with-concrete-base-blocks-to-limit-the-territory.jpg?s=612x612&w=0&k=20&c=ihpJaz8wq4GF-M2aOWQW7ACLKHzEQHsy2buHlkMcVOc=',
-				imageAlt: 'Temporary fencing',
-				href: '/services/fencing'
-			},*/
-			{
-				title: 'Truck Equipment',
-				description: 'We offer a wide range of truck equipment for your needs.',
-				imageUrl: 'https://www.stellarindustries.com/wp-content/uploads/2021/09/BlogPost_16K.webp',
-				imageAlt: 'Truck equipment',
-				href: '/products/trucks'
-			},
-			{
-				title: 'Project Site Services',
-				description: 'We offer a wide range of project site services for your needs.',
-				imageUrl:
-					'https://i0.wp.com/www.smbceo.com/wp-content/uploads/2023/01/construction-workers-500-rawpixel.jpg?resize=500%2C333&ssl=1',
-				imageAlt: 'Project site services',
-				href: '/services/project-site'
-			},
-			{
-				title: 'Parts and Miscellaneous',
-				description: 'We offer a wide range of parts and miscellaneous services for your needs.',
-				imageUrl:
-					'https://media.istockphoto.com/id/999389842/photo/spare-parts-chassis-of-construction-machinery.jpg?s=612x612&w=0&k=20&c=4_2ILXTxfcL6ZvkiQF1soisfm6KIxMByKB4tlbOUAm0=',
-				imageAlt: 'Parts and miscellaneous',
-				href: '/products/parts'
-			}
-		]
-	};
-
-	let isVisible = false;
-	let delay = 1;
-
-	onMount(() => {
-		isVisible = true;
-		setTimeout(() => {
-			delay = 0;
-		}, data.cards.length * 100);
-	});
 </script>
+
+<svelte:head>
+	<title>Edward R. Bacon Company | Construction Equipment Since 1910</title>
+	<meta
+		name="description"
+		content="Edward R. Bacon Company has been serving the California construction industry since 1910. Quality construction equipment, truck equipment, parts, and project site services."
+	/>
+	<meta property="og:title" content="Edward R. Bacon Company | Construction Equipment Since 1910" />
+	<meta property="og:description" content="Serving the California construction industry since 1910. Quality construction equipment, truck equipment, parts, and project site services." />
+</svelte:head>
 
 <!-- Welcome section below the cards:
      - Same responsive prose width and scroll padding as above
@@ -98,7 +29,7 @@
 			Our mission is to provide customers with the right equipment that best meets their specific
 			equipment application. Our experienced staff understand the industry, and we are committed to
 			making our customers job easier and more profitable, with creative solutions and over 120
-			years of experience. Visit our <a href="./">photo gallery</a> take a look into our rich history.
+			years of experience. Visit our <a href="/about" class="text-red-600 underline hover:text-red-500 dark:text-red-400 dark:hover:text-red-300">About page</a> to take a look into our rich history.
 		</p>
 	</div>
 </section>

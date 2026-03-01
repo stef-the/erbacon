@@ -9,7 +9,7 @@
 			description: 'We offer a wide range of generators, pumps and power solutions.',
 			imageUrl: 'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
 			imageAlt: 'Generators and power solutions',
-			href: '/services/generators'
+			href: '/products/construction?category=Generators'
 		},
 		/*{
 			title: 'Temporary Fencing',
@@ -42,8 +42,10 @@
 	<title>Our Services | Edward R. Bacon Company</title>
 	<meta
 		name="description"
-		content="Explore ERBCO's comprehensive range of services including construction products, generators, used equipment, and temporary fencing solutions."
+		content="Explore ERBCO's comprehensive range of services including generators, power solutions, and project site services for the California construction industry."
 	/>
+	<meta property="og:title" content="Our Services | Edward R. Bacon Company" />
+	<meta property="og:description" content="Comprehensive construction services including generators, power solutions, and project site management." />
 </svelte:head>
 
 <div class="prose lg:prose-lg mx-auto mb-20">
@@ -63,7 +65,8 @@
 					<div class="h-64 overflow-hidden shadow-sm">
 						<img
 							src={service.imageUrl}
-							alt= {service.imageAlt}
+							alt={service.imageAlt}
+							loading="lazy"
 							class="flex h-full w-full items-center justify-center object-cover bg-gray-200 text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
 						>
 					</div>
@@ -128,14 +131,10 @@
 			requirements. Contact us today to discuss your unique needs.
 		</p>
 		<a
-			href="/contact"
+			href="tel:+19163838250"
 			class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-700"
 		>
 			Contact Our Team
 		</a>
 	</div>
 </div>
-
-<style>
-	/* Add page-specific styles here */
-</style>

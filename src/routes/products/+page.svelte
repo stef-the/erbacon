@@ -52,8 +52,10 @@
 	<title>Our Products | Edward R. Bacon Company</title>
 	<meta
 		name="description"
-		content="Explore ERBCO's comprehensive range of products in construction, used equipment, truck equipment and parts"
+		content="Explore ERBCO's comprehensive range of construction products, used equipment, truck equipment, and parts. Over 100 years of industry experience."
 	/>
+	<meta property="og:title" content="Our Products | Edward R. Bacon Company" />
+	<meta property="og:description" content="Explore ERBCO's comprehensive range of construction products, used equipment, truck equipment, and parts." />
 </svelte:head>
 
 <div class="prose lg:prose-lg mx-auto mb-20">
@@ -74,6 +76,7 @@
 						<img
 							src={product.imageUrl}
 							alt={product.imageAlt}
+							loading="lazy"
 							class="flex h-full w-full items-center justify-center bg-gray-200 object-cover text-gray-400 transition-all duration-300 group-hover:bg-gray-300"
 						/>
 					</div>
@@ -140,14 +143,10 @@
 			requirements. Contact us today to discuss your unique needs.
 		</p>
 		<a
-			href="/contact"
+			href="tel:+19163838250"
 			class="inline-block rounded-lg bg-red-500 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-600"
 		>
 			Contact Our Team
 		</a>
 	</div>
 </div>
-
-<style>
-	/* Add page-specific styles here */
-</style>

@@ -55,6 +55,8 @@
 <svelte:head>
 	<title>{pageTitle} | Edward R. Bacon Company</title>
 	<meta name="description" content={pageDescription} />
+	<meta property="og:title" content="{pageTitle} | Edward R. Bacon Company" />
+	<meta property="og:description" content={pageDescription} />
 </svelte:head>
 
 {#if data.error}
@@ -90,7 +92,7 @@
 <div class="mt-12 text-center dark:text-slate-50">
 	<p class="mb-4 text-lg">{ctaText}</p>
 	<a
-		href="/contact"
+		href="tel:+19163838250"
 		class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-700"
 	>
 		{ctaButtonText}
