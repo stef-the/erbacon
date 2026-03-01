@@ -13,7 +13,6 @@
 	export let showPrices: boolean;
 	export let openModal: (index: number) => void;
 	export let toTitleCase: (text: string) => string;
-	console.log(items)
 </script>
 
 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -31,6 +30,7 @@
 					<img
 						src={item.imageurl}
 						alt={item.imagealt || item.name}
+						loading="lazy"
 						class="h-full w-full transform object-cover transition-transform duration-300 group-hover:scale-[1.05]"
 					/>
 				{/if}

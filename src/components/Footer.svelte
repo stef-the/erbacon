@@ -84,7 +84,13 @@ const currentYear = new Date().getFullYear();
 				<!-- Social media links -->
 				<div class="flex space-x-4 pt-1">
 					{#each socialLinks as link}
-						<a href={link.href} class="transition duration-150 hover:text-blue-400 dark:hover:text-blue-500">
+						<a
+							href={link.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={link.icon}
+							class="transition duration-150 hover:text-blue-400 dark:hover:text-blue-500"
+						>
 							<SocialIcons
 								name={link.icon}
 								size={20}

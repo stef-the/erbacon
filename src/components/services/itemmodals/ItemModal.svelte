@@ -29,14 +29,12 @@
 </script>
 
 <!-- Wrapper with keyboard handling and backdrop blur -->
-<div 
+<div
 	class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm sm:p-6 md:p-8"
-	role="dialog"
-	aria-modal="true"
 	on:click={closeModal}
 	on:keydown={(e) => e.key === 'Escape' && closeModal()}
-	tabindex="0"
-	aria-hidden="true"
+	tabindex="-1"
+	role="presentation"
 >
 	<!-- Modal dialog with proper role -->
 	<!-- svelte-ignore a11y_click_events_have_key_events -->

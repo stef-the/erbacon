@@ -61,7 +61,6 @@
 	 * Handle overlay wheel events to allow scrolling
 	 */
 	function handleWheel(event: WheelEvent) {
-		console.log('Handling wheel event', event)
 		// Prevent default behavior to avoid potential conflicts
 		event.preventDefault();
 		
@@ -155,7 +154,6 @@
 			class="absolute top-0 left-0 z-10 h-full w-full" 
 			bind:this={overlayElement}
 			on:wheel|preventDefault|stopPropagation={handleWheel}
-			on:mousewheel|preventDefault|stopPropagation={handleWheel}
 			style="background: transparent; cursor: default;"
 		></div>
 	</div>
