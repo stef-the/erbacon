@@ -11,7 +11,7 @@ export async function load() {
 			title: 'Truck Equipment',
 			description: 'High-quality truck equipment for transportation and logistics',
 			contactCta: 'Contact us for more information',
-			showPrices: 'true'
+			showPrices: true
 		}
 	});
 }

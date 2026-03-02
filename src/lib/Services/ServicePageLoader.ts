@@ -9,7 +9,7 @@ type ServiceConfig = {
 		title: string;
 		description: string;
 		contactCta: string;
-		showPrices: string | boolean;
+		showPrices: boolean;
 	};
 };
 
@@ -29,13 +29,7 @@ export async function loadServicePageData(config: ServiceConfig) {
 		console.error(`Error loading ${config.serviceType} data:`, error);
 		return {
 			items: [],
-			categoryInfo: {
-				...config.defaultInfo,
-				showPrices:
-					typeof config.defaultInfo.showPrices === 'string'
-						? config.defaultInfo.showPrices === 'true'
-						: config.defaultInfo.showPrices
-			},
+			categoryInfo: config.defaultInfo,
 			error: error instanceof Error ? error.message : 'An unknown error occurred'
 		};
 	}

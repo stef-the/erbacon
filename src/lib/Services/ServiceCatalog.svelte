@@ -45,13 +45,6 @@
 	export let layout: 'grid' | 'list' = 'grid';
 
 	/**
-	 * Flag to show detailed information when available
-	 */
-	// svelte-ignore export_let_unused
-	// Element is used in GenericServicePage.svelte
-	export let showDetails: boolean = false;
-
-	/**
 	 * Whether the modal view is open
 	 */
 	let isModalOpen = false;

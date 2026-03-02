@@ -4,14 +4,14 @@ import { TEMPORARY_FENCING_SHEET_ID, TEMPORARY_FENCING_SHEET_GID } from '$env/st
 
 export async function load() {
 	return loadServicePageData({
-		serviceType: 'project-site',
+		serviceType: 'fencing',
 		dataSheetId: TEMPORARY_FENCING_SHEET_ID,
 		dataSheetGid: TEMPORARY_FENCING_SHEET_GID,
 		defaultInfo: {
-			title: 'Project Site Services',
-			description: 'Comprehensive services for managing and supporting your project sites',
-			contactCta: 'Contact us to discuss your project site needs',
-			showPrices: 'false'
+			title: 'Temporary Fencing',
+			description: 'Temporary fencing solutions for construction sites and events',
+			contactCta: 'Contact us to discuss your fencing needs',
+			showPrices: false
 		}
 	});
 }

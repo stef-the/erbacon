@@ -14,7 +14,7 @@ export async function load() {
 			title: 'Construction Products',
 			description: 'High-quality construction equipment for professionals',
 			contactCta: 'Contact us for more information',
-			showPrices: 'true'
+			showPrices: true
 		}
 	});
 }

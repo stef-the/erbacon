@@ -1,15 +1,9 @@
 <!-- src/components/services/ItemList.svelte -->
 <script lang="ts">
-	export let items: Array<{
-		name: string;
-		description: string;
-		imageurl: string;
-		imagealt?: string;
-		price?: string;
-		category?: string;
-		[key: string]: string | number | boolean | null | undefined;
-	}>;
-	export let allItems: Array<Record<string, unknown>>; // Full item array for index reference
+	import type { ServiceDataItem } from '$lib/Services/ServiceData';
+
+	export let items: ServiceDataItem[];
+	export let allItems: ServiceDataItem[];
 	export let showPrices: boolean;
 	export let openModal: (index: number) => void;
 	export let toTitleCase: (text: string) => string;

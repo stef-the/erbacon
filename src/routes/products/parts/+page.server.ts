@@ -11,7 +11,7 @@ export async function load() {
 			title: 'Parts and Miscellaneous',
 			description: 'Quality parts and accessories for all your equipment needs',
 			contactCta: 'Contact us for parts availability',
-			showPrices: 'true'
+			showPrices: true
 		}
 	});
 }

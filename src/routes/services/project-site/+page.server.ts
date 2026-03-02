@@ -14,7 +14,7 @@ export async function load() {
 			title: 'Project Site Services',
 			description: 'Comprehensive services for managing and supporting your project sites',
 			contactCta: 'Contact us to discuss your project site needs',
-			showPrices: 'false'
+			showPrices: false
 		}
 	});
 }

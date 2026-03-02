@@ -11,7 +11,7 @@ export async function load() {
 			title: 'Used Equipment',
 			description: 'Quality pre-owned construction equipment at competitive prices.',
 			contactCta: 'Contact us to check availability',
-			showPrices: 'true'
+			showPrices: true
 		}
 	});
 }
