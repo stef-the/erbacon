@@ -1,6 +1,7 @@
 <!-- src/routes/services/+page.svelte -->
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { COMPANY_PHONE_TEL } from '$lib/constants';
 
 	// Services directory
 	const services = [
@@ -12,13 +13,6 @@
 			imageAlt: 'Generators and power solutions',
 			href: '/products/construction?category=Generators'
 		},
-		/*{
-			title: 'Temporary Fencing',
-			description: 'We offer temporary fencing services for your needs.',
-			imageUrl: 'https://media.istockphoto.com/id/1405879247/photo/temporary-metallic-portable-fence-with-concrete-base-blocks-to-limit-the-territory.jpg?s=612x612&w=0&k=20&c=ihpJaz8wq4GF-M2aOWQW7ACLKHzEQHsy2buHlkMcVOc=',
-			imageAlt: 'Temporary fencing',
-			href: '/services/fencing'
-		},*/
 		{
 			title: 'Project Site Services',
 			description: 'We offer a wide range of project site services for your needs.',
@@ -138,7 +132,7 @@
 			requirements. Contact us today to discuss your unique needs.
 		</p>
 		<a
-			href="tel:+19163838250"
+			href={COMPANY_PHONE_TEL}
 			class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-700"
 		>
 			Contact Our Team

@@ -2,6 +2,7 @@
 <script lang="ts">
 	import ServiceCatalog from '$lib/Services/ServiceCatalog.svelte';
 	import type { ServiceDataItem } from '$lib/Services/ServiceData';
+	import { COMPANY_PHONE_TEL } from '$lib/constants';
 
 	export let data: {
 		items: ServiceDataItem[];
@@ -41,8 +42,6 @@
 
 	// Default to grid layout
 	let layout: 'grid' | 'list' | undefined = 'grid';
-	// Show details (specs, features, etc.)
-	let showDetails = true;
 	// Set page-specific metadata
 	const pageTitle = data.categoryInfo?.title || 'Products & Services';
 	const pageDescription =
@@ -72,7 +71,7 @@
 	</p>
 </div>
 
-<ServiceCatalog items={data.items} categoryInfo={data.categoryInfo} {layout} {showDetails} />
+<ServiceCatalog items={data.items} categoryInfo={data.categoryInfo} {layout} />
 
 <div class="mt-16 rounded-lg bg-gray-100 p-8 dark:bg-zinc-900/40 dark:text-slate-50">
 	<h2 class="mb-4 text-2xl font-bold">{featuresTitle}</h2>
@@ -89,7 +88,7 @@
 <div class="mt-12 text-center dark:text-slate-50">
 	<p class="mb-4 text-lg">{ctaText}</p>
 	<a
-		href="tel:+19163838250"
+		href={COMPANY_PHONE_TEL}
 		class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-700"
 	>
 		{ctaButtonText}

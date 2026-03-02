@@ -4,6 +4,15 @@
 	import Navbar from '../components/Navbar.svelte';
 	import Footer from '../components/Footer.svelte';
 	import { onMount } from 'svelte';
+	import {
+		COMPANY_NAME,
+		COMPANY_PHONE,
+		COMPANY_PHONE_TEL,
+		COMPANY_PHONE_SCHEMA,
+		COMPANY_TAGLINE,
+		COMPANY_ADDRESS,
+		COMPANY_FOUNDING_YEAR
+	} from '$lib/constants';
 
 	// Site configuration - easily expandable
 	const data: {
@@ -19,9 +28,9 @@
 			links: { icon: string; label: string; href: string; target?: string }[];
 		}[];
 	} = {
-		siteTitle: 'Edward R. Bacon Company',
-		siteSubtitle: 'Serving the California construction industry since 1910',
-		companyName: 'Edward R. Bacon Company',
+		siteTitle: COMPANY_NAME,
+		siteSubtitle: COMPANY_TAGLINE,
+		companyName: COMPANY_NAME,
 		heroImage: null,
 		heroVideo: ['/video/1040370164-preview.mp4', '/video/1111075171-preview.mp4'],
 		navItems: [
@@ -75,17 +84,16 @@
 	const jsonLd = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'LocalBusiness',
-		name: 'Edward R. Bacon Company',
-		description:
-			'Serving the California construction industry since 1910. Construction equipment, truck equipment, parts, and project site services.',
-		foundingDate: '1910',
-		telephone: '+1-916-383-8250',
+		name: COMPANY_NAME,
+		description: `${COMPANY_TAGLINE}. Construction equipment, truck equipment, parts, and project site services.`,
+		foundingDate: COMPANY_FOUNDING_YEAR,
+		telephone: COMPANY_PHONE_SCHEMA,
 		address: {
 			'@type': 'PostalAddress',
-			streetAddress: '8440-A Belvedere Avenue',
-			addressLocality: 'Sacramento',
-			addressRegion: 'CA',
-			postalCode: '95826',
+			streetAddress: COMPANY_ADDRESS.street,
+			addressLocality: COMPANY_ADDRESS.city,
+			addressRegion: COMPANY_ADDRESS.state,
+			postalCode: COMPANY_ADDRESS.zip,
 			addressCountry: 'US'
 		},
 		sameAs: ['https://linkedin.com/in/erbco']
@@ -162,7 +170,7 @@
 				<p
 					class="pt-6 text-center text-6xl text-white transition duration-150 ease-in-out hover:text-red-500 hover:underline"
 				>
-					<a href="tel:+19163838250">+1 (916) 383-8250</a>
+					<a href={COMPANY_PHONE_TEL}>{COMPANY_PHONE}</a>
 				</p>
 			</div>
 		</div>
@@ -211,8 +219,11 @@
 
 	<!-- Footer -->
 	<Footer
-		address={{ line1: '8440-A Belvedere Avenue', line2: 'Sacramento, CA 95826' }}
-		phoneNumber="+1 (916) 383-8250"
+		address={{
+			line1: COMPANY_ADDRESS.street,
+			line2: `${COMPANY_ADDRESS.city}, ${COMPANY_ADDRESS.state} ${COMPANY_ADDRESS.zip}`
+		}}
+		phoneNumber={COMPANY_PHONE}
 		companyName={data.companyName}
 		socialLinks={data.socialLinks}
 		footerLinks={data.footerLinks}

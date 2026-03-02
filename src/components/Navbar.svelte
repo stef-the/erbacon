@@ -107,7 +107,7 @@
 		style="background-color: {logoColour};"
 	>
 		<img
-			src="/icons/RED_LOGO_fix.bmp"
+			src="/icons/erbco-logo-red.webp"
 			alt="ERBCO"
 			class:h-24={logoFixed}
 			class:h-16={!logoFixed}
@@ -169,7 +169,7 @@
 		<div class="ml-auto h-16 sm:flex">
 			<div class="flex h-16 cursor-pointer items-center overflow-hidden">
 				<img
-					src="/icons/ERBCO_get_it_from_bacon.avif"
+					src="/icons/erbco-get-it-from-bacon.avif"
 					alt="ERBCO - Get it from Bacon"
 					class="h-full w-auto object-contain transition duration-150 ease-in-out hover:scale-105"
 				/>

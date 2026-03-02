@@ -1,8 +1,8 @@
 <!-- src/routes/services/construction/+page.svelte -->
 <script lang="ts">
 	import GenericServicePage from '$lib/Services/GenericServicePage.svelte';
+	import { COMPANY_PHONE, COMPANY_PHONE_TEL } from '$lib/constants';
 	export let data;
-	const introText = '';
 	const features = [
 		{
 			title: 'Quality Equipment',
@@ -27,10 +27,10 @@
 		<h3
 			class="flex h-16 justify-center text-center text-xl font-bold text-gray-800 transition duration-150 ease-in-out hover:text-red-500 hover:underline sm:text-4xl lg:text-5xl dark:text-slate-50"
 		>
-			<a href="tel:+19163838250">+1 (916) 383 8250</a>
+			<a href={COMPANY_PHONE_TEL}>{COMPANY_PHONE}</a>
 		</h3>
 		<img
-			src="/icons/ERBCO_get_it_from_bacon.avif"
+			src="/icons/erbco-get-it-from-bacon.avif"
 			alt="get it from bacon!"
 			class="h-16 -translate-y-[2px] rounded-md px-4"
 		/>
@@ -39,7 +39,7 @@
 
 <GenericServicePage
 	{data}
-	{introText}
+	introText=""
 	{features}
 	featuresTitle="Why Choose ERBCO Construction Products?"
 	ctaText="Don't see what you're looking for? We have access to many more products."

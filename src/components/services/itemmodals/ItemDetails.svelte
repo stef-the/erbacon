@@ -1,6 +1,7 @@
 <!-- src/components/services/itemmodals/ItemDetails.svelte -->
 <script lang="ts">
 	import type { ItemData } from './types';
+	import { COMPANY_PHONE_TEL } from '$lib/constants';
 
 	export let item: ItemData;
 	export let showPrices: boolean;
@@ -13,7 +14,7 @@
 	<div class="flex-grow">
 		<div class="mb-4 flex items-center gap-3">
 			<!-- Icon, title and category -->
-			<a href="/"><img src="/icons/RED_LOGO_fix.bmp" alt="Logo" class="h-12 rounded" /></a>
+			<a href="/"><img src="/icons/erbco-logo-red.webp" alt="Logo" class="h-12 rounded" /></a>
 			<h2 id="modal-title" class="text-2xl font-bold text-balance dark:text-slate-50">
 				{item.name}
 			</h2>
@@ -88,7 +89,7 @@
 		class="mt-6 flex flex-nowrap items-center justify-end gap-3 border-t border-gray-200 pt-4 dark:border-zinc-700"
 	>
 		<a
-			href="tel:+19163838250"
+			href={COMPANY_PHONE_TEL}
 			class="shrink-0 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-nowrap text-white transition-colors hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
 		>
 			Inquire

@@ -1,8 +1,13 @@
 <!-- src/routes/products/mobile-equipment/+page.svelte -->
 <script lang="ts">
 	import GenericServicePage from '$lib/Services/GenericServicePage.svelte';
+	import {
+		COMPANY_PHONE,
+		COMPANY_PHONE_TEL,
+		COMPANY_EMAIL,
+		COMPANY_EMAIL_MAILTO
+	} from '$lib/constants';
 	export let data;
-	const introText = '';
 	const features = [
 		{
 			title: 'Stellar Industries Partnership',
@@ -27,24 +32,22 @@
 		<h3
 			class="text-center text-xl font-bold text-gray-800 transition duration-150 ease-in-out hover:text-red-500 hover:underline sm:text-4xl lg:text-5xl dark:text-slate-50"
 		>
-			<a href="tel:+19163838250">+1 (916) 383-8250</a>
+			<a href={COMPANY_PHONE_TEL}>{COMPANY_PHONE}</a>
 		</h3>
 		<img
-			src="/icons/ERBCO_get_it_from_bacon.avif"
+			src="/icons/erbco-get-it-from-bacon.avif"
 			alt="Get it from Bacon!"
 			class="h-16 rounded-md"
 		/>
 	</div>
 	<p class="mt-2 text-center text-gray-600 dark:text-slate-400">
-		<a href="mailto:sales@erbacon.com" class="hover:text-red-500 hover:underline"
-			>sales@erbacon.com</a
-		>
+		<a href={COMPANY_EMAIL_MAILTO} class="hover:text-red-500 hover:underline">{COMPANY_EMAIL}</a>
 	</p>
 </section>
 
 <GenericServicePage
 	{data}
-	{introText}
+	introText=""
 	{features}
 	featuresTitle="Why Choose ERBCO for Mobile Equipment?"
 	ctaText="Don't see what you're looking for? We have access to the full Stellar Industries product line."

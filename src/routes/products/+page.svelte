@@ -1,6 +1,7 @@
 <!-- src/routes/products/+page.svelte -->
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { COMPANY_PHONE_TEL } from '$lib/constants';
 
 	// products directory
 	const products = [
@@ -154,7 +155,7 @@
 			requirements. Contact us today to discuss your unique needs.
 		</p>
 		<a
-			href="tel:+19163838250"
+			href={COMPANY_PHONE_TEL}
 			class="inline-block rounded-lg bg-red-500 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-600"
 		>
 			Contact Our Team
