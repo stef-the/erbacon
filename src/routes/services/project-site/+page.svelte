@@ -53,9 +53,11 @@
 <section class="py-8">
 	<div class="flex flex-wrap items-center justify-center gap-4">
 		<img src="/icons/erbco-logo-red.png" alt="ERBCO" class="h-20 w-auto" />
-		<span class="text-2xl font-bold text-red-600 sm:text-3xl dark:text-red-500">
-			Get it from Bacon!
-		</span>
+		<img
+			src="/icons/erbco-get-it-from-bacon.avif"
+			alt="Get it from Bacon!"
+			class="h-16 w-auto object-contain"
+		/>
 	</div>
 	<div class="mt-4 text-center">
 		<a

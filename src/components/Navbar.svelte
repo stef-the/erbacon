@@ -165,13 +165,13 @@
 			</ul>
 		</div>
 
-		<!-- Tagline on right side -->
-		<div class="ml-auto flex h-16 items-center">
-			<span
-				class="text-lg font-bold whitespace-nowrap text-red-600 italic transition duration-150 ease-in-out sm:text-xl dark:text-red-500"
-			>
-				Get it from Bacon!
-			</span>
+		<!-- Tagline image on right side -->
+		<div class="ml-auto flex h-16 items-center overflow-hidden">
+			<img
+				src="/icons/erbco-get-it-from-bacon.avif"
+				alt="Get it from Bacon!"
+				class="h-full w-auto object-contain transition duration-150 ease-in-out hover:scale-105"
+			/>
 		</div>
 
 		<!-- Mobile menu button -->
