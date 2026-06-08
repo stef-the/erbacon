@@ -11,8 +11,8 @@ export async function load() {
 		dataSheetId: CONSTRUCTION_PRODUCTS_SHEET_ID,
 		dataSheetGid: CONSTRUCTION_PRODUCTS_SHEET_GID,
 		defaultInfo: {
-			title: 'Construction Products',
-			description: 'High-quality construction equipment for professionals',
+			title: 'New Equipment',
+			description: 'New equipment from the manufacturer lines we represent',
 			contactCta: 'Contact us for more information',
 			showPrices: true
 		}

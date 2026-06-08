@@ -60,6 +60,13 @@ export async function fetchServiceData(sheets_url: string): Promise<ServiceDataI
 				item.category = item.category.trim();
 			}
 
+			// Resolve a relative PDF path (e.g. "air-tools/sullivan.pdf") against the
+			// /products/ folder where the spec sheets live. Full URLs ("http(s)://…")
+			// and paths that are already absolute ("/…") are left untouched.
+			if (item.pdf && !/^https?:\/\//i.test(item.pdf) && !item.pdf.startsWith('/')) {
+				item.pdf = `/products/${item.pdf}`;
+			}
+
 			return item;
 		});
 

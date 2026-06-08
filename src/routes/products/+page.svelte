@@ -6,11 +6,11 @@
 	// products directory
 	const products = [
 		{
-			title: 'Construction Products',
-			description: 'High-quality products for all your construction needs.',
+			title: 'New Equipment',
+			description: 'New equipment from the 50+ manufacturer lines we represent.',
 			imageUrl:
 				'https://editorial.pxcrush.net/constructionsales/general/editorial/used-excavator-yard-goh7.jpg',
-			imageAlt: 'Construction products',
+			imageAlt: 'New equipment',
 			href: '/products/construction'
 		},
 		{

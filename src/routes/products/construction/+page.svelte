@@ -41,7 +41,7 @@
 	{data}
 	introText=""
 	{features}
-	featuresTitle="Why Choose ERBCO Construction Products?"
+	featuresTitle="Why Choose ERBCO for New Equipment?"
 	ctaText="Don't see what you're looking for? We have access to many more products."
 />
 
