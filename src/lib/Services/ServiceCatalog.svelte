@@ -8,7 +8,7 @@
 	import ItemList from '../../components/services/ItemList.svelte';
 	import ItemModal from '../../components/services/itemmodals/ItemModal.svelte';
 	import ContactCta from '../../components/services/ContactCta.svelte';
-	import LoadingIndicator from '../../components/services/LoadingIndicator.svelte';
+	import NoData from '../../components/services/NoData.svelte';
 	import { toTitleCase } from '../../lib/utils/stringUtils';
 
 	/**
@@ -45,6 +45,11 @@
 	export let layout: 'grid' | 'list' = 'grid';
 
 	/**
+	 * Error message from the data loader, if loading failed
+	 */
+	export let error: string | undefined = undefined;
+
+	/**
 	 * Whether the modal view is open
 	 */
 	let isModalOpen = false;
@@ -78,50 +83,17 @@
 		...new Set(items.filter((item) => item.category).map((item) => item.category!.toLowerCase()))
 	].sort();
 
-	// Timer variables for loading state
-	let elapsedTime = 2;
-	let timerInterval: ReturnType<typeof setInterval> | null = null;
-	let showTimer = false;
-
 	/**
-	 * Initialize component and check for URL parameters
+	 * On mount, honor a ?category= filter from the URL
 	 */
 	onMount(() => {
-		// Start the timer
-		const startTime = Date.now();
-
-		// Check if there's a category parameter in the URL
 		const urlParams = new URLSearchParams(window.location.search);
 		const categoryParam = urlParams.get('category');
 
 		if (categoryParam && availableCategories.includes(categoryParam.toLowerCase())) {
 			selectedCategory = categoryParam.toLowerCase();
 		}
-
-		// Start the timer if items are still loading
-		if (items.length === 0) {
-			// Set a timeout to display the timer after 2 seconds
-			setTimeout(() => {
-				showTimer = true;
-				timerInterval = setInterval(() => {
-					elapsedTime = parseFloat(((Date.now() - startTime) / 1000).toFixed(1));
-				}, 100); // Update every 100ms for smooth decimal increments
-			}, 2000);
-		}
-
-		return () => {
-			// Clean up the timer when component is destroyed
-			if (timerInterval) {
-				clearInterval(timerInterval);
-			}
-		};
 	});
-
-	// Watch for items loading completion and stop the timer
-	$: if (items.length > 0 && timerInterval) {
-		clearInterval(timerInterval);
-		timerInterval = null;
-	}
 
 	/**
 	 * Open the modal for an item
@@ -169,8 +141,16 @@
 	<!-- Layout Toggle -->
 	<LayoutToggle bind:layout />
 
-	{#if filteredItems.length === 0}
-		<LoadingIndicator isLoading={items.length === 0} {showTimer} {elapsedTime} />
+	{#if error}
+		<!-- The data loader failed; the parent shows a detailed error banner above. -->
+		<NoData
+			title="Data could not be loaded"
+			message="We couldn't load this list right now. Please try again later."
+		/>
+	{:else if items.length === 0}
+		<NoData />
+	{:else if filteredItems.length === 0}
+		<NoData title="No Matches" message="No items match the selected category." />
 	{:else}
 		<!-- Grid or List Layout -->
 		{#if layout === 'grid'}

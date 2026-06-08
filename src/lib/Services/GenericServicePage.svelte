@@ -71,7 +71,7 @@
 	</p>
 </div>
 
-<ServiceCatalog items={data.items} categoryInfo={data.categoryInfo} {layout} />
+<ServiceCatalog items={data.items} categoryInfo={data.categoryInfo} error={data.error} {layout} />
 
 <div class="mt-16 rounded-lg bg-gray-100 p-8 dark:bg-zinc-900/40 dark:text-slate-50">
 	<h2 class="mb-4 text-2xl font-bold">{featuresTitle}</h2>
