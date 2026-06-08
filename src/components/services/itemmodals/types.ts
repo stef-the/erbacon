@@ -13,4 +13,5 @@ export interface ItemData {
 	contactInfo?: string;
 	category?: string;
 	pdf?: string;
+	marketplace?: string;
 }

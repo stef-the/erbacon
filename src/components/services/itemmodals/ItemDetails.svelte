@@ -95,6 +95,17 @@
 			Inquire
 		</a>
 
+		{#if item.marketplace}
+			<a
+				href={item.marketplace}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="shrink-0 rounded-lg bg-[#1877F2] px-4 py-2 text-sm font-semibold text-nowrap text-white transition-colors hover:bg-[#0f63d6]"
+			>
+				Marketplace
+			</a>
+		{/if}
+
 		{#if item.pdf}
 			<button
 				on:click={togglePdfViewer}

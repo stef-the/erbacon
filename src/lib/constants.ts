@@ -16,3 +16,8 @@ export const COMPANY_FOUNDING_YEAR = '1910';
 // Site build version, shown subtly in the footer. Reflects the git commit count;
 // bump it (or wire it to `git rev-list --count HEAD`) when cutting a release.
 export const APP_VERSION = 'v0.0.95';
+
+// ERBCO's Facebook Marketplace seller/shop URL. Leave blank to hide the
+// "Browse our Facebook Marketplace" button on the Used Equipment page; paste the URL
+// once the Marketplace storefront is live to switch it on.
+export const MARKETPLACE_URL = '';

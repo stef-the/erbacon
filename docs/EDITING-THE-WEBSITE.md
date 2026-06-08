@@ -87,6 +87,10 @@ The **pdf** column makes a "View Docs" button appear on the item.
 - **New PDF:** email it to your developer; they'll add it and tell you the exact path to
   paste.
 
+> **Optional `marketplace` column:** add a column named `marketplace` and paste a Facebook
+> Marketplace listing URL into a row to show a blue "Marketplace" button on that item
+> (handy for Used Equipment). Leave it blank for no button.
+
 ---
 
 ## 6. Things to be careful about (please read)
