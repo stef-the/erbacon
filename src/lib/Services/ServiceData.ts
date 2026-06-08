@@ -1,6 +1,25 @@
 // src/lib/Services/ServiceData.ts
 import Papa from 'papaparse';
 
+// Top-level folders under static/. A sheet path beginning with one of these is treated
+// as site-root-relative; any other bare path is assumed to live under /products/.
+const ASSET_TOP_LEVEL_DIRS = ['products', 'truck-equipment', 'services', 'icons', 'video'];
+
+/**
+ * Turn a sheet-supplied asset path into a usable URL.
+ * - Full URLs (http/https) pass through unchanged.
+ * - Paths under a known static folder (e.g. "truck-equipment/cranes/x.pdf") are rooted with "/".
+ * - Bare category paths (e.g. "air-tools/x.pdf") are placed under "/products/".
+ */
+function resolveAssetPath(path: string): string {
+	const trimmed = path.trim();
+	if (!trimmed) return trimmed;
+	if (/^https?:\/\//i.test(trimmed)) return trimmed;
+	const clean = trimmed.replace(/^\/+/, '');
+	const firstSegment = clean.split('/')[0];
+	return ASSET_TOP_LEVEL_DIRS.includes(firstSegment) ? `/${clean}` : `/products/${clean}`;
+}
+
 /**
  * Interface for service data items
  */
@@ -37,7 +56,9 @@ export async function fetchServiceData(sheets_url: string): Promise<ServiceDataI
 		response = await fetch(sheets_url);
 	} catch (error) {
 		const detail = error instanceof Error ? error.message : String(error);
-		throw new Error(`Could not reach the Google Sheet (${sheets_url}): ${detail}`);
+		throw new Error(`Could not reach the Google Sheet (${sheets_url}): ${detail}`, {
+			cause: error
+		});
 	}
 
 	if (!response.ok) {
@@ -85,9 +106,8 @@ export async function fetchServiceData(sheets_url: string): Promise<ServiceDataI
 		// Resolve a relative PDF path (e.g. "air-tools/sullivan.pdf") against the
 		// /products/ folder where the spec sheets live. Full URLs ("http(s)://…")
 		// and paths that are already absolute ("/…") are left untouched.
-		if (item.pdf && !/^https?:\/\//i.test(item.pdf) && !item.pdf.startsWith('/')) {
-			item.pdf = `/products/${item.pdf}`;
-		}
+		if (item.pdf) item.pdf = resolveAssetPath(item.pdf);
+		if (item.imageurl) item.imageurl = resolveAssetPath(item.imageurl);
 
 		return item;
 	});

@@ -33,9 +33,8 @@ SvelteKit load() → ServiceData.ts (parse) → page components (cards, filters,
 ## Local development
 
 ```bash
-pnpm install          # install dependencies (use pnpm, not npm)
-cp .env.example .env  # then fill in the real Sheet ID/GIDs (see below)
-pnpm run dev          # http://localhost:5173
+pnpm install   # install dependencies (use pnpm, not npm)
+pnpm run dev   # http://localhost:5173  (no .env needed — sheet config is in code)
 ```
 
 Useful scripts:
@@ -48,27 +47,25 @@ pnpm run preview  # preview the production build locally
 pnpm run test:unit -- --run   # unit tests
 ```
 
-## Environment variables
+## Sheet configuration (which tab feeds which page)
 
-These tell each page **which Google Sheet tab to read**. They are build-time values
-(`$env/static/private`), so changing a tab mapping requires a rebuild/redeploy; editing
-sheet **rows** does not.
+This lives in **one code file: [`src/lib/sheets.ts`](src/lib/sheets.ts)** — no environment
+variables required. Editing sheet **rows** updates the site live; you only touch this file
+if a page should read a _different_ tab (rare).
 
-Copy `.env.example` → `.env` for local dev. In production, set the **same keys** in the
-**Cloudflare Pages dashboard** (Settings → Environment variables).
+| `SHEET_GIDS` key | Feeds the page                               | Notes                           |
+| ---------------- | -------------------------------------------- | ------------------------------- |
+| `newEquipment`   | **New Equipment** (`/products/construction`) | the manufacturer lineup tab     |
+| `truckEquipment` | **Truck Equipment** (`/products/trucks`)     | Stellar cranes/trucks/etc.      |
+| `usedEquipment`  | Used Equipment (`/products/used`)            | empty — add used inventory here |
+| `fencing`        | Fencing (`/services/fencing`, not in nav)    |                                 |
 
-| Variable                                  | Feeds the page                               | Notes                                 |
-| ----------------------------------------- | -------------------------------------------- | ------------------------------------- |
-| `CONSTRUCTION_PRODUCTS_SHEET_ID` / `_GID` | **New Equipment** (`/products/construction`) | currently the populated lineup tab    |
-| `USED_EQUIPMENT_SHEET_ID` / `_GID`        | Used Equipment (`/products/used`)            | currently an empty tab, ready to fill |
-| `TRUCK_EQUIPMENT_SHEET_ID` / `_GID`       | Truck Equipment (`/products/trucks`)         |                                       |
-| `TEMPORARY_FENCING_SHEET_ID` / `_GID`     | Fencing (`/services/fencing`, not in nav)    |                                       |
-
-The **Site Services – Fence Rental** page (`/services/project-site`) and the **Generators
-& Power Solutions** menu item are static content (no sheet); the latter links to
+The **About**, **Site Services – Fence Rental**, and **Generators & Power Solutions** pages
+are static content (no sheet). The Generators menu item links to
 `static/services/generator-services.pdf`.
 
-The `_ID` is the long string in the sheet URL; the `_GID` is the `gid=` number for a specific tab.
+> A tab's `gid` stays the same when you rename it, but **changes if you delete & recreate the
+> tab** — if a page goes blank, update the gid in `src/lib/sheets.ts` and redeploy.
 
 ## Project layout
 
@@ -91,8 +88,7 @@ docs/                     human guides (start here)
 Cloudflare Pages builds on push.
 
 1. Connect the repo to Cloudflare Pages (build command `pnpm run build`, output `.svelte-kit/cloudflare`).
-2. Add the environment variables above in the Pages project settings.
-3. Push to the deployed branch → Cloudflare builds and publishes automatically.
+2. Push to the deployed branch → Cloudflare builds and publishes automatically. **No environment variables are required** (sheet config lives in `src/lib/sheets.ts`).
 
 ## More docs
 

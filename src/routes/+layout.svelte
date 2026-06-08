@@ -58,17 +58,19 @@
 			{ label: 'About Us', href: '/about' },
 			{ label: 'Used Equipment', href: '/products/used' }
 		],
+		// Social + eBay links are hidden for now (placeholders / not live yet).
+		// Un-comment the entries below once real profiles/links exist.
 		socialLinks: [
-			{ icon: 'Twitter', href: 'https://twitter.com' },
-			{ icon: 'Facebook', href: 'https://facebook.com' },
-			{ icon: 'Instagram', href: 'https://instagram.com' },
-			{ icon: 'LinkedIn', href: 'https://linkedin.com/in/erbco' }
+			// { icon: 'Twitter', href: 'https://twitter.com' },
+			// { icon: 'Facebook', href: 'https://facebook.com' },
+			// { icon: 'Instagram', href: 'https://instagram.com' },
+			// { icon: 'LinkedIn', href: 'https://linkedin.com/in/erbco' }
 		],
 		footerLinks: [
-			{
-				title: 'Company',
-				links: [{ icon: 'eBay', label: 'eBay', href: 'https://www.ebay.com', target: '_blank' }]
-			}
+			// {
+			// 	title: 'Company',
+			// 	links: [{ icon: 'eBay', label: 'eBay', href: 'https://www.ebay.com', target: '_blank' }]
+			// }
 		]
 	};
 

@@ -28,11 +28,11 @@ don't see it, wait 5 minutes and refresh again). You do **not** need to "publish
 
 ## 2. Which tab controls which page
 
-| Website page                               | Google Sheet tab to edit                                             |
-| ------------------------------------------ | -------------------------------------------------------------------- |
-| **New Equipment** (the main Products list) | the tab with the manufacturer lineup (Sullivan, APT, Wanco, Wacker…) |
-| **Used Equipment**                         | the empty "used" tab — add your used machines here                   |
-| **Truck Equipment**                        | the trucks tab                                                       |
+| Website page                               | Google Sheet tab to edit                                                |
+| ------------------------------------------ | ----------------------------------------------------------------------- |
+| **New Equipment** (the main Products list) | the tab with the manufacturer lineup (Sullivan, APT, Wanco, Wacker…)    |
+| **Truck Equipment**                        | the tab with the Stellar truck items (Service Cranes, TMAX, hooklifts…) |
+| **Used Equipment**                         | currently empty — add your used machines to this tab                    |
 
 > The **Site Services – Fence Rental** page, the **About Us** page, and the **Generators &
 > Power Solutions** brochure link are fixed content (not in the sheet) — ask your developer

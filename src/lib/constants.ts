@@ -12,3 +12,7 @@ export const COMPANY_ADDRESS = {
 };
 export const COMPANY_TAGLINE = 'Serving the California construction industry since 1910';
 export const COMPANY_FOUNDING_YEAR = '1910';
+
+// Site build version, shown subtly in the footer. Reflects the git commit count;
+// bump it (or wire it to `git rev-list --count HEAD`) when cutting a release.
+export const APP_VERSION = 'v0.0.95';

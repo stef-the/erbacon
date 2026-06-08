@@ -1,12 +1,12 @@
 // src/routes/services/fencing/+page.server.ts
 import { loadServicePageData } from '$lib/Services/ServicePageLoader';
-import { TEMPORARY_FENCING_SHEET_ID, TEMPORARY_FENCING_SHEET_GID } from '$env/static/private';
+import { SHEET_ID, SHEET_GIDS } from '$lib/sheets';
 
 export async function load() {
 	return loadServicePageData({
 		serviceType: 'fencing',
-		dataSheetId: TEMPORARY_FENCING_SHEET_ID,
-		dataSheetGid: TEMPORARY_FENCING_SHEET_GID,
+		dataSheetId: SHEET_ID,
+		dataSheetGid: SHEET_GIDS.fencing,
 		defaultInfo: {
 			title: 'Temporary Fencing',
 			description: 'Temporary fencing solutions for construction sites and events',

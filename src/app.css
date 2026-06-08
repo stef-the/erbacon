@@ -19,4 +19,14 @@ body {
 	body {
 		background-color: var(--background-dark);
 	}
+
+	/* Unstyled links (e.g. phone numbers) default to a hard-to-read dark blue/purple in
+	   dark mode. Make them white, bold, and underlined. Links that carry their own classes
+	   (nav items, buttons, cards) keep their styling. */
+	a:not([class]),
+	a:not([class]):visited {
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: underline;
+	}
 }

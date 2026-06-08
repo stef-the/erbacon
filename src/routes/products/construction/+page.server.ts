@@ -1,15 +1,12 @@
 // src/routes/services/construction/+page.server.ts
 import { loadServicePageData } from '$lib/Services/ServicePageLoader';
-import {
-	CONSTRUCTION_PRODUCTS_SHEET_ID,
-	CONSTRUCTION_PRODUCTS_SHEET_GID
-} from '$env/static/private';
+import { SHEET_ID, SHEET_GIDS } from '$lib/sheets';
 
 export async function load() {
 	return loadServicePageData({
 		serviceType: 'construction',
-		dataSheetId: CONSTRUCTION_PRODUCTS_SHEET_ID,
-		dataSheetGid: CONSTRUCTION_PRODUCTS_SHEET_GID,
+		dataSheetId: SHEET_ID,
+		dataSheetGid: SHEET_GIDS.newEquipment,
 		defaultInfo: {
 			title: 'New Equipment',
 			description: 'New equipment from the manufacturer lines we represent',

@@ -1,6 +1,7 @@
 <!-- src/components/Footer.svelte -->
 <script>
 	import SocialIcons from './icons/SocialIcons.svelte';
+	import { APP_VERSION } from '$lib/constants';
 
 	/**
 	 * @type {string}
@@ -126,7 +127,8 @@
 		<div
 			class="mt-8 border-t border-gray-700 pt-6 text-sm text-gray-400 dark:border-zinc-700 dark:text-zinc-300"
 		>
-			<p>&copy; {currentYear} {companyName}. All rights reserved.</p>
+			<p>{companyName}&trade; · {currentYear}</p>
+			<p class="mt-1 text-xs text-gray-500 dark:text-zinc-500">{APP_VERSION}</p>
 		</div>
 	</div>
 </footer>

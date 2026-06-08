@@ -1,12 +1,12 @@
 // src/routes/products/trucks/+page.server.ts
 import { loadServicePageData } from '$lib/Services/ServicePageLoader';
-import { TRUCK_EQUIPMENT_SHEET_ID, TRUCK_EQUIPMENT_SHEET_GID } from '$env/static/private';
+import { SHEET_ID, SHEET_GIDS } from '$lib/sheets';
 
 export async function load() {
 	return loadServicePageData({
 		serviceType: 'trucks',
-		dataSheetId: TRUCK_EQUIPMENT_SHEET_ID,
-		dataSheetGid: TRUCK_EQUIPMENT_SHEET_GID,
+		dataSheetId: SHEET_ID,
+		dataSheetGid: SHEET_GIDS.truckEquipment,
 		defaultInfo: {
 			title: 'Truck Equipment',
 			description: 'High-quality truck equipment for transportation and logistics',

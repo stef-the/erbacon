@@ -1,6 +1,7 @@
 <!-- src/components/services/ItemGrid.svelte -->
 <script lang="ts">
 	import type { ServiceDataItem } from '$lib/Services/ServiceData';
+	import ImagePlaceholder from './ImagePlaceholder.svelte';
 
 	export let items: ServiceDataItem[];
 	export let allItems: ServiceDataItem[];
@@ -19,9 +20,7 @@
 		>
 			<div class="h-40 overflow-hidden">
 				{#if item.imageurl === undefined || item.imageurl === ''}
-					<div
-						class="flex h-full w-full items-center justify-center bg-gray-200 dark:bg-zinc-700"
-					></div>
+					<ImagePlaceholder />
 				{:else}
 					<img
 						src={item.imageurl}

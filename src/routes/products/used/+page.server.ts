@@ -1,12 +1,12 @@
 // src/routes/services/used/+page.server.ts
 import { loadServicePageData } from '$lib/Services/ServicePageLoader';
-import { USED_EQUIPMENT_SHEET_ID, USED_EQUIPMENT_SHEET_GID } from '$env/static/private';
+import { SHEET_ID, SHEET_GIDS } from '$lib/sheets';
 
 export async function load() {
 	return loadServicePageData({
 		serviceType: 'used',
-		dataSheetId: USED_EQUIPMENT_SHEET_ID,
-		dataSheetGid: USED_EQUIPMENT_SHEET_GID,
+		dataSheetId: SHEET_ID,
+		dataSheetGid: SHEET_GIDS.usedEquipment,
 		defaultInfo: {
 			title: 'Used Equipment',
 			description: 'Quality pre-owned construction equipment at competitive prices.',
