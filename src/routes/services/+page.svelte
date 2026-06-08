@@ -6,12 +6,13 @@
 	// Services directory
 	const services = [
 		{
-			title: 'Generators, Pumps & Power Solutions',
-			description: 'We offer a wide range of generators, pumps and power solutions.',
+			title: 'Generators & Power Services',
+			description:
+				'Generator maintenance, standby power, and turnkey installs — see our full services brochure.',
 			imageUrl:
 				'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
-			imageAlt: 'Generators and power solutions',
-			href: '/products/construction?category=Generators'
+			imageAlt: 'Generators and power services',
+			href: '/services/generator-services.pdf'
 		},
 		{
 			title: 'Site Services – Fence Rental',

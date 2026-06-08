@@ -8,7 +8,7 @@ Marketing + equipment-catalog site for ERBCO, built with **SvelteKit** and deplo
 
 ## How it works (the 2-minute version)
 
-- Each catalog page (New Equipment, Used Equipment, Truck Equipment, Site Services) reads **one tab** of a Google Sheet as CSV at request time.
+- Each equipment-catalog page (New Equipment, Used Equipment, Truck Equipment) reads **one tab** of a Google Sheet as CSV at request time. (About, Site Services – Fence Rental, and the Generators brochure are static content.)
 - Add/edit a **row** in the sheet → the change shows up on the live site within a few minutes. **No deploy needed.**
 - Code changes (layout, wording, new pages) require a normal git push → Cloudflare auto-build.
 - Company contact info (phone, address, email, tagline) lives in one file: `src/lib/constants.ts`.
@@ -22,13 +22,13 @@ SvelteKit load() → ServiceData.ts (parse) → page components (cards, filters,
 
 ## Tech stack
 
-| Area | Choice |
-|------|--------|
-| Framework | SvelteKit 2 / Svelte 5 (legacy `export let` / `$:` syntax, no runes) |
-| Styling | Tailwind CSS 4 |
-| Hosting | Cloudflare Pages (`@sveltejs/adapter-cloudflare`) |
-| Data source | Google Sheets (CSV export) + static PDFs/images in `static/` |
-| Package manager | **pnpm** (enforced — `npm install` is blocked) |
+| Area            | Choice                                                               |
+| --------------- | -------------------------------------------------------------------- |
+| Framework       | SvelteKit 2 / Svelte 5 (legacy `export let` / `$:` syntax, no runes) |
+| Styling         | Tailwind CSS 4                                                       |
+| Hosting         | Cloudflare Pages (`@sveltejs/adapter-cloudflare`)                    |
+| Data source     | Google Sheets (CSV export) + static PDFs/images in `static/`         |
+| Package manager | **pnpm** (enforced — `npm install` is blocked)                       |
 
 ## Local development
 
@@ -57,13 +57,16 @@ sheet **rows** does not.
 Copy `.env.example` → `.env` for local dev. In production, set the **same keys** in the
 **Cloudflare Pages dashboard** (Settings → Environment variables).
 
-| Variable | Feeds the page | Notes |
-|----------|----------------|-------|
-| `CONSTRUCTION_PRODUCTS_SHEET_ID` / `_GID` | **New Equipment** (`/products/construction`) | currently the populated lineup tab |
-| `USED_EQUIPMENT_SHEET_ID` / `_GID` | Used Equipment (`/products/used`) | currently an empty tab, ready to fill |
-| `TRUCK_EQUIPMENT_SHEET_ID` / `_GID` | Truck Equipment (`/products/trucks`) | |
-| `PROJECT_SITE_SERVICES_SHEET_ID` / `_GID` | Site Services – Fence Rental (`/services/project-site`) | |
-| `TEMPORARY_FENCING_SHEET_ID` / `_GID` | Fencing (`/services/fencing`, not in nav) | |
+| Variable                                  | Feeds the page                               | Notes                                 |
+| ----------------------------------------- | -------------------------------------------- | ------------------------------------- |
+| `CONSTRUCTION_PRODUCTS_SHEET_ID` / `_GID` | **New Equipment** (`/products/construction`) | currently the populated lineup tab    |
+| `USED_EQUIPMENT_SHEET_ID` / `_GID`        | Used Equipment (`/products/used`)            | currently an empty tab, ready to fill |
+| `TRUCK_EQUIPMENT_SHEET_ID` / `_GID`       | Truck Equipment (`/products/trucks`)         |                                       |
+| `TEMPORARY_FENCING_SHEET_ID` / `_GID`     | Fencing (`/services/fencing`, not in nav)    |                                       |
+
+The **Site Services – Fence Rental** page (`/services/project-site`) and the **Generators
+& Power Solutions** menu item are static content (no sheet); the latter links to
+`static/services/generator-services.pdf`.
 
 The `_ID` is the long string in the sheet URL; the `_GID` is the `gid=` number for a specific tab.
 

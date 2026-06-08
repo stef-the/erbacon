@@ -28,12 +28,15 @@ don't see it, wait 5 minutes and refresh again). You do **not** need to "publish
 
 ## 2. Which tab controls which page
 
-| Website page | Google Sheet tab to edit |
-|--------------|--------------------------|
+| Website page                               | Google Sheet tab to edit                                             |
+| ------------------------------------------ | -------------------------------------------------------------------- |
 | **New Equipment** (the main Products list) | the tab with the manufacturer lineup (Sullivan, APT, Wanco, Wacker…) |
-| **Used Equipment** | the empty "used" tab — add your used machines here |
-| **Truck Equipment** | the trucks tab |
-| **Site Services – Fence Rental** | the project-site / fence-rental tab |
+| **Used Equipment**                         | the empty "used" tab — add your used machines here                   |
+| **Truck Equipment**                        | the trucks tab                                                       |
+
+> The **Site Services – Fence Rental** page, the **About Us** page, and the **Generators &
+> Power Solutions** brochure link are fixed content (not in the sheet) — ask your developer
+> to change those.
 
 > 📌 **Tip:** To avoid confusion, rename your sheet tabs so the tab name matches the
 > page name above. Renaming a tab is safe — it will **not** break the website.
@@ -45,17 +48,17 @@ don't see it, wait 5 minutes and refresh again). You do **not** need to "publish
 The **first row** of every tab is the column headings. **Never delete or rename the first
 row.** Fill in the columns below for each product (only `name` is required):
 
-| Column | Required? | What to put |
-|--------|-----------|-------------|
-| **name** | ✅ Yes | The product name shown on the card (e.g. `WANCO Light Towers`) |
-| **category** | Recommended | A group name (e.g. `AIR TOOLS`). Items with the same category get grouped, and a filter button appears for it. |
-| **imageUrl** | Optional | A link to a photo (see Section 4). Leave blank to show a plain grey box. |
-| **imageAlt** | Optional | A few words describing the photo (helps accessibility & SEO) |
-| **brand** | Optional | Manufacturer name (e.g. `WACKER NEUSON`) |
-| **price** | Optional | Shows only on pages that display prices (New & Used Equipment) |
-| **description** | Optional | A sentence or two about the product |
-| **pdf** | Optional | A link to a spec-sheet PDF (see Section 5) |
-| model, features, details, availability, contactInfo | Optional | Extra detail shown in the pop-up when someone clicks the item |
+| Column                                              | Required?   | What to put                                                                                                    |
+| --------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------- |
+| **name**                                            | ✅ Yes      | The product name shown on the card (e.g. `WANCO Light Towers`)                                                 |
+| **category**                                        | Recommended | A group name (e.g. `AIR TOOLS`). Items with the same category get grouped, and a filter button appears for it. |
+| **imageUrl**                                        | Optional    | A link to a photo (see Section 4). Leave blank to show a plain grey box.                                       |
+| **imageAlt**                                        | Optional    | A few words describing the photo (helps accessibility & SEO)                                                   |
+| **brand**                                           | Optional    | Manufacturer name (e.g. `WACKER NEUSON`)                                                                       |
+| **price**                                           | Optional    | Shows only on pages that display prices (New & Used Equipment)                                                 |
+| **description**                                     | Optional    | A sentence or two about the product                                                                            |
+| **pdf**                                             | Optional    | A link to a spec-sheet PDF (see Section 5)                                                                     |
+| model, features, details, availability, contactInfo | Optional    | Extra detail shown in the pop-up when someone clicks the item                                                  |
 
 ---
 
@@ -113,7 +116,9 @@ These are **not** in the Google Sheet, so message your developer to change them:
 ## 8. Current status (as of this writing)
 
 - **New Equipment** is live with your full manufacturer lineup. ✅
-- **Used Equipment, Truck Equipment, and Site Services** tabs are **empty** — those pages
-  will stay blank until you add rows. Start adding rows whenever you're ready.
+- **About Us**, **Site Services – Fence Rental**, and **Generators & Power Solutions** are
+  done (fixed content). ✅
+- **Used Equipment** and **Truck Equipment** tabs are **empty** — those pages will stay
+  blank until you add rows. Start adding rows whenever you're ready.
 - A few Mobile Equipment items (Tool Boxes, Fuel & Lube Trailers, Waste Management, Utility
   Trailers) are waiting on photos.

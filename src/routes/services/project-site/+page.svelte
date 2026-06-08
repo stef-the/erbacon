@@ -1,36 +1,109 @@
-<!-- src/routes/services/project-site/+page.server.ts -->
+<!-- src/routes/services/project-site/+page.svelte — Site Services: Fence Rental -->
 <script lang="ts">
-	import GenericServicePage from '$lib/Services/GenericServicePage.svelte';
+	import { COMPANY_PHONE, COMPANY_PHONE_TEL } from '$lib/constants';
 
-	export let data;
-
-	const introText =
-		'Edward R. Bacon Company delivers comprehensive project site services designed to support the complex needs of construction and industrial projects. From site preparation to ongoing support, our experienced team ensures your project runs smoothly and efficiently.';
-
-	const features = [
+	const services = [
 		{
-			title: 'End-to-End Solutions',
+			title: 'Stanchion Mounted Fence Panels',
 			description:
-				'From initial site assessment to ongoing maintenance, we provide comprehensive solutions that address all aspects of project site management and support.'
+				'Fast, flexible deployment for any job site. Easy to reposition as your project evolves.'
 		},
 		{
-			title: 'Experienced Team',
+			title: 'Post Driven Panels & Chain Link',
 			description:
-				'Our team brings decades of experience to every project, with the expertise to anticipate challenges and implement effective solutions that keep your project on track.'
+				'Solid, durable perimeter fencing for sites that need long-term or high-security setups.'
 		},
 		{
-			title: 'Customized Approach',
+			title: 'Sandbags — 40 lb. (Caltrans Approved)',
 			description:
-				'We understand that every project is unique, which is why we tailor our services to meet your specific requirements, timeline, and budget constraints.'
+				'Double-stacked ballast sandbags to anchor your fence panels against wind and impact.'
+		},
+		{
+			title: 'Privacy Screening',
+			description:
+				'Custom-fit privacy screen panels to shield your site from the street or neighboring properties.'
+		},
+		{
+			title: 'Custom & Permanent Fencing',
+			description:
+				'Decorative and permanent fence builds crafted to your exact specs — residential or commercial.'
+		},
+		{
+			title: 'Generator Rentals & More',
+			description:
+				'We also supply job site generators and miscellaneous equipment — one call for everything you need.'
 		}
 	];
 </script>
 
-<GenericServicePage
-	{data}
-	{introText}
-	{features}
-	featuresTitle="The ERBCO Site Services &amp; Fence Rental Advantage"
-	ctaText="Looking for a specific service not listed here? We offer customized solutions for unique project needs."
-	ctaButtonText="Discuss Your Project Needs"
-/>
+<svelte:head>
+	<title>Site Services – Fence Rental | Edward R. Bacon Company</title>
+	<meta
+		name="description"
+		content="Temporary fence rental and installation from Edward R. Bacon Company — stanchion and post-driven panels, chain link, privacy screening, sandbags, custom fencing, and generator rentals."
+	/>
+	<meta property="og:title" content="Site Services – Fence Rental | Edward R. Bacon Company" />
+	<meta
+		property="og:description"
+		content="Temporary fence rental & installation — fast response, flexible rates, licensed & insured."
+	/>
+</svelte:head>
+
+<!-- Hero: logo + tagline + phone -->
+<section class="py-8">
+	<div class="flex flex-wrap items-center justify-center gap-4">
+		<img src="/icons/erbco-logo-red.png" alt="ERBCO" class="h-20 w-auto" />
+		<span class="text-2xl font-bold text-red-600 sm:text-3xl dark:text-red-500">
+			Get it from Bacon!
+		</span>
+	</div>
+	<div class="mt-4 text-center">
+		<a
+			href={COMPANY_PHONE_TEL}
+			class="text-xl font-bold text-gray-800 transition duration-150 ease-in-out hover:text-red-500 hover:underline sm:text-3xl dark:text-slate-50"
+		>
+			{COMPANY_PHONE}
+		</a>
+	</div>
+</section>
+
+<div class="prose lg:prose-lg mx-auto mb-8">
+	<h1 class="text-center text-4xl font-bold dark:text-slate-50">
+		Temporary Fence Rental &amp; Installation
+	</h1>
+	<p class="text-center text-lg font-semibold text-gray-600 dark:text-slate-300">
+		Fast Response · Flexible Rates · Licensed &amp; Insured
+	</p>
+	<p class="mt-4 text-lg dark:text-slate-50">
+		We stock a large inventory of temporary fence panels ready to secure your project site. Whether
+		you need a quick setup or a long-term perimeter solution, we've got you covered with affordable
+		rates and dependable service.
+	</p>
+</div>
+
+<div class="mx-auto max-w-6xl">
+	<h2 class="mb-6 text-center text-2xl font-bold dark:text-slate-50">Our Services</h2>
+	<div class="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+		{#each services as service}
+			<div class="rounded-lg border-l-4 border-red-600 bg-white p-6 shadow-md dark:bg-zinc-900/70">
+				<h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-slate-50">
+					{service.title}
+				</h3>
+				<p class="text-gray-700 dark:text-slate-300">{service.description}</p>
+			</div>
+		{/each}
+	</div>
+
+	<div class="mb-12 text-center dark:text-slate-50">
+		<p class="mx-auto mb-6 max-w-2xl text-lg">
+			Need a fence on site quickly, or a custom perimeter solution? Call us and we'll get you set
+			up.
+		</p>
+		<a
+			href={COMPANY_PHONE_TEL}
+			class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-700"
+		>
+			Contact Us Today
+		</a>
+	</div>
+</div>

@@ -50,7 +50,7 @@
 				children: [
 					{
 						label: 'Generators and Power Solutions',
-						href: '/products/construction?category=Generators'
+						href: '/services/generator-services.pdf'
 					},
 					{ label: 'Site Services – Fence Rental', href: '/services/project-site' }
 				]
