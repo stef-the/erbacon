@@ -14,7 +14,7 @@
 	<div class="flex-grow">
 		<div class="mb-4 flex items-center gap-3">
 			<!-- Icon, title and category -->
-			<a href="/"><img src="/icons/erbco-logo-red.webp" alt="Logo" class="h-12 rounded" /></a>
+			<a href="/"><img src="/icons/erbco-logo-red.png" alt="Logo" class="h-12 rounded" /></a>
 			<h2 id="modal-title" class="text-2xl font-bold text-balance dark:text-slate-50">
 				{item.name}
 			</h2>

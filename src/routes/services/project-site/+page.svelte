@@ -30,7 +30,7 @@
 	{data}
 	{introText}
 	{features}
-	featuresTitle="The ERBCO Project Site Services Advantage"
+	featuresTitle="The ERBCO Site Services &amp; Fence Rental Advantage"
 	ctaText="Looking for a specific service not listed here? We offer customized solutions for unique project needs."
 	ctaButtonText="Discuss Your Project Needs"
 />

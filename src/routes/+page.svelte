@@ -6,12 +6,12 @@
 	<title>Edward R. Bacon Company | Construction Equipment Since 1910</title>
 	<meta
 		name="description"
-		content="Edward R. Bacon Company has been serving the California construction industry since 1910. Quality construction equipment, truck equipment, parts, and project site services."
+		content="Edward R. Bacon Company has been serving the California construction industry since 1910. Quality construction equipment, truck equipment, and site services."
 	/>
 	<meta property="og:title" content="Edward R. Bacon Company | Construction Equipment Since 1910" />
 	<meta
 		property="og:description"
-		content="Serving the California construction industry since 1910. Quality construction equipment, truck equipment, parts, and project site services."
+		content="Serving the California construction industry since 1910. Quality construction equipment, truck equipment, and site services."
 	/>
 </svelte:head>
 

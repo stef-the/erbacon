@@ -107,7 +107,7 @@
 		style="background-color: {logoColour};"
 	>
 		<img
-			src="/icons/erbco-logo-red.webp"
+			src="/icons/erbco-logo-red.png"
 			alt="ERBCO"
 			class:h-24={logoFixed}
 			class:h-16={!logoFixed}

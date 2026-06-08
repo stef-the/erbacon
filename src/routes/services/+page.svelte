@@ -14,11 +14,11 @@
 			href: '/products/construction?category=Generators'
 		},
 		{
-			title: 'Project Site Services',
-			description: 'We offer a wide range of project site services for your needs.',
+			title: 'Site Services – Fence Rental',
+			description: 'Site services and temporary fence rental for your project needs.',
 			imageUrl:
 				'https://i0.wp.com/www.smbceo.com/wp-content/uploads/2023/01/construction-workers-500-rawpixel.jpg?resize=500%2C333&ssl=1',
-			imageAlt: 'Project site services',
+			imageAlt: 'Site services and fence rental',
 			href: '/services/project-site'
 		}
 	];

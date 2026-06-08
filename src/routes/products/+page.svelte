@@ -35,14 +35,6 @@
 			imageUrl: '/truck-equipment/mobile-equipment-gallery/service-truck-1.jpg',
 			imageAlt: 'Mobile equipment',
 			href: '/products/mobile-equipment'
-		},
-		{
-			title: 'Parts and Miscellaneous',
-			description: 'We offer a wide range of parts and miscellaneous products for your needs.',
-			imageUrl:
-				'https://media.istockphoto.com/id/999389842/photo/spare-parts-chassis-of-construction-machinery.jpg?s=612x612&w=0&k=20&c=4_2ILXTxfcL6ZvkiQF1soisfm6KIxMByKB4tlbOUAm0=',
-			imageAlt: 'Parts and miscellaneous',
-			href: '/products/parts'
 		}
 	];
 
@@ -61,12 +53,12 @@
 	<title>Our Products | Edward R. Bacon Company</title>
 	<meta
 		name="description"
-		content="Explore ERBCO's comprehensive range of construction products, used equipment, truck equipment, and parts. Over 100 years of industry experience."
+		content="Explore ERBCO's comprehensive range of construction products, used equipment, and truck equipment. Over 100 years of industry experience."
 	/>
 	<meta property="og:title" content="Our Products | Edward R. Bacon Company" />
 	<meta
 		property="og:description"
-		content="Explore ERBCO's comprehensive range of construction products, used equipment, truck equipment, and parts."
+		content="Explore ERBCO's comprehensive range of construction products, used equipment, and truck equipment."
 	/>
 </svelte:head>
 

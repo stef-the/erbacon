@@ -11,7 +11,7 @@ export async function load() {
 		dataSheetId: PROJECT_SITE_SERVICES_SHEET_ID,
 		dataSheetGid: PROJECT_SITE_SERVICES_SHEET_GID,
 		defaultInfo: {
-			title: 'Project Site Services',
+			title: 'Site Services – Fence Rental',
 			description: 'Comprehensive services for managing and supporting your project sites',
 			contactCta: 'Contact us to discuss your project site needs',
 			showPrices: false

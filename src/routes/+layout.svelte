@@ -41,8 +41,7 @@
 				children: [
 					{ label: 'Construction Products', href: '/products/construction' },
 					{ label: 'Truck Equipment', href: '/products/trucks' },
-					{ label: 'Mobile Equipment', href: '/products/mobile-equipment' },
-					{ label: 'Parts and Miscellaneous', href: '/products/parts' }
+					{ label: 'Mobile Equipment', href: '/products/mobile-equipment' }
 				]
 			},
 			{
@@ -53,7 +52,7 @@
 						label: 'Generators and Power Solutions',
 						href: '/products/construction?category=Generators'
 					},
-					{ label: 'Project Site Services', href: '/services/project-site' }
+					{ label: 'Site Services – Fence Rental', href: '/services/project-site' }
 				]
 			},
 			{ label: 'About Us', href: '/about' },
@@ -85,7 +84,7 @@
 		'@context': 'https://schema.org',
 		'@type': 'LocalBusiness',
 		name: COMPANY_NAME,
-		description: `${COMPANY_TAGLINE}. Construction equipment, truck equipment, parts, and project site services.`,
+		description: `${COMPANY_TAGLINE}. Construction equipment, truck equipment, and site services.`,
 		foundingDate: COMPANY_FOUNDING_YEAR,
 		telephone: COMPANY_PHONE_SCHEMA,
 		address: {
