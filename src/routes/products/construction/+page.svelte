@@ -29,11 +29,11 @@
 		>
 			<a href={COMPANY_PHONE_TEL}>{COMPANY_PHONE}</a>
 		</h3>
-		<img
-			src="/icons/erbco-get-it-from-bacon.avif"
-			alt="get it from bacon!"
-			class="h-16 -translate-y-[2px] rounded-md px-4"
-		/>
+		<span
+			class="px-4 text-2xl font-bold whitespace-nowrap text-red-600 italic sm:text-3xl dark:text-red-500"
+		>
+			Get it from Bacon!
+		</span>
 	</div>
 </section>
 

@@ -5,6 +5,10 @@
 	export let imageurl: string;
 	export let imagealt: string = '';
 
+	let failed = false;
+	// Reset when the image changes (the modal is reused across items).
+	$: if (imageurl) failed = false;
+
 	let containerEl: HTMLDivElement;
 	let isHovering = false;
 	// Mouse position as 0-1 ratio within the container
@@ -46,14 +50,15 @@
 	on:mouseenter={handleMouseEnter}
 	on:mouseleave={handleMouseLeave}
 >
-	{#if imageurl}
+	{#if imageurl && !failed}
 		<img
 			src={imageurl}
 			alt={imagealt}
 			class="h-full w-full object-cover transition-transform duration-300 ease-out"
 			style="transform: scale({isHovering ? scale : 1}) translate({translateX}%, {translateY}%);"
+			on:error={() => (failed = true)}
 		/>
 	{:else}
-		<ImagePlaceholder />
+		<ImagePlaceholder label={imagealt} />
 	{/if}
 </div>

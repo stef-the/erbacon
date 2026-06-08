@@ -34,11 +34,11 @@
 		>
 			<a href={COMPANY_PHONE_TEL}>{COMPANY_PHONE}</a>
 		</h3>
-		<img
-			src="/icons/erbco-get-it-from-bacon.avif"
-			alt="Get it from Bacon!"
-			class="h-16 rounded-md"
-		/>
+		<span
+			class="text-2xl font-bold whitespace-nowrap text-red-600 italic sm:text-3xl dark:text-red-500"
+		>
+			Get it from Bacon!
+		</span>
 	</div>
 	<p class="mt-2 text-center text-gray-600 dark:text-slate-400">
 		<a href={COMPANY_EMAIL_MAILTO} class="hover:text-red-500 hover:underline">{COMPANY_EMAIL}</a>

@@ -1,7 +1,7 @@
 <!-- src/components/services/ItemList.svelte -->
 <script lang="ts">
 	import type { ServiceDataItem } from '$lib/Services/ServiceData';
-	import ImagePlaceholder from './ImagePlaceholder.svelte';
+	import ProductImage from './ProductImage.svelte';
 
 	export let items: ServiceDataItem[];
 	export let allItems: ServiceDataItem[];
@@ -19,16 +19,14 @@
 			aria-label="View details for {item.name}"
 		>
 			<div class="overflow-hidden sm:w-1/3 lg:w-1/4">
-				{#if item.imageurl === undefined || item.imageurl === ''}
-					<div class="h-48 w-full sm:h-full"><ImagePlaceholder /></div>
-				{:else}
-					<img
+				<div class="h-48 w-full sm:h-full">
+					<ProductImage
 						src={item.imageurl}
 						alt={item.imagealt || item.name}
-						loading="lazy"
-						class="h-48 w-full transform object-cover object-center transition-transform duration-300 group-hover:scale-105 sm:h-full"
+						label={item.name}
+						imgClass="h-full w-full transform object-cover object-center transition-transform duration-300 group-hover:scale-105"
 					/>
-				{/if}
+				</div>
 			</div>
 			<div class="p-5 sm:w-2/3 lg:w-3/4">
 				<div class="flex flex-wrap items-center justify-between gap-2">

@@ -1,7 +1,7 @@
 <!-- src/components/services/ItemGrid.svelte -->
 <script lang="ts">
 	import type { ServiceDataItem } from '$lib/Services/ServiceData';
-	import ImagePlaceholder from './ImagePlaceholder.svelte';
+	import ProductImage from './ProductImage.svelte';
 
 	export let items: ServiceDataItem[];
 	export let allItems: ServiceDataItem[];
@@ -19,16 +19,12 @@
 			aria-label="View details for {item.name}"
 		>
 			<div class="h-40 overflow-hidden">
-				{#if item.imageurl === undefined || item.imageurl === ''}
-					<ImagePlaceholder />
-				{:else}
-					<img
-						src={item.imageurl}
-						alt={item.imagealt || item.name}
-						loading="lazy"
-						class="h-full w-full transform object-cover object-center transition-transform duration-300 group-hover:scale-105"
-					/>
-				{/if}
+				<ProductImage
+					src={item.imageurl}
+					alt={item.imagealt || item.name}
+					label={item.name}
+					imgClass="h-full w-full transform object-cover object-center transition-transform duration-300 group-hover:scale-105"
+				/>
 			</div>
 			<div class="p-4">
 				<h2 class="mb-2 text-lg font-semibold dark:text-slate-50">{item.name}</h2>

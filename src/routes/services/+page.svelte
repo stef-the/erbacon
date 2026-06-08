@@ -12,7 +12,7 @@
 			imageUrl:
 				'https://media.istockphoto.com/id/637880716/photo/mobile-diesel-generator-for-emergency-electric-power.jpg?s=612x612&w=0&k=20&c=5xYDeMomrILpTDtdeurKKJOsFKfiHOlhZdJeFakSvtY=',
 			imageAlt: 'Generators and power services',
-			href: '/services/generator-services.pdf'
+			href: '/services/generators'
 		},
 		{
 			title: 'Site Services – Fence Rental',
