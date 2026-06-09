@@ -23,7 +23,7 @@
 	 */
 	function handleSearchInputFocus() {
 		if (searchButtonElement) {
-			searchButtonElement.classList.add('ring-2', 'ring-blue-500', 'ring-offset-2');
+			searchButtonElement.classList.add('ring-2', 'ring-red-500', 'ring-offset-2');
 		}
 	}
 
@@ -34,7 +34,7 @@
 		// Check if focus is moving to the search button before removing the visual focus
 		if (event.relatedTarget !== searchButtonElement) {
 			if (searchButtonElement) {
-				searchButtonElement.classList.remove('ring-2', 'ring-blue-500', 'ring-offset-2');
+				searchButtonElement.classList.remove('ring-2', 'ring-red-500', 'ring-offset-2');
 			}
 		}
 	}
@@ -45,7 +45,7 @@
 		id="pdf-search-input"
 		type="text"
 		placeholder="Search in PDF..."
-		class="flex-grow rounded-l-lg border border-gray-300 px-3 py-1 focus:border-blue-500 focus:outline-none dark:border-zinc-600 dark:bg-zinc-700 dark:text-white"
+		class="flex-grow rounded-l-lg border border-gray-300 px-3 py-1 focus:border-red-500 focus:outline-none dark:border-zinc-600 dark:bg-zinc-700 dark:text-white"
 		bind:value={searchTerm}
 		on:keydown={handleSearchKeydown}
 		on:focus={handleSearchInputFocus}
@@ -53,7 +53,7 @@
 	/>
 	<button
 		bind:this={searchButtonElement}
-		class="rounded-r-lg bg-blue-500 px-3 py-1 text-white hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-offset-zinc-800"
+		class="rounded-r-lg bg-red-600 px-3 py-1 text-white hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:outline-none dark:focus:ring-offset-zinc-800"
 		on:click={onSearch}
 	>
 		Search

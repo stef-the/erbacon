@@ -82,7 +82,9 @@
 							{product.title}
 						</h2>
 						<p class="mb-4 text-gray-700 dark:text-slate-300">{product.description}</p>
-						<div class="flex items-center font-semibold text-red-600 group-hover:text-red-700">
+						<div
+							class="flex items-center font-semibold text-red-600 group-hover:text-red-700 dark:text-red-400 dark:group-hover:text-red-300"
+						>
 							Learn more
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +143,7 @@
 		</p>
 		<a
 			href={COMPANY_PHONE_TEL}
-			class="inline-block rounded-lg bg-red-500 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-600"
+			class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white transition-colors duration-300 hover:bg-red-700"
 		>
 			Contact Our Team
 		</a>

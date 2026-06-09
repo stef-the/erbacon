@@ -7,7 +7,7 @@
 <div class="mt-12 mb-6 text-center">
 	<a
 		href={COMPANY_PHONE_TEL}
-		class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white shadow-lg transition-colors duration-300 hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
+		class="inline-block rounded-lg bg-red-600 px-8 py-3 font-bold text-white shadow-lg transition-colors duration-300 hover:bg-red-700"
 	>
 		{cta}
 	</a>

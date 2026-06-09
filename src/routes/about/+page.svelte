@@ -32,11 +32,13 @@
 	/>
 </svelte:head>
 
-<section class="prose lg:prose-lg mx-auto mb-16 scroll-pt-28">
-	<h1 class="mb-8 text-4xl font-bold dark:text-slate-300">About Edward R. Bacon Company</h1>
+<section class="prose lg:prose-lg mx-auto mb-16 scroll-pt-28 text-slate-800 dark:text-slate-50">
+	<h1 class="mb-8 text-center text-4xl font-bold dark:text-slate-50">
+		About Edward R. Bacon Company
+	</h1>
 
 	<div class="my-6">
-		<p class="mt-4 text-lg dark:text-slate-50">
+		<p class="mt-4 text-lg">
 			Edward R. Bacon Company — known as ERBCO — is a family-owned construction equipment business
 			that has been operating out of Sacramento since 1910. That makes us one of the oldest
 			continuously operating, family-owned equipment distributors on the West Coast. We sell,
@@ -53,9 +55,9 @@
 		Coast. Our core business covers three areas:
 	</p>
 
-	<div class="my-8 grid grid-cols-1 gap-6 2xl:grid-cols-3">
+	<div class="my-8 grid grid-cols-1 gap-6 md:grid-cols-3">
 		{#each offerings as offering}
-			<div class="rounded-lg bg-gray-100 p-6 shadow dark:bg-zinc-900/70">
+			<div class="rounded-lg bg-gray-100 p-6 shadow-md dark:bg-zinc-900/70">
 				<h3 class="mb-2 text-xl font-semibold dark:text-slate-50">{offering.title}</h3>
 				<p>{offering.description}</p>
 			</div>

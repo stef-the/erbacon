@@ -161,14 +161,16 @@
 			class="absolute left-0 flex h-[70vh] w-full items-center justify-center px-8"
 		>
 			<div>
-				<h1 class="pt-4 text-center text-6xl font-bold text-white">
+				<h1
+					class="pt-4 text-center text-3xl font-bold text-balance text-white sm:text-5xl lg:text-6xl"
+				>
 					{data.siteTitle}
 				</h1>
-				<h2 class="pt-2 text-center text-3xl text-white">
+				<h2 class="pt-2 text-center text-xl text-white sm:text-3xl">
 					{data.siteSubtitle}
 				</h2>
 				<p
-					class="pt-6 text-center text-6xl text-white transition duration-150 ease-in-out hover:text-red-500 hover:underline"
+					class="pt-6 text-center text-3xl text-white transition duration-150 ease-in-out hover:text-red-500 hover:underline sm:text-5xl lg:text-6xl"
 				>
 					<a href={COMPANY_PHONE_TEL}>{COMPANY_PHONE}</a>
 				</p>
@@ -179,7 +181,9 @@
 			class="absolute top-0 left-0 -z-40 h-[70vh] w-full bg-gradient-to-b from-transparent to-black opacity-20"
 		></div>
 		<!-- Hero image area -->
-		<div class="fixed -z-50 flex h-[70vh] w-full items-center justify-center bg-gray-200">
+		<div
+			class="fixed -z-50 flex h-[70vh] w-full items-center justify-center bg-gray-200 dark:bg-zinc-900"
+		>
 			{#if data.heroImage}
 				<img src={data.heroImage} alt="Hero section" class="h-full w-full object-cover" />
 			{:else if data.heroVideo !== null}
@@ -202,7 +206,7 @@
 					{/if}
 				</video>
 			{:else}
-				<div class="text-gray-500">Featured Image Area</div>
+				<div class="text-gray-500 dark:text-zinc-400">Featured Image Area</div>
 			{/if}
 		</div>
 	</div>

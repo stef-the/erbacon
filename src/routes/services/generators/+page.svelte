@@ -62,7 +62,12 @@
 	<!-- Mobile / unsupported-viewer fallback -->
 	<p class="mt-3 text-center text-sm text-gray-500 dark:text-slate-400">
 		Trouble viewing the brochure?
-		<a href={pdf} target="_blank" rel="noopener noreferrer" class="text-red-600 hover:underline">
+		<a
+			href={pdf}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="text-red-600 hover:underline dark:text-red-400"
+		>
 			Open it in a new tab
 		</a>.
 	</p>

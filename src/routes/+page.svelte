@@ -23,7 +23,7 @@
 	class="prose lg:prose-lg mx-auto mt-6 mb-24 scroll-pt-28 text-slate-800 dark:text-slate-50"
 >
 	<!-- Section heading with larger text and dark mode styling -->
-	<h2 class="text-center text-6xl font-bold dark:text-slate-50">Welcome to our Website</h2>
+	<h1 class="text-center text-4xl font-bold dark:text-slate-50">Welcome to our Website</h1>
 
 	<!-- Content wrapper with vertical margin -->
 	<div class="my-6">
@@ -34,7 +34,7 @@
 			making our customers job easier and more profitable, with creative solutions and over 120
 			years of experience. Visit our <a
 				href="/about"
-				class="text-red-600 underline hover:text-red-500 dark:text-red-400 dark:hover:text-red-300"
+				class="text-red-600 underline hover:text-red-700 dark:text-red-400 dark:hover:text-red-300"
 				>About page</a
 			> to take a look into our rich history.
 		</p>

@@ -13,7 +13,7 @@
 <div class="space-y-6">
 	{#each items as item}
 		<button
-			class="group relative h-24 w-full cursor-pointer overflow-hidden rounded-lg bg-white text-left shadow-md transition-transform duration-300 hover:scale-[1.01] hover:shadow-lg sm:flex sm:h-48 dark:bg-zinc-900/70"
+			class="group relative flex w-full cursor-pointer flex-col overflow-hidden rounded-lg bg-white text-left shadow-md transition-transform duration-300 hover:scale-[1.01] hover:shadow-lg sm:h-48 sm:flex-row dark:bg-zinc-900/70"
 			on:click={() => openModal(allItems.indexOf(item))}
 			type="button"
 			aria-label="View details for {item.name}"

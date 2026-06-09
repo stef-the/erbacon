@@ -52,12 +52,12 @@
 				<!-- Address -->
 				{#if address}
 					<div class="mb-3 flex items-start">
-						<SocialIcons name="map-pin" size={18} customClass="mr-2 mt-1 flex-shrink-0" />
+						<SocialIcons name="Location" size={18} customClass="mr-2 mt-1 flex-shrink-0" />
 						<a
 							href={getMapUrl(address)}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="text-gray-300 transition duration-150 hover:text-blue-400 dark:text-zinc-300 dark:hover:text-blue-500"
+							class="text-gray-300 transition duration-150 hover:text-red-400 dark:text-zinc-300 dark:hover:text-red-400"
 						>
 							{#if typeof address === 'string'}
 								<p>{address}</p>
@@ -72,10 +72,10 @@
 				<!-- Phone Number -->
 				{#if phoneNumber}
 					<div class="mb-4 flex items-center">
-						<SocialIcons name="phone" size={18} customClass="mr-2 flex-shrink-0" />
+						<SocialIcons name="Phone" size={18} customClass="mr-2 flex-shrink-0" />
 						<a
 							href="tel:{phoneNumber.replace(/\s+/g, '')}"
-							class="text-gray-300 transition duration-150 hover:text-blue-400 dark:text-zinc-300 dark:hover:text-blue-500"
+							class="text-gray-300 transition duration-150 hover:text-red-400 dark:text-zinc-300 dark:hover:text-red-400"
 						>
 							{phoneNumber}
 						</a>
@@ -90,7 +90,7 @@
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label={link.icon}
-							class="transition duration-150 hover:text-blue-400 dark:hover:text-blue-500"
+							class="transition duration-150 hover:text-red-400 dark:hover:text-red-400"
 						>
 							<SocialIcons
 								name={link.icon}
@@ -104,14 +104,14 @@
 
 			<!-- Footer links -->
 			{#each footerLinks as section}
-				<div class="mt-4 inline px-4 sm:mt-0">
+				<div class="mt-4 block px-4 sm:mt-0">
 					<h4 class="mb-4 font-bold">{section.title}</h4>
 					<ul>
 						{#each section.links as link}
 							<li class="mb-2">
 								<a
 									href={link.href}
-									class="flex items-center transition duration-150 hover:text-blue-400 dark:hover:text-blue-500"
+									class="flex items-center transition duration-150 hover:text-red-400 dark:hover:text-red-400"
 									target={link.target ? link.target : '_self'}
 								>
 									<SocialIcons name={link.icon} size={16} customClass="mr-2" />

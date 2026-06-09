@@ -6,7 +6,7 @@
 <div class="mb-4 hidden justify-end sm:flex">
 	<div class="inline-flex rounded-lg bg-gray-200 dark:bg-zinc-700">
 		<button
-			class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-gray-500 {layout ===
+			class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-slate-300 {layout ===
 			'grid'
 				? 'bg-white shadow-sm dark:bg-zinc-900 dark:text-slate-50'
 				: ''}"
@@ -25,7 +25,7 @@
 			</svg>
 		</button>
 		<button
-			class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-gray-500 {layout ===
+			class="rounded-lg px-4 py-2 transition-colors duration-200 dark:text-slate-300 {layout ===
 			'list'
 				? 'bg-white shadow-sm dark:bg-zinc-900 dark:text-slate-50'
 				: ''}"

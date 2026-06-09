@@ -47,14 +47,14 @@
 	/>
 </svelte:head>
 
-<div class="mx-auto max-w-5xl px-4">
+<div class="mx-auto max-w-6xl">
 	<!-- Heading + gold underline -->
 	<h1
-		class="text-center text-4xl font-bold tracking-wide text-gray-400 sm:text-5xl lg:text-6xl dark:text-zinc-500"
+		class="text-center text-4xl font-bold tracking-wide text-gray-400 sm:text-5xl lg:text-6xl dark:text-zinc-400"
 	>
 		NEW EQUIPMENT
 	</h1>
-	<div class="mx-auto mt-3 mb-8 h-1.5 w-56 max-w-full rounded bg-amber-400"></div>
+	<div class="mx-auto mt-3 mb-8 h-1.5 w-56 max-w-full rounded bg-red-600"></div>
 
 	<!-- Intro -->
 	<p class="mx-auto max-w-3xl text-gray-600 dark:text-slate-300">
@@ -72,7 +72,7 @@
 	<ul class="mt-8 columns-1 gap-8 sm:columns-2 lg:columns-3">
 		{#each categories as category}
 			<li class="mb-3 flex break-inside-avoid items-start gap-3">
-				<span class="mt-1.5 inline-block h-2.5 w-2.5 shrink-0 rounded-[1px] bg-amber-400"></span>
+				<span class="mt-1.5 inline-block h-2.5 w-2.5 shrink-0 rounded-[1px] bg-red-600"></span>
 				<span class="font-medium tracking-wide text-gray-700 uppercase dark:text-slate-300"
 					>{category}</span
 				>

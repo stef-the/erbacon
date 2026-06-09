@@ -90,7 +90,7 @@
 	>
 		<a
 			href={COMPANY_PHONE_TEL}
-			class="shrink-0 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-nowrap text-white transition-colors hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
+			class="shrink-0 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-nowrap text-white transition-colors hover:bg-red-700"
 		>
 			Inquire
 		</a>
