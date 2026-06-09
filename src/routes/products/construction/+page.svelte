@@ -64,18 +64,32 @@
 			>call us</a
 		> and we can source it for you.
 	</p>
-	<p class="mt-4 text-lg font-bold tracking-wide text-gray-800 dark:text-slate-100">
+	<p class="mt-4 text-lg font-bold tracking-wide text-red-600 dark:text-red-500">
 		GET IT FROM BACON
 	</p>
+	<p class="mt-1 text-sm text-gray-500 dark:text-slate-400">
+		Tap any item below to ask us about availability and pricing.
+	</p>
 
-	<!-- Category list: flows down each column like the source site -->
-	<ul class="mt-8 columns-1 gap-8 sm:columns-2 lg:columns-3">
+	<!-- Category list: flows down each column like the source site; each item is a
+	     click-to-call inquiry link. -->
+	<ul
+		class="mt-8 columns-1 gap-x-8 border-t border-gray-200 pt-8 sm:columns-2 lg:columns-3 dark:border-zinc-700"
+	>
 		{#each categories as category}
-			<li class="mb-3 flex break-inside-avoid items-start gap-3">
-				<span class="mt-1.5 inline-block h-2.5 w-2.5 shrink-0 rounded-[1px] bg-red-600"></span>
-				<span class="font-medium tracking-wide text-gray-700 uppercase dark:text-slate-300"
-					>{category}</span
+			<li class="mb-1 break-inside-avoid">
+				<a
+					href={COMPANY_PHONE_TEL}
+					class="group flex items-center gap-3 rounded-md px-2 py-1.5 transition-colors hover:bg-red-50 dark:hover:bg-zinc-800"
 				>
+					<span
+						class="inline-block h-2.5 w-2.5 shrink-0 rounded-[1px] bg-red-600 transition-transform group-hover:scale-125"
+					></span>
+					<span
+						class="font-medium tracking-wide text-gray-700 uppercase transition-colors group-hover:text-red-600 dark:text-slate-300 dark:group-hover:text-red-400"
+						>{category}</span
+					>
+				</a>
 			</li>
 		{/each}
 	</ul>
