@@ -40,8 +40,7 @@
 				href: '/products',
 				children: [
 					{ label: 'New Equipment', href: '/products/construction' },
-					{ label: 'Truck Equipment', href: '/products/trucks' },
-					{ label: 'Mobile Equipment', href: '/products/mobile-equipment' }
+					{ label: 'Truck & Mobile Equipment', href: '/products/trucks' }
 				]
 			},
 			{

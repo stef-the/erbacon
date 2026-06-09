@@ -22,19 +22,12 @@
 			href: '/products/used'
 		},
 		{
-			title: 'Truck Equipment',
-			description: 'We offer a wide range of truck equipment for your needs.',
-			imageUrl: 'https://www.stellarindustries.com/wp-content/uploads/2021/09/BlogPost_16K.webp',
-			imageAlt: 'Truck equipment',
-			href: '/products/trucks'
-		},
-		{
-			title: 'Mobile Equipment',
+			title: 'Truck & Mobile Equipment',
 			description:
-				'Stellar Industries mobile equipment including mechanic trucks, hook lifts, tool boxes, and more.',
-			imageUrl: '/truck-equipment/mobile-equipment-gallery/service-truck-1.jpg',
-			imageAlt: 'Mobile equipment',
-			href: '/products/mobile-equipment'
+				'Stellar Industries truck and mobile equipment — service cranes, mechanic trucks, hooklifts, toolboxes, fuel & lube trailers, and more.',
+			imageUrl: 'https://www.stellarindustries.com/wp-content/uploads/2021/09/BlogPost_16K.webp',
+			imageAlt: 'Truck and mobile equipment',
+			href: '/products/trucks'
 		}
 	];
 

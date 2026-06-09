@@ -8,8 +8,8 @@ export async function load() {
 		dataSheetId: SHEET_ID,
 		dataSheetGid: SHEET_GIDS.truckEquipment,
 		defaultInfo: {
-			title: 'Truck Equipment',
-			description: 'High-quality truck equipment for transportation and logistics',
+			title: 'Truck & Mobile Equipment',
+			description: 'Stellar Industries truck and mobile equipment',
 			contactCta: 'Contact us for more information',
 			showPrices: true
 		}
