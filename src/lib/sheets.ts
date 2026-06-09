@@ -14,11 +14,12 @@
 export const SHEET_ID = '1dr9z9kMk1IGSe7f-DpdL8iqLmuTkUdP1mmwjlcC03Og';
 
 export const SHEET_GIDS = {
-	// New Equipment page — the manufacturer lineup (Sullivan, APT, Wanco, Wacker…).
-	// (This is the tab currently labeled "Used Equipment" in the sheet.)
+	// NOT CURRENTLY USED: the New Equipment page (/products/construction) is now a static
+	// category list, not sheet-driven. This GID (the old manufacturer-lineup tab) is kept
+	// here only in case New Equipment is ever switched back to a sheet.
 	newEquipment: '151770928',
 
-	// Truck Equipment page — Stellar Industries cranes, mechanic trucks, hooklifts, etc.
+	// Truck & Mobile Equipment page — Stellar Industries cranes, mechanic trucks, hooklifts, etc.
 	truckEquipment: '1070688118',
 
 	// Used Equipment page — empty for now; add real used inventory to this tab.

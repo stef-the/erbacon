@@ -1,60 +1,57 @@
-# Go-Live Checklist (target: end of June)
+# Go-Live Checklist
 
-Ordered **highest priority first**. Owner tags: **[DEV]** = developer/Stefan, **[CLIENT]** = ERBCO staff.
+Owner tags: **[DEV]** = developer/Stefan, **[CLIENT]** = ERBCO staff.
 
 ---
 
 ## 🔴 P0 — Blocks launch
 
-1. **[DEV] Deploy** the latest `main` (push triggers Cloudflare). **No environment variables
-   needed** anymore — which tab feeds which page now lives in `src/lib/sheets.ts`.
-   - If the live site still shows old content (e.g. a "Parts" menu item or a "Loading data…"
-     spinner), the deploy didn't take. Check Cloudflare → **Deployments**: is the latest build
-     green or **failed**? Then hard-refresh (Ctrl/Cmd+Shift+R).
-2. **[CLIENT] Fill the last empty page:** **Used Equipment** (New Equipment and Truck
-   Equipment now have data). Empty pages show a clean "No Data" message until you add rows.
+1. **[CLIENT] Add Used Equipment listings.** The page is live but empty — add rows to the
+   "used" tab (see `EDITING-THE-WEBSITE.md`). Empty pages show a clean "No Data" message.
+2. **[CLIENT] Product photos.** Several Truck & Mobile items are waiting on photos (they show
+   a "Photo coming soon" placeholder for now). Send the pictures, or paste image links into
+   the sheet.
 
 ---
 
-## 🟠 P1 — Remaining client assets
+## 🟠 P1 — Soon
 
-3. **[CLIENT] Product photos for Truck Equipment & New Equipment rows** that have a blank
-   `imageUrl` (they now show a tidy "No image available" placeholder instead of a broken icon).
-4. **[CLIENT] "Get it from Bacon" tagline graphic** — the header tagline image is still
-   missing (the Fence Rental page uses a temporary text version).
+3. **[CLIENT] Facebook Marketplace storefront.** Once it exists, send the developer the
+   storefront link to turn on the "Browse our Facebook Marketplace" button; optionally add
+   per-item listing links via the sheet's `marketplace` column.
+4. **[CLIENT→DEV] Real social-media URLs.** Footer social/eBay links are hidden until real
+   profiles are provided (commented out in `+layout.svelte`).
 
 ---
 
-## 🟡 P2 — Polish
+## 🟡 P2 — Optional cleanups
 
-5. **[CLIENT] Rename the Google Sheet tabs** so each tab's name matches the page it feeds
-   (the lineup tab → "New Equipment", etc.). Renaming is safe; it won't break the site.
-6. **[CLIENT→DEV] Real social-media URLs** (currently hidden — see commented block in
-   `+layout.svelte`). Send real profile links to re-enable.
-7. **[DEV] Merge the code-quality audit branches** (`audit/*`) if desired. Optional.
+5. **[DEV] Dedupe the "Why Choose ERBCO?" block** (copy-pasted on Products & Services) into a
+   shared component.
+6. **[DEV] Decide on the orphan `/services/fencing` route** — it exists but isn't linked
+   (Fence Rental covers it). Remove or link it.
+7. **[DEV] Standardize CTA button labels** ("Contact Our Team" vs "Contact Us Today").
 
 ---
 
 ## 🟢 P3 — After launch
 
-8. **Used ↔ Facebook Marketplace (#12).** Add a "See on Marketplace" link per used item once
-   you're posting (sheet column + small dev change). No automatic feed exists.
-9. **[DEV] Security hardening** — patch S1–S3 from `audit-findings.md` (PDF/image URL
-   validation). Low risk for a brochure site.
+8. **[DEV] Security hardening** — S1–S3 in `audit-findings.md` (validate sheet-supplied
+   PDF/image URLs). Low risk for a brochure site.
 
 ---
 
-## ✅ Already done
+## ✅ Done
 
-- **#7** New Equipment page wired to the lineup; **#8** Parts removed; **#9** About Us
-  rewritten; **#10** Fence Rental page + Generators brochure PDF + tab rename.
-- **Sheet wiring moved into code** (`src/lib/sheets.ts`) — fixes New Equipment/Truck being
-  empty and removes the Cloudflare env-var step entirely.
-- **Truck Equipment** now shows the Stellar lineup; **spec-sheet PDFs fixed** (truck PDFs were
-  resolving to the wrong folder).
-- **"No Data" screen** replaces the endless loading spinner; **"No image available"**
-  placeholder for blank images.
-- **Footer**: attribution with ™ (no copyright claim) + greyed build version; dead social/eBay
-  links hidden.
-- **Dark mode**: plain links (phone numbers) now render white/bold/underlined.
-- Real ERBCO logo added; `pnpm run check` and `pnpm run build` pass clean.
+- Client changes #6–#10 (New Equipment, Truck/Mobile combined, Parts removed, About Us,
+  Fence Rental, Generators viewer).
+- New Equipment rebuilt to match erbacon.com, themed to brand red.
+- Logo + "Get it from Bacon" tagline restored; spec-sheet PDFs fixed.
+- "No Data" and "Photo coming soon" states; detailed data-loading error messages.
+- Sheet config moved into code (`src/lib/sheets.ts`) — no Cloudflare env vars needed.
+- Footer attribution + version; dark-mode link fix; hidden placeholder social links.
+- Design-consolidation pass: brand-red consistency, dark-mode contrast, responsive fixes,
+  footer icon bugs, heading/spacing consistency.
+- Cloudflare build fixed (Node 22.13 via `.nvmrc`); Marketplace integration wired (off
+  until a URL is set).
+- Docs: README, EDITING-THE-WEBSITE, this checklist.
