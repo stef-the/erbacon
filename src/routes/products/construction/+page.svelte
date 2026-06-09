@@ -54,7 +54,9 @@
 	>
 		NEW EQUIPMENT
 	</h1>
-	<div class="mx-auto mt-3 mb-8 h-1.5 w-56 max-w-full rounded bg-red-600"></div>
+	<div
+		class="mx-auto mt-4 mb-8 h-0.5 w-32 rounded-full bg-gradient-to-r from-transparent via-red-600 to-transparent"
+	></div>
 
 	<!-- Intro -->
 	<p class="mx-auto max-w-3xl text-gray-600 dark:text-slate-300">
