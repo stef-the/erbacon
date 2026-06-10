@@ -5,17 +5,27 @@ import Papa from 'papaparse';
 // as site-root-relative; any other bare path is assumed to live under /products/.
 const ASSET_TOP_LEVEL_DIRS = ['products', 'truck-equipment', 'services', 'icons', 'video'];
 
+// Schemes we never accept from the (externally-editable) Google Sheet — they are XSS /
+// open-redirect / data-exfiltration vectors when fed into href/src/iframe sinks.
+const DANGEROUS_SCHEME = /^\s*(javascript|data|vbscript|file):/i;
+
 /**
- * Turn a sheet-supplied asset path into a usable URL.
- * - Full URLs (http/https) pass through unchanged.
+ * Validate and normalize a sheet-supplied asset URL (used for both `imageurl` and `pdf`).
+ * Sheet content is untrusted, so this is the single trust boundary for these fields.
+ * - Dangerous schemes (javascript:, data:, etc.) and protocol-relative URLs (//host) are
+ *   rejected → returns '' so the UI falls back to a placeholder instead of rendering them.
+ * - Full http(s) URLs pass through.
  * - Paths under a known static folder (e.g. "truck-equipment/cranes/x.pdf") are rooted with "/".
  * - Bare category paths (e.g. "air-tools/x.pdf") are placed under "/products/".
  */
 function resolveAssetPath(path: string): string {
 	const trimmed = path.trim();
-	if (!trimmed) return trimmed;
+	if (!trimmed) return '';
+	// Reject dangerous schemes and protocol-relative ("//evil.com") URLs outright.
+	if (DANGEROUS_SCHEME.test(trimmed) || trimmed.startsWith('//')) return '';
 	if (/^https?:\/\//i.test(trimmed)) return trimmed;
 	const clean = trimmed.replace(/^\/+/, '');
+	if (!clean) return '';
 	const firstSegment = clean.split('/')[0];
 	return ASSET_TOP_LEVEL_DIRS.includes(firstSegment) ? `/${clean}` : `/products/${clean}`;
 }

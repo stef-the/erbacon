@@ -9,9 +9,21 @@
 	let showSearchBar = false;
 
 	/**
-	 * Ensure the PDF URL starts with a leading slash
+	 * Only allow a same-origin root-relative path ("/..." but not "//host") or a full
+	 * http(s) URL into the iframe / window.open sinks. Anything else (protocol-relative,
+	 * javascript:, data:, etc.) is rejected so it can't be loaded. Sheet data is already
+	 * sanitized upstream in ServiceData; this is defense-in-depth at the sink.
 	 */
-	$: resolvedUrl = pdfUrl.startsWith('/') ? pdfUrl : `/${pdfUrl}`;
+	function safePdfUrl(url: string): string {
+		if (!url) return '';
+		const trimmed = url.trim();
+		if (trimmed.startsWith('//')) return '';
+		if (/^\s*(javascript|data|vbscript|file):/i.test(trimmed)) return '';
+		if (trimmed.startsWith('/') || /^https?:\/\//i.test(trimmed)) return trimmed;
+		return '';
+	}
+
+	$: resolvedUrl = safePdfUrl(pdfUrl);
 
 	/**
 	 * Toggle search bar visibility
