@@ -216,7 +216,7 @@
 
 	<!-- Main content area -->
 	<div id="content" class="w-full bg-slate-50 pt-8 dark:bg-zinc-800">
-		<main class="container mx-auto flex-grow px-4 py-8">
+		<main class="container mx-auto flex-grow px-4 pt-8 pb-20">
 			<slot />
 		</main>
 	</div>
