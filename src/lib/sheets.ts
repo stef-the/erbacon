@@ -25,6 +25,6 @@ export const SHEET_GIDS = {
 	// Used Equipment page — empty for now; add real used inventory to this tab.
 	usedEquipment: '1947450164',
 
-	// Fencing page (not linked in the menu; the Fence Rental page is separate static content).
+	// Fencing gid — the /services/fencing route was removed (covered by the Fence Rental page); this gid is now unused.
 	fencing: '480174975'
 };
